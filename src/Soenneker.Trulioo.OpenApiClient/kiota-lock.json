@@ -2,7 +2,7 @@
   "descriptionHash": "FCC1451E2D0C525F85B88178F045DB7DB992A496C98E704C20B2004C9651B4290A6EA394CEBACA94FA34361D7D94A9801C88E0A52438363ABD27B45D30AB410E",
   "descriptionLocation": "../../openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.30.0",
+  "kiotaVersion": "1.31.0",
   "clientClassName": "TruliooOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Trulioo.OpenApiClient",
