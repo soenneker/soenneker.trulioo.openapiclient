@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Trulioo.OpenApiClient.Tests;
 
-[Collection("Collection")]
-public sealed class TruliooOpenApiClientTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class TruliooOpenApiClientTests : HostedUnitTest
 {
-    public TruliooOpenApiClientTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public TruliooOpenApiClientTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
