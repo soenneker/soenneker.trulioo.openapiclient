@@ -8,13 +8,21 @@ using System;
 namespace Soenneker.Trulioo.OpenApiClient.Models
 {
     /// <summary>
-    /// Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH].
+    /// Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM, HIGH].
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransactionConfiguration_documentLivenessConfig : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The digitalManipulation property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? DigitalManipulation { get; set; }
+#nullable restore
+#else
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck DigitalManipulation { get; set; }
+#endif
         /// <summary>The portraitSubstitution property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,6 +74,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "digitalManipulation", n => { DigitalManipulation = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>(global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck.CreateFromDiscriminatorValue); } },
                 { "portraitSubstitution", n => { PortraitSubstitution = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>(global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck.CreateFromDiscriminatorValue); } },
                 { "printout", n => { Printout = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>(global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck.CreateFromDiscriminatorValue); } },
                 { "screenUsed", n => { ScreenUsed = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>(global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck.CreateFromDiscriminatorValue); } },
@@ -79,6 +88,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>("digitalManipulation", DigitalManipulation);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>("portraitSubstitution", PortraitSubstitution);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>("printout", Printout);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck>("screenUsed", ScreenUsed);

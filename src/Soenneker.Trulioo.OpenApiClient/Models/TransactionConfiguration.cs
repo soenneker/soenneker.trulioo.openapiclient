@@ -14,7 +14,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH].</summary>
+        /// <summary>Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM, HIGH].</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_documentLivenessConfig? DocumentLivenessConfig { get; set; }

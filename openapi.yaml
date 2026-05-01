@@ -899,7 +899,6 @@ components:
             - ERROR_FACE_MATCH
             - MISSING_FIELD
             - ISSUE_DATE_OVER_10Y
-            - SKIPPED_SECURITY
             - DIFFERENT_DOCUMENTS
             - INVALID_MRZ
             - INVALID_BARCODE
@@ -909,7 +908,6 @@ components:
             - DATA_XCHECK_REFERENCE_NAME
             - DATA_XCHECK_REFERENCE_ADDRESS
             - DATA_XCHECK_REFERENCE_EXPIRY
-            - SKIPPED_IMAGE_QA
             - INVALID_CONFIG_DOCTYPE
             - INVALID_CONFIG_COUNTRY
             - UNKNOWN_DOCUMENT_TYPE
@@ -1071,6 +1069,7 @@ components:
         calibration:
           type: string
           enum:
+            - LOW
             - MEDIUM
             - HIGH
           default: MEDIUM
@@ -1080,10 +1079,16 @@ components:
     TransactionConfiguration:
       title: Transaction Configuration
       type: object
+      required:
+        - documentVerification
+        - selfieVerification
       properties:
         documentVerification:
           type: object
           description: Document verification configuration
+          required:
+            - enabled
+            - documentsAccepted
           properties:
             enabled:
               type: boolean
@@ -1453,6 +1458,8 @@ components:
         selfieVerification:
           type: object
           description: Selfie liveness verification configuration
+          required:
+            - enabled
           properties:
             enabled:
               type: boolean
@@ -1498,13 +1505,16 @@ components:
             Document liveness check configuration (NOTE: If set, this config
             overrides documentLivenessOptions). Supported Calibrations: Screen
             Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait
-            Substitution=[MEDIUM, HIGH].
+            Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM,
+            HIGH].
           properties:
             screenUsed:
               $ref: '#/components/schemas/LivenessCheck'
             printout:
               $ref: '#/components/schemas/LivenessCheck'
             portraitSubstitution:
+              $ref: '#/components/schemas/LivenessCheck'
+            digitalManipulation:
               $ref: '#/components/schemas/LivenessCheck'
             skipAlreadyCropped:
               type: boolean

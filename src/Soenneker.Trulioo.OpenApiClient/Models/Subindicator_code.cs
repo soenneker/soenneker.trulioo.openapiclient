@@ -92,10 +92,6 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         #pragma warning disable CS1591
         ISSUE_DATE_OVER_10Y,
         #pragma warning restore CS1591
-        [EnumMember(Value = "SKIPPED_SECURITY")]
-        #pragma warning disable CS1591
-        SKIPPED_SECURITY,
-        #pragma warning restore CS1591
         [EnumMember(Value = "DIFFERENT_DOCUMENTS")]
         #pragma warning disable CS1591
         DIFFERENT_DOCUMENTS,
@@ -131,10 +127,6 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         [EnumMember(Value = "DATA_XCHECK_REFERENCE_EXPIRY")]
         #pragma warning disable CS1591
         DATA_XCHECK_REFERENCE_EXPIRY,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "SKIPPED_IMAGE_QA")]
-        #pragma warning disable CS1591
-        SKIPPED_IMAGE_QA,
         #pragma warning restore CS1591
         [EnumMember(Value = "INVALID_CONFIG_DOCTYPE")]
         #pragma warning disable CS1591

@@ -8,6 +8,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     public enum LivenessCheck_calibration
     #pragma warning restore CS1591
     {
+        [EnumMember(Value = "LOW")]
+        #pragma warning disable CS1591
+        LOW,
+        #pragma warning restore CS1591
         [EnumMember(Value = "MEDIUM")]
         #pragma warning disable CS1591
         MEDIUM,
