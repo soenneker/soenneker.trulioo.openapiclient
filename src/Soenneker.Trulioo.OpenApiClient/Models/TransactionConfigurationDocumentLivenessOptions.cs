@@ -8,31 +8,37 @@ using System;
 namespace Soenneker.Trulioo.OpenApiClient.Models
 {
     /// <summary>
-    /// Configuration for selfie-only transactions that reuse a prior document verification. When provided, the transaction imports document images from a completed transaction owned by the same organization and performs face match plus selfie liveness using those images and the selfie captured in the following step.
+    /// Options about the submitted image
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TransactionConfiguration_faceMatchVerification : IAdditionalDataHolder, IParsable
+    public partial class TransactionConfigurationDocumentLivenessOptions : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Transaction ID from the same organization that already completed document verification; must not be expired or in ERROR.</summary>
-        public Guid? SourceTransactionId { get; set; }
+        /// <summary>Skip Cropped Image check</summary>
+        public bool? SkipAlreadyCropped { get; set; }
+        /// <summary>Skip Portrait Substitution check</summary>
+        public bool? SkipPortraitSubstitution { get; set; }
+        /// <summary>Skip Printout check</summary>
+        public bool? SkipPrintout { get; set; }
+        /// <summary>Skip Screen Used check</summary>
+        public bool? SkipScreenUsed { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_faceMatchVerification"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions"/> and sets the default values.
         /// </summary>
-        public TransactionConfiguration_faceMatchVerification()
+        public TransactionConfigurationDocumentLivenessOptions()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_faceMatchVerification"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_faceMatchVerification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_faceMatchVerification();
+            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +48,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "sourceTransactionId", n => { SourceTransactionId = n.GetGuidValue(); } },
+                { "skipAlreadyCropped", n => { SkipAlreadyCropped = n.GetBoolValue(); } },
+                { "skipPortraitSubstitution", n => { SkipPortraitSubstitution = n.GetBoolValue(); } },
+                { "skipPrintout", n => { SkipPrintout = n.GetBoolValue(); } },
+                { "skipScreenUsed", n => { SkipScreenUsed = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +61,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteGuidValue("sourceTransactionId", SourceTransactionId);
+            writer.WriteBoolValue("skipAlreadyCropped", SkipAlreadyCropped);
+            writer.WriteBoolValue("skipPortraitSubstitution", SkipPortraitSubstitution);
+            writer.WriteBoolValue("skipPrintout", SkipPrintout);
+            writer.WriteBoolValue("skipScreenUsed", SkipScreenUsed);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

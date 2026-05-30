@@ -5,7 +5,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 {
     /// <summary>Country Code (ISO 3166-1 alpha-2 format)</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TransactionConfiguration_documentVerification_documentsAccepted_documentOrigin_countryCode
+    public enum TransactionConfigurationDocumentVerification_documentsAccepted_documentOrigin_countryCode
     {
         [EnumMember(Value = "AD")]
         #pragma warning disable CS1591

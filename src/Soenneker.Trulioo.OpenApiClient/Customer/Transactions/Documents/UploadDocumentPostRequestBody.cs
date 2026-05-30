@@ -5,7 +5,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Documents
 {
     /// <summary>The `front` or `back` of the document, or `live` for selfie. Use `pdf` for PDF files.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum DocumentsPostRequestBody
+    public enum UploadDocumentPostRequestBody
     {
         [EnumMember(Value = "front")]
         #pragma warning disable CS1591

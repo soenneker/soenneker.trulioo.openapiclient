@@ -57,10 +57,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The alternateLocation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation? AlternateLocation { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation? AlternateLocation { get; set; }
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation AlternateLocation { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation AlternateLocation { get; set; }
 #endif
         /// <summary>Middle name that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -220,7 +220,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
                 { "alternateFirstName", n => { AlternateFirstName = n.GetStringValue(); } },
                 { "alternateFullName", n => { AlternateFullName = n.GetStringValue(); } },
                 { "alternateLastName", n => { AlternateLastName = n.GetStringValue(); } },
-                { "alternateLocation", n => { AlternateLocation = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation>(global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation.CreateFromDiscriminatorValue); } },
+                { "alternateLocation", n => { AlternateLocation = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation>(global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation.CreateFromDiscriminatorValue); } },
                 { "alternateMiddleName", n => { AlternateMiddleName = n.GetStringValue(); } },
                 { "alternateSecondLastname", n => { AlternateSecondLastname = n.GetStringValue(); } },
                 { "birthLastName", n => { BirthLastName = n.GetStringValue(); } },
@@ -251,7 +251,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteStringValue("alternateFirstName", AlternateFirstName);
             writer.WriteStringValue("alternateFullName", AlternateFullName);
             writer.WriteStringValue("alternateLastName", AlternateLastName);
-            writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation>("alternateLocation", AlternateLocation);
+            writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation>("alternateLocation", AlternateLocation);
             writer.WriteStringValue("alternateMiddleName", AlternateMiddleName);
             writer.WriteStringValue("alternateSecondLastname", AlternateSecondLastname);
             writer.WriteStringValue("birthLastName", BirthLastName);

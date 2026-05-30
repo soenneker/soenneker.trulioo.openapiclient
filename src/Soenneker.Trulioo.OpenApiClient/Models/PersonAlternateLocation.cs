@@ -9,7 +9,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class Person_alternateLocation : IAdditionalDataHolder, IParsable
+    public partial class PersonAlternateLocation : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -71,21 +71,21 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public string ZipCode { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation"/> and sets the default values.
         /// </summary>
-        public Person_alternateLocation()
+        public PersonAlternateLocation()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.Person_alternateLocation();
+            return new global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation();
         }
         /// <summary>
         /// The deserialization information for the current model

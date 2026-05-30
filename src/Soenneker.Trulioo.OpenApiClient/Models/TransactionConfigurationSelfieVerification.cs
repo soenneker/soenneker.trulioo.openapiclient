@@ -8,37 +8,31 @@ using System;
 namespace Soenneker.Trulioo.OpenApiClient.Models
 {
     /// <summary>
-    /// Options about the submitted image
+    /// Selfie liveness verification configuration
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class TransactionConfiguration_documentLivenessOptions : IAdditionalDataHolder, IParsable
+    public partial class TransactionConfigurationSelfieVerification : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>Skip Cropped Image check</summary>
-        public bool? SkipAlreadyCropped { get; set; }
-        /// <summary>Skip Portrait Substitution check</summary>
-        public bool? SkipPortraitSubstitution { get; set; }
-        /// <summary>Skip Printout check</summary>
-        public bool? SkipPrintout { get; set; }
-        /// <summary>Skip Screen Used check</summary>
-        public bool? SkipScreenUsed { get; set; }
+        /// <summary>Enables/disables selfie liveness verification</summary>
+        public bool? Enabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_documentLivenessOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification"/> and sets the default values.
         /// </summary>
-        public TransactionConfiguration_documentLivenessOptions()
+        public TransactionConfigurationSelfieVerification()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_documentLivenessOptions"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_documentLivenessOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_documentLivenessOptions();
+            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,10 +42,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "skipAlreadyCropped", n => { SkipAlreadyCropped = n.GetBoolValue(); } },
-                { "skipPortraitSubstitution", n => { SkipPortraitSubstitution = n.GetBoolValue(); } },
-                { "skipPrintout", n => { SkipPrintout = n.GetBoolValue(); } },
-                { "skipScreenUsed", n => { SkipScreenUsed = n.GetBoolValue(); } },
+                { "enabled", n => { Enabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -61,10 +52,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("skipAlreadyCropped", SkipAlreadyCropped);
-            writer.WriteBoolValue("skipPortraitSubstitution", SkipPortraitSubstitution);
-            writer.WriteBoolValue("skipPrintout", SkipPrintout);
-            writer.WriteBoolValue("skipScreenUsed", SkipScreenUsed);
+            writer.WriteBoolValue("enabled", Enabled);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -5,7 +5,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 {
     /// <summary>Document type.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public enum TransactionConfiguration_documentVerification_documentsAccepted_documentType
+    public enum TransactionConfigurationDocumentVerification_documentsAccepted_documentType
     {
         [EnumMember(Value = "DRIVERS_LICENSE")]
         #pragma warning disable CS1591
