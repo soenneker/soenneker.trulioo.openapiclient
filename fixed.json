@@ -2,7 +2,7 @@
   "openapi": "3.0.4",
   "info": {
     "title": "Customer API",
-    "description": "The Trulioo Customer API is organized around REST. Our API has predictable resource-oriented URLs and uses standard HTTP response codes, authentication, and verbs. The API provides authorization endpoints and endpoints to perform document verification and review transaction results.\n<br />\n> Some US states impose obligations on businesses that collect and use “biometric identifiers” and/or “biometric information”, which may include facial scan data extracted from photos during a document verification transaction. One such law is the Illinois Biometric Information Privacy Act (“BIPA”). A business required to comply with BIPA is under obligations to, among other things, ensure that it informs the individual of the purpose of the collection and obtain consent. Accordingly, we require a notice and consent mechanism be implemented for all document verification transactions, and our customers using our API must provide us with confirmation via API whether an individual is located in the United States and has consented to the transaction in the prescribed manner. We also strongly encourage all of our customers to consult with legal counsel to ensure their own compliance with such laws. <br />  <br /> For more information about the required notice and consent mechanism, please refer to our [Service Specific Terms](https://www.trulioo.com/legal/SST) for Document Verification. <br />  <br /> You can read more about the configuration requirements for our API related to the notice and consent mechanism [here](#tag/Audit/operation/post-customer-audit-record-consent).",
+    "description": "The Trulioo Customer API is organized around REST. Our API has predictable resource-oriented URLs and uses standard HTTP response codes, authentication, and verbs. The API provides authorization endpoints and endpoints to perform document verification and review transaction results.\n\u003Cbr /\u003E\n\u003E Some US states impose obligations on businesses that collect and use \u201Cbiometric identifiers\u201D and/or \u201Cbiometric information\u201D, which may include facial scan data extracted from photos during a document verification transaction. One such law is the Illinois Biometric Information Privacy Act (\u201CBIPA\u201D). A business required to comply with BIPA is under obligations to, among other things, ensure that it informs the individual of the purpose of the collection and obtain consent. Accordingly, we require a notice and consent mechanism be implemented for all document verification transactions, and our customers using our API must provide us with confirmation via API whether an individual is located in the United States and has consented to the transaction in the prescribed manner. We also strongly encourage all of our customers to consult with legal counsel to ensure their own compliance with such laws. \u003Cbr /\u003E  \u003Cbr /\u003E For more information about the required notice and consent mechanism, please refer to our [Service Specific Terms](https://www.trulioo.com/legal/SST) for Document Verification. \u003Cbr /\u003E  \u003Cbr /\u003E You can read more about the configuration requirements for our API related to the notice and consent mechanism [here](#tag/Audit/operation/post-customer-audit-record-consent).",
     "version": "2.5"
   },
   "servers": [
@@ -19,7 +19,7 @@
         ],
         "summary": "Authorize and generate access tokens",
         "description": "Required initial endpoint before starting the document verification process. It generates the access tokens to be used in subsequent endpoints. Access token expire in 60 minutes.",
-        "operationId": "post-auth-customer",
+        "operationId": "PostAuthCustomer",
         "parameters": [
           {
             "name": "Accept-Version",
@@ -36,7 +36,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PostAuthCustomer"
+                "$ref": "#/components/schemas/PostAuthCustomerRequest"
               }
             }
           }
@@ -61,7 +61,7 @@
         },
         "security": [
           {
-            "LicenseKey": [ ]
+            "LicenseKey": []
           }
         ]
       }
@@ -73,7 +73,7 @@
         ],
         "summary": "Create a shortcode for handoff to a SDK",
         "description": "Short code provides an option to pass the rest of the verification workflow to an SDK. The short code is a unique, single use code and it is valid for only 5 minutes. The verification will continue on SDK side starting with authorization using the short code. The short code locks the workflow to the same transaction identifier as the one generated earlier during authorization.",
-        "operationId": "post-handoff",
+        "operationId": "PostHandoff",
         "parameters": [
           {
             "name": "Accept-Version",
@@ -115,7 +115,7 @@
         ],
         "summary": "Create and Configure Transactions",
         "description": "Creates a transaction with configuration options for document and/or selfie liveness verification.",
-        "operationId": "post-transactions",
+        "operationId": "PostTransactions",
         "parameters": [
           {
             "name": "Accept-Version",
@@ -169,7 +169,7 @@
         ],
         "summary": "Upload a document",
         "description": "Upload file(s) for a verification process. It accepts images in PNG and JPG format and PDF files. Maximum file size is 10 megabytes, and the minimum is 20 kilobytes.",
-        "operationId": "upload-document",
+        "operationId": "UploadDocument",
         "parameters": [
           {
             "name": "Accept-Version",
@@ -185,7 +185,7 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/UploadDocument"
+                "$ref": "#/components/schemas/UploadDocumentFormDataRequest"
               }
             }
           }
@@ -223,7 +223,7 @@
         ],
         "summary": "Start to verify a transaction",
         "description": "Starts the verification process and returns the status.",
-        "operationId": "verify-transaction",
+        "operationId": "VerifyTransaction",
         "parameters": [
           {
             "name": "Accept-Version",
@@ -251,7 +251,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VerifyTransaction202"
+                  "$ref": "#/components/schemas/VerifyTransaction202Response"
                 }
               }
             }
@@ -287,7 +287,7 @@
         ],
         "summary": "Get the data of a transaction",
         "description": "Retrieves the detailed information of a verification process specified by a transaction identifier.",
-        "operationId": "get-transaction-data",
+        "operationId": "GetTransactionData",
         "parameters": [
           {
             "name": "transactionId",
@@ -340,7 +340,7 @@
         ],
         "summary": "Get an image",
         "description": "Retrieves an image of the transaction by providing the transaction identifier, the image identifier and the access token obtained from the GET /transactions/{transactionId} endpoint.",
-        "operationId": "get-presigned-url",
+        "operationId": "GetPresignedUrl",
         "parameters": [
           {
             "name": "transactionId",
@@ -385,7 +385,7 @@
         },
         "security": [
           {
-            "ImageAccessToken": [ ]
+            "ImageAccessToken": []
           }
         ]
       }
@@ -409,16 +409,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "enum": [
-              "ACCEPTED",
-              "REVIEW",
-              "DECLINED",
-              "ERROR",
-              "NO_RESULT",
-              "PENDING_RESULT"
-            ],
-            "type": "string",
-            "additionalProperties": false
+            "$ref": "#/components/schemas/DecisionResponseStatus"
           }
         },
         "format": "int32"
@@ -453,17 +444,7 @@
             "example": "2023-01-01T16:00:00.000Z"
           },
           "status": {
-            "enum": [
-              "ACCEPTED",
-              "REVIEW",
-              "DECLINED",
-              "ERROR",
-              "NO_RESULT"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The decision of the verification.",
-            "example": "REVIEW"
+            "$ref": "#/components/schemas/TransactionResultResponseStatus"
           },
           "errors": {
             "type": "array",
@@ -575,12 +556,12 @@
           },
           "nationality": {
             "type": "string",
-            "description": "A person's nationality.",
+            "description": "A person\u0027s nationality.",
             "example": "England"
           },
           "gender": {
             "type": "string",
-            "description": "Person's gender as denoted by the letters M for male or F for female.",
+            "description": "Person\u0027s gender as denoted by the letters M for male or F for female.",
             "example": "F"
           },
           "location": {
@@ -589,26 +570,26 @@
           "alternateFirstName": {
             "type": "string",
             "description": "First name that is non-iso latin",
-            "example": "小明"
+            "example": "\u5C0F\u660E"
           },
           "alternateMiddleName": {
             "type": "string",
             "description": "Middle name that is non-iso latin",
-            "example": "大"
+            "example": "\u5927"
           },
           "alternateLastName": {
             "type": "string",
             "description": "Middle name that is non-iso latin",
-            "example": "王"
+            "example": "\u738B"
           },
           "alternateFullName": {
             "type": "string",
             "description": "Full name that is non-iso latin",
-            "example": "王大小明"
+            "example": "\u738B\u5927\u5C0F\u660E"
           },
           "alternateDateOfBirth": {
             "type": "string",
-            "example": "πρώτος Ιανουαρίου"
+            "example": "\u03C0\u03C1\u03CE\u03C4\u03BF\u03C2 \u0399\u03B1\u03BD\u03BF\u03C5\u03B1\u03C1\u03AF\u03BF\u03C5"
           },
           "alternateLocation": {
             "$ref": "#/components/schemas/PersonAlternateLocation"
@@ -626,11 +607,11 @@
           },
           "alternateFirstLastname": {
             "type": "string",
-            "example": "司"
+            "example": "\u53F8"
           },
           "alternateSecondLastname": {
             "type": "string",
-            "example": "徒"
+            "example": "\u5F92"
           },
           "birthLastName": {
             "type": "string",
@@ -649,26 +630,7 @@
         "type": "object",
         "properties": {
           "documentType": {
-            "enum": [
-              "PASSPORT",
-              "DRIVERS_LICENSE",
-              "ID_CARD",
-              "RESIDENCE_PERMIT",
-              "MILITARY_ID",
-              "VISA",
-              "HEALTH_CARD",
-              "TRAVEL_DOCUMENT",
-              "VOTER_ID",
-              "TAX_ID",
-              "OTHER",
-              "UNKNOWN",
-              "UNSUPPORTED",
-              "NOT_STARTED",
-              "ERROR"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "Type of the identification document provided."
+            "$ref": "#/components/schemas/DocumentDocumentType"
           },
           "documentName": {
             "type": "string",
@@ -722,47 +684,47 @@
           "alternateDocumentNumber": {
             "type": "string",
             "description": "Document number that is non-iso latin",
-            "example": "一百二十三萬四千五百六十七"
+            "example": "\u4E00\u767E\u4E8C\u5341\u4E09\u842C\u56DB\u5343\u4E94\u767E\u516D\u5341\u4E03"
           },
           "alternateDocumentNumber2": {
             "type": "string",
             "description": "Document number that is non-iso latin",
-            "example": "一百二十三萬四千五百六十七"
+            "example": "\u4E00\u767E\u4E8C\u5341\u4E09\u842C\u56DB\u5343\u4E94\u767E\u516D\u5341\u4E03"
           },
           "alternateDocumentNumber3": {
             "type": "string",
             "description": "Document number that is non-iso latin",
-            "example": "一百二十三萬四千五百六十七"
+            "example": "\u4E00\u767E\u4E8C\u5341\u4E09\u842C\u56DB\u5343\u4E94\u767E\u516D\u5341\u4E03"
           },
           "alternateDocumentNumber4": {
             "type": "string",
             "description": "Document number that is non-iso latin",
-            "example": "一百二十三萬四千五百六十七"
+            "example": "\u4E00\u767E\u4E8C\u5341\u4E09\u842C\u56DB\u5343\u4E94\u767E\u516D\u5341\u4E03"
           },
           "alternateExpiryDate": {
             "type": "string",
             "description": "Expiry date that is non-iso latin",
-            "example": "2050 年 1 月 1 日"
+            "example": "2050 \u5E74 1 \u6708 1 \u65E5"
           },
           "alternateIssueDate": {
             "type": "string",
             "description": "Issue date that is non-iso latin",
-            "example": "2000 年 1 月 1 日"
+            "example": "2000 \u5E74 1 \u6708 1 \u65E5"
           },
           "mrzLineOne": {
             "type": "string",
             "description": "The first mrz line in passport or id.",
-            "example": "PASGPLEE<<ZHEN<CHENG<<<<<<<<<<<<<<<<<<<<<<<<"
+            "example": "PASGPLEE\u003C\u003CZHEN\u003CCHENG\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C\u003C"
           },
           "mrzLineTwo": {
             "type": "string",
             "description": "The second mrz line in passport or id.",
-            "example": "K1167647Z7SGP9112090M2412137S9146294Z<<<<<22"
+            "example": "K1167647Z7SGP9112090M2412137S9146294Z\u003C\u003C\u003C\u003C\u003C22"
           },
           "mrzLineThree": {
             "type": "string",
             "description": "The third mrz line in passport or id.",
-            "example": "K1167647Z7SGP9112090M2412137S9146294Z<<<<<22"
+            "example": "K1167647Z7SGP9112090M2412137S9146294Z\u003C\u003C\u003C\u003C\u003C22"
           }
         }
       },
@@ -771,26 +733,10 @@
         "type": "object",
         "properties": {
           "type": {
-            "enum": [
-              "DOCUMENT",
-              "FACE_MATCH",
-              "LIVENESS"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "DOCUMENT"
+            "$ref": "#/components/schemas/IndicatorType"
           },
           "result": {
-            "enum": [
-              "ACCEPTED",
-              "DECLINED",
-              "REVIEW",
-              "ERROR",
-              "NO_RESULT"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "REVIEW"
+            "$ref": "#/components/schemas/IndicatorResult"
           },
           "description": {
             "type": "string",
@@ -817,71 +763,14 @@
             "example": "OCR"
           },
           "result": {
-            "enum": [
-              "ACCEPTED",
-              "DECLINED",
-              "REVIEW",
-              "ERROR",
-              "NO_RESULT"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "example": "REVIEW"
+            "$ref": "#/components/schemas/SubindicatorResult"
           },
           "description": {
             "type": "string",
             "example": "Poor image quality."
           },
           "code": {
-            "enum": [
-              "NONE",
-              "DAMAGED",
-              "UNSUPPORTED_DOCUMENT",
-              "EXPIRED",
-              "INVALID_CHARACTERS",
-              "POOR_IMAGE_QUALITY",
-              "SUSPICIOUS",
-              "SCREEN_USED",
-              "PRINTOUT_USED",
-              "DATA_XCHECK_REFERENCE",
-              "DOCUMENT_TAMPERING",
-              "LIVENESS_FAIL",
-              "PHOTOS_MISSING",
-              "DECLINED_FACE_MATCH",
-              "ACCEPTED_DOCUMENT",
-              "ACCEPTED_FACE_MATCH",
-              "ACCEPTED_LIVENESS",
-              "ERROR_DOCUMENT",
-              "ERROR_FACE_MATCH",
-              "MISSING_FIELD",
-              "ISSUE_DATE_OVER_10Y",
-              "DIFFERENT_DOCUMENTS",
-              "INVALID_MRZ",
-              "INVALID_BARCODE",
-              "DATA_XCHECK_REFERENCE_DOB",
-              "DATA_XCHECK_REFERENCE_GIVEN_NAME",
-              "DATA_XCHECK_REFERENCE_SURNAME",
-              "DATA_XCHECK_REFERENCE_NAME",
-              "DATA_XCHECK_REFERENCE_ADDRESS",
-              "DATA_XCHECK_REFERENCE_EXPIRY",
-              "INVALID_CONFIG_DOCTYPE",
-              "INVALID_CONFIG_COUNTRY",
-              "UNKNOWN_DOCUMENT_TYPE",
-              "MISSING_CODE_MAPPING",
-              "INVALID_CONFIG_JURISDICTION",
-              "JURISDICTION_NOT_FOUND",
-              "DOCUMENT_NOT_FOUND",
-              "DOCUMENT_PHOTO_NOT_FOUND",
-              "ERROR_DOCUMENT_LIVENESS",
-              "DOCUMENT_CROPPED",
-              "TOO_MANY_DOCUMENTS",
-              "INPUT_MATCH_FAILED",
-              "INPUT_MATCH_PASSED",
-              "CUSTOMER_INPUT_MISSING",
-              "OCR_MISSING"
-            ],
-            "type": "string",
-            "additionalProperties": false
+            "$ref": "#/components/schemas/SubindicatorCode"
           }
         }
       },
@@ -933,7 +822,7 @@
           "results": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Results"
+              "$ref": "#/components/schemas/ResultsValue"
             }
           },
           "active": {
@@ -942,7 +831,7 @@
           }
         }
       },
-      "Results": {
+      "ResultsValue": {
         "title": "Results",
         "type": "object",
         "properties": {
@@ -963,38 +852,13 @@
         "type": "object",
         "properties": {
           "token": {
-            "enum": [
-              "FIRST_NAME",
-              "LAST_NAME",
-              "MIDDLE_NAME",
-              "FULL_NAME",
-              "DATE_OF_BIRTH",
-              "ADDRESS_LINE_1",
-              "CITY",
-              "STATE_PROVINCE",
-              "POSTAL_CODE",
-              "COUNTRY",
-              "FIRST_LAST_NAME",
-              "SECOND_LAST_NAME",
-              "SPOUSE_LAST_NAME",
-              "BIRTH_LAST_NAME"
-            ],
-            "type": "string",
-            "additionalProperties": false
+            "$ref": "#/components/schemas/MatcherTokenToken"
           },
           "pii": {
             "$ref": "#/components/schemas/MatcherTokenPii"
           },
           "precision": {
-            "enum": [
-              "NO_MATCH",
-              "POOR_MATCH",
-              "PARTIAL_MATCH",
-              "HIGH_PARTIAL_MATCH",
-              "EXACT_MATCH"
-            ],
-            "type": "string",
-            "additionalProperties": false
+            "$ref": "#/components/schemas/MatcherTokenPrecision"
           }
         }
       },
@@ -1061,14 +925,7 @@
             "default": true
           },
           "calibration": {
-            "enum": [
-              "LOW",
-              "MEDIUM",
-              "HIGH"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "default": "MEDIUM"
+            "$ref": "#/components/schemas/LivenessCheckCalibration"
           }
         }
       },
@@ -1098,108 +955,10 @@
           "matcherConfigs": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "matchers": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "token": {
-                        "enum": [
-                          "FIRST_NAME",
-                          "MIDDLE_NAME",
-                          "LAST_NAME",
-                          "FULL_NAME",
-                          "DATE_OF_BIRTH",
-                          "ADDRESS_LINE_1",
-                          "CITY",
-                          "STATE_PROVINCE",
-                          "POSTAL_CODE",
-                          "COUNTRY",
-                          "FIRST_LAST_NAME",
-                          "SECOND_LAST_NAME",
-                          "SPOUSE_LAST_NAME",
-                          "BIRTH_LAST_NAME"
-                        ],
-                        "type": "string",
-                        "additionalProperties": false
-                      },
-                      "precision": {
-                        "enum": [
-                          "EXACT_MATCH",
-                          "HIGH_PARTIAL_MATCH",
-                          "PARTIAL_MATCH",
-                          "POOR_MATCH",
-                          "NO_MATCH"
-                        ],
-                        "type": "string",
-                        "additionalProperties": false
-                      },
-                      "strategy": {
-                        "type": "object",
-                        "properties": {
-                          "transliterationMatch": {
-                            "type": "object",
-                            "properties": {
-                              "enabled": {
-                                "type": "boolean",
-                                "description": "If true, apply transliteration logic (e.g., converting non-Latin scripts to Latin) before matching.\n",
-                                "default": false
-                              }
-                            },
-                            "example": {
-                              "enabled": true
-                            }
-                          },
-                          "tokenMatch": {
-                            "type": "object",
-                            "properties": {
-                              "enabled": {
-                                "type": "boolean",
-                                "description": "If true, split the string into tokens (words), then compare tokens individually using threshold-based logic.\n",
-                                "default": false
-                              },
-                              "tokenSimilarityThreshold": {
-                                "type": "number",
-                                "description": "A numeric threshold (0.0 to 1.0) used to determine how strictly tokens must match. Higher = stricter matching.\n",
-                                "format": "float",
-                                "default": 0.75
-                              }
-                            },
-                            "example": {
-                              "enabled": true,
-                              "tokenSimilarityThreshold": 0.75
-                            }
-                          },
-                          "basicFuzzyMatch": {
-                            "type": "object",
-                            "properties": {
-                              "enabled": {
-                                "type": "boolean",
-                                "description": "If true, include basic similarity algorithms in computing the final match result.\n",
-                                "default": true
-                              }
-                            },
-                            "example": {
-                              "enabled": true
-                            }
-                          }
-                        },
-                        "description": "This configuration object will control matcher strategies in the matcher pipeline. The configuration object will control transliteration, tokenization, and basic fuzzy match. Before running match pipeline, both inputs will be normalized with diacritic removal.\n"
-                      }
-                    }
-                  },
-                  "description": "List of matchers with matcher name and precision"
-                },
-                "active": {
-                  "type": "boolean",
-                  "description": "Flag to determine whether the matcher is active or passive"
-                }
-              }
+              "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItem"
             },
             "description": "Matcher configuration",
-            "default": [ ]
+            "default": []
           },
           "subjectInfo": {
             "$ref": "#/components/schemas/TransactionConfigurationSubjectInfo"
@@ -1207,82 +966,62 @@
           "subjectInfoList": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "firstName": {
-                  "type": "string",
-                  "description": "First name from customer input",
-                  "example": "John"
-                },
-                "middleName": {
-                  "type": "string",
-                  "description": "Middle name from customer input",
-                  "example": "Smith"
-                },
-                "lastName": {
-                  "type": "string",
-                  "description": "Last name from customer input",
-                  "example": "Doe"
-                },
-                "fullName": {
-                  "type": "string",
-                  "description": "Full name from customer input",
-                  "example": "John Smith Doe"
-                },
-                "dateOfBirth": {
-                  "type": "string",
-                  "description": "Date of birth from customer input",
-                  "example": "YYYY-MM-DD"
-                },
-                "addressLine1": {
-                  "type": "string",
-                  "description": "Address line 1 from customer input",
-                  "example": "123 Main Street"
-                },
-                "stateProvince": {
-                  "type": "string",
-                  "description": "State or province from customer input",
-                  "example": "BC"
-                },
-                "city": {
-                  "type": "string",
-                  "description": "City from customer input",
-                  "example": "Vancouver"
-                },
-                "postalCode": {
-                  "type": "string",
-                  "description": "Postal Code from customer input",
-                  "example": "V5V 0A0"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "Country from customer input",
-                  "example": "CA"
-                },
-                "firstLastName": {
-                  "type": "string",
-                  "description": "first last name from customer input",
-                  "example": "López"
-                },
-                "secondLastName": {
-                  "type": "string",
-                  "description": "second last name from customer input",
-                  "example": "García"
-                },
-                "birthLastName": {
-                  "type": "string",
-                  "description": "birth last name from customer input",
-                  "example": "GABLER"
-                },
-                "spouseLastName": {
-                  "type": "string",
-                  "description": "spouse last name from customer input",
-                  "example": "Molenaar"
-                }
-              }
+              "$ref": "#/components/schemas/TransactionConfigurationSubjectInfoListItem"
             },
             "description": "List of Customer Input Personal Identification Information",
-            "default": [ ]
+            "default": []
+          }
+        }
+      },
+      "BadRequestResponse": {
+        "type": "object",
+        "properties": {
+          "messsage": {
+            "type": "string",
+            "default": "Make sure your request is formatted correctly."
+          }
+        }
+      },
+      "UnauthorizedErrorResponsePlain": {
+        "type": "string",
+        "default": "Jwt is expired"
+      },
+      "ForbiddenErrorResponsePlain": {
+        "type": "string",
+        "default": "Access Denied"
+      },
+      "NotFoundResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "default": "Check if the transactionId is correct."
+          }
+        }
+      },
+      "UnProcessableEntityResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "$ref": "#/components/schemas/UnProcessableEntityResponseMessage"
+          }
+        }
+      },
+      "InternalErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "default": "The server encountered an error. Please email us at support@trulioo.com."
+          }
+        }
+      },
+      "ServiceUnavailableResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "default": "Service is currently not available. Please try again."
           }
         }
       },
@@ -1291,33 +1030,33 @@
         "properties": {
           "fullAddress": {
             "type": "string",
-            "example": "1234バンクーバー通り, バンクーバー, ブリティッシュコロンビア,  カナダ, NW16XE"
+            "example": "1234\u30D0\u30F3\u30AF\u30FC\u30D0\u30FC\u901A\u308A, \u30D0\u30F3\u30AF\u30FC\u30D0\u30FC, \u30D6\u30EA\u30C6\u30A3\u30C3\u30B7\u30E5\u30B3\u30ED\u30F3\u30D3\u30A2,  \u30AB\u30CA\u30C0, NW16XE"
           },
           "addressLine1": {
             "type": "string",
             "description": "Address line 1 that is non-iso latin",
-            "example": "1234バンクーバー通り"
+            "example": "1234\u30D0\u30F3\u30AF\u30FC\u30D0\u30FC\u901A\u308A"
           },
           "addressLine2": {
             "type": "string",
             "description": "Address line 2 that is non-iso latin",
-            "example": "バンクーバー"
+            "example": "\u30D0\u30F3\u30AF\u30FC\u30D0\u30FC"
           },
           "city": {
             "type": "string",
-            "example": "バンクーバー"
+            "example": "\u30D0\u30F3\u30AF\u30FC\u30D0\u30FC"
           },
           "stateProvince": {
             "type": "string",
-            "example": "ブリティッシュコロンビア"
+            "example": "\u30D6\u30EA\u30C6\u30A3\u30C3\u30B7\u30E5\u30B3\u30ED\u30F3\u30D3\u30A2"
           },
           "country": {
             "type": "string",
-            "example": "カナダ"
+            "example": "\u30AB\u30CA\u30C0"
           },
           "zipCode": {
             "type": "string",
-            "example": "מיקוד"
+            "example": "\u05DE\u05D9\u05E7\u05D5\u05D3"
           }
         }
       },
@@ -1348,321 +1087,10 @@
           "documentsAccepted": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "documentType": {
-                  "enum": [
-                    "DRIVERS_LICENSE",
-                    "PASSPORT",
-                    "ID_CARD",
-                    "RESIDENCE_PERMIT",
-                    "MILITARY_ID",
-                    "VISA",
-                    "HEALTH_CARD",
-                    "TRAVEL_DOCUMENT",
-                    "VOTER_ID",
-                    "TAX_ID"
-                  ],
-                  "type": "string",
-                  "additionalProperties": false,
-                  "description": "Document type.",
-                  "example": "DRIVERS_LICENSE"
-                },
-                "documentOrigin": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "countryCode": {
-                        "enum": [
-                          "AD",
-                          "AE",
-                          "AF",
-                          "AG",
-                          "AI",
-                          "AL",
-                          "AM",
-                          "AO",
-                          "AR",
-                          "AS",
-                          "AT",
-                          "AU",
-                          "AW",
-                          "AX",
-                          "AZ",
-                          "BA",
-                          "BB",
-                          "BD",
-                          "BE",
-                          "BF",
-                          "BG",
-                          "BH",
-                          "BI",
-                          "BJ",
-                          "BL",
-                          "BM",
-                          "BN",
-                          "BO",
-                          "BQ",
-                          "BR",
-                          "BS",
-                          "BT",
-                          "BV",
-                          "BW",
-                          "BY",
-                          "BZ",
-                          "CA",
-                          "CC",
-                          "CD",
-                          "CF",
-                          "CG",
-                          "CH",
-                          "CI",
-                          "CK",
-                          "CL",
-                          "CM",
-                          "CN",
-                          "CO",
-                          "CR",
-                          "CU",
-                          "CV",
-                          "CW",
-                          "CX",
-                          "CY",
-                          "CZ",
-                          "DE",
-                          "DJ",
-                          "DK",
-                          "DM",
-                          "DO",
-                          "DZ",
-                          "EC",
-                          "EE",
-                          "EG",
-                          "EH",
-                          "ER",
-                          "ES",
-                          "ET",
-                          "FI",
-                          "FJ",
-                          "FK",
-                          "FM",
-                          "FO",
-                          "FR",
-                          "GA",
-                          "GB",
-                          "GD",
-                          "GE",
-                          "GF",
-                          "GG",
-                          "GH",
-                          "GI",
-                          "GL",
-                          "GM",
-                          "GN",
-                          "GP",
-                          "GQ",
-                          "GR",
-                          "GS",
-                          "GT",
-                          "GU",
-                          "GW",
-                          "GY",
-                          "HK",
-                          "HM",
-                          "HN",
-                          "HR",
-                          "HT",
-                          "HU",
-                          "ID",
-                          "IE",
-                          "IL",
-                          "IM",
-                          "IN",
-                          "IO",
-                          "IQ",
-                          "IR",
-                          "IS",
-                          "IT",
-                          "JE",
-                          "JM",
-                          "JO",
-                          "JP",
-                          "KE",
-                          "KG",
-                          "KH",
-                          "KI",
-                          "KM",
-                          "KN",
-                          "KP",
-                          "KR",
-                          "KW",
-                          "KY",
-                          "KZ",
-                          "LA",
-                          "LB",
-                          "LC",
-                          "LI",
-                          "LK",
-                          "LR",
-                          "LS",
-                          "LT",
-                          "LU",
-                          "LV",
-                          "LY",
-                          "MA",
-                          "MC",
-                          "MD",
-                          "ME",
-                          "MF",
-                          "MG",
-                          "MH",
-                          "MK",
-                          "ML",
-                          "MM",
-                          "MN",
-                          "MO",
-                          "MP",
-                          "MQ",
-                          "MR",
-                          "MS",
-                          "MT",
-                          "MU",
-                          "MV",
-                          "MW",
-                          "MX",
-                          "MY",
-                          "MZ",
-                          "NA",
-                          "NC",
-                          "NE",
-                          "NF",
-                          "NG",
-                          "NI",
-                          "NL",
-                          "NO",
-                          "NP",
-                          "NR",
-                          "NU",
-                          "NZ",
-                          "OM",
-                          "PA",
-                          "PE",
-                          "PF",
-                          "PG",
-                          "PH",
-                          "PK",
-                          "PL",
-                          "PM",
-                          "PN",
-                          "PR",
-                          "PS",
-                          "PT",
-                          "PW",
-                          "PY",
-                          "QA",
-                          "RE",
-                          "RO",
-                          "RS",
-                          "RU",
-                          "RW",
-                          "SA",
-                          "SB",
-                          "SC",
-                          "SD",
-                          "SE",
-                          "SG",
-                          "SH",
-                          "SI",
-                          "SJ",
-                          "SK",
-                          "SL",
-                          "SM",
-                          "SN",
-                          "SO",
-                          "SR",
-                          "SS",
-                          "ST",
-                          "SV",
-                          "SX",
-                          "SY",
-                          "SZ",
-                          "TC",
-                          "TD",
-                          "TF",
-                          "TG",
-                          "TH",
-                          "TJ",
-                          "TK",
-                          "TL",
-                          "TM",
-                          "TN",
-                          "TO",
-                          "TR",
-                          "TT",
-                          "TV",
-                          "TW",
-                          "TZ",
-                          "UA",
-                          "UG",
-                          "UM",
-                          "US",
-                          "UY",
-                          "UZ",
-                          "VA",
-                          "VC",
-                          "VE",
-                          "VG",
-                          "VI",
-                          "VN",
-                          "VU",
-                          "WF",
-                          "WS",
-                          "XK",
-                          "YE",
-                          "YT",
-                          "ZA",
-                          "ZM",
-                          "ZW"
-                        ],
-                        "type": "string",
-                        "additionalProperties": false,
-                        "description": "Country Code (ISO 3166-1 alpha-2 format)",
-                        "example": "CA"
-                      },
-                      "jurisdictions": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "jurisdictionCode": {
-                              "type": "string",
-                              "description": "State or province code (ISO 3166-1 alpha-2 format)",
-                              "example": "FL"
-                            },
-                            "years": {
-                              "type": "array",
-                              "items": {
-                                "type": "string",
-                                "example": 2018
-                              },
-                              "description": "This configuration is currently unsupported, any values will be ignored.",
-                              "default": [ ]
-                            }
-                          }
-                        },
-                        "description": "List of allowed states or provinces corresponding to a specified document type and its issuing country. This configuration applies exclusively to the United States and Canada and is applicable only to specific document types. To set the document type configuration solely at the country level, input an empty array as the jurisdiction value. When all jurisdictions are listed, the document must contain jurisdictional information.",
-                        "default": [ ]
-                      }
-                    }
-                  },
-                  "description": "List of permissible issuing countries combined with states or provinces per specified document type. An empty array will result in accepting all countries.",
-                  "default": [ ]
-                }
-              }
+              "$ref": "#/components/schemas/TransactionConfigurationDocumentVerificationDocumentsAcceptedItem"
             },
             "description": "List of permissible document types combined with document issuing countries and states or provinces. An empty array will result in accepting all countries and all document types for the verification.",
-            "default": [ ]
+            "default": []
           },
           "acceptFrontImageOnly": {
             "type": "boolean",
@@ -1675,7 +1103,7 @@
               "type": "string"
             },
             "description": "List of allowed Trulioo document IDs for bypass of territory and document type criteria outlined elsewhere in the documentsAccepted array. An empty array (or omitting this field) will result in no additional bypass behaviour for the verification.",
-            "default": [ ]
+            "default": []
           },
           "denyList": {
             "type": "array",
@@ -1683,7 +1111,7 @@
               "type": "string"
             },
             "description": "List of unacceptable Trulioo document IDs for bypass of territory and document type criteria outlined elsewhere in the documentsAccepted array. An empty array (or omitting this field) will result in no additional bypass behaviour for the verification.",
-            "default": [ ]
+            "default": []
           }
         },
         "description": "Document verification configuration"
@@ -1759,7 +1187,23 @@
             "default": false
           }
         },
-        "description": "\"Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM, HIGH].\""
+        "description": "\u0022Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM, HIGH].\u0022"
+      },
+      "TransactionConfigurationMatcherConfigsItem": {
+        "type": "object",
+        "properties": {
+          "matchers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItem"
+            },
+            "description": "List of matchers with matcher name and precision"
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Flag to determine whether the matcher is active or passive"
+          }
+        }
       },
       "TransactionConfigurationSubjectInfo": {
         "type": "object",
@@ -1817,12 +1261,12 @@
           "firstLastName": {
             "type": "string",
             "description": "first last name from customer input",
-            "example": "López"
+            "example": "L\u00F3pez"
           },
           "secondLastName": {
             "type": "string",
             "description": "second last name from customer input",
-            "example": "García"
+            "example": "Garc\u00EDa"
           },
           "birthLastName": {
             "type": "string",
@@ -1837,7 +1281,208 @@
         },
         "description": "Customer Input Personal Identification Information"
       },
-      "PostAuthCustomer": {
+      "TransactionConfigurationSubjectInfoListItem": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "description": "First name from customer input",
+            "example": "John"
+          },
+          "middleName": {
+            "type": "string",
+            "description": "Middle name from customer input",
+            "example": "Smith"
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Last name from customer input",
+            "example": "Doe"
+          },
+          "fullName": {
+            "type": "string",
+            "description": "Full name from customer input",
+            "example": "John Smith Doe"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "description": "Date of birth from customer input",
+            "example": "YYYY-MM-DD"
+          },
+          "addressLine1": {
+            "type": "string",
+            "description": "Address line 1 from customer input",
+            "example": "123 Main Street"
+          },
+          "stateProvince": {
+            "type": "string",
+            "description": "State or province from customer input",
+            "example": "BC"
+          },
+          "city": {
+            "type": "string",
+            "description": "City from customer input",
+            "example": "Vancouver"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal Code from customer input",
+            "example": "V5V 0A0"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country from customer input",
+            "example": "CA"
+          },
+          "firstLastName": {
+            "type": "string",
+            "description": "first last name from customer input",
+            "example": "L\u00F3pez"
+          },
+          "secondLastName": {
+            "type": "string",
+            "description": "second last name from customer input",
+            "example": "Garc\u00EDa"
+          },
+          "birthLastName": {
+            "type": "string",
+            "description": "birth last name from customer input",
+            "example": "GABLER"
+          },
+          "spouseLastName": {
+            "type": "string",
+            "description": "spouse last name from customer input",
+            "example": "Molenaar"
+          }
+        }
+      },
+      "TransactionConfigurationDocumentVerificationDocumentsAcceptedItem": {
+        "type": "object",
+        "properties": {
+          "documentType": {
+            "$ref": "#/components/schemas/TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType"
+          },
+          "documentOrigin": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem"
+            },
+            "description": "List of permissible issuing countries combined with states or provinces per specified document type. An empty array will result in accepting all countries.",
+            "default": []
+          }
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItem": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItemToken"
+          },
+          "precision": {
+            "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItemPrecision"
+          },
+          "strategy": {
+            "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItemStrategy"
+          }
+        }
+      },
+      "TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "$ref": "#/components/schemas/TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode"
+          },
+          "jurisdictions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem"
+            },
+            "description": "List of allowed states or provinces corresponding to a specified document type and its issuing country. This configuration applies exclusively to the United States and Canada and is applicable only to specific document types. To set the document type configuration solely at the country level, input an empty array as the jurisdiction value. When all jurisdictions are listed, the document must contain jurisdictional information.",
+            "default": []
+          }
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItemStrategy": {
+        "type": "object",
+        "properties": {
+          "transliterationMatch": {
+            "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch"
+          },
+          "tokenMatch": {
+            "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch"
+          },
+          "basicFuzzyMatch": {
+            "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch"
+          }
+        },
+        "description": "This configuration object will control matcher strategies in the matcher pipeline. The configuration object will control transliteration, tokenization, and basic fuzzy match. Before running match pipeline, both inputs will be normalized with diacritic removal.\n"
+      },
+      "TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem": {
+        "type": "object",
+        "properties": {
+          "jurisdictionCode": {
+            "type": "string",
+            "description": "State or province code (ISO 3166-1 alpha-2 format)",
+            "example": "FL"
+          },
+          "years": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": 2018
+            },
+            "description": "This configuration is currently unsupported, any values will be ignored.",
+            "default": []
+          }
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "If true, apply transliteration logic (e.g., converting non-Latin scripts to Latin) before matching.\n",
+            "default": false
+          }
+        },
+        "example": {
+          "enabled": true
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "If true, split the string into tokens (words), then compare tokens individually using threshold-based logic.\n",
+            "default": false
+          },
+          "tokenSimilarityThreshold": {
+            "type": "number",
+            "description": "A numeric threshold (0.0 to 1.0) used to determine how strictly tokens must match. Higher = stricter matching.\n",
+            "format": "float",
+            "default": 0.75
+          }
+        },
+        "example": {
+          "enabled": true,
+          "tokenSimilarityThreshold": 0.75
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "If true, include basic similarity algorithms in computing the final match result.\n",
+            "default": true
+          }
+        },
+        "example": {
+          "enabled": true
+        }
+      },
+      "PostAuthCustomerRequest": {
         "required": [
           "consent"
         ],
@@ -1860,7 +1505,7 @@
           }
         }
       },
-      "UploadDocument": {
+      "UploadDocumentFormDataRequest": {
         "required": [
           "context",
           "body"
@@ -1868,16 +1513,7 @@
         "type": "object",
         "properties": {
           "context": {
-            "enum": [
-              "front",
-              "back",
-              "live",
-              "pdf"
-            ],
-            "type": "string",
-            "additionalProperties": false,
-            "description": "The `front` or `back` of the document, or `live` for selfie. Use `pdf` for PDF files.",
-            "default": "front"
+            "$ref": "#/components/schemas/UploadDocumentFormDataRequestContext"
           },
           "body": {
             "type": "string",
@@ -1886,21 +1522,2208 @@
           }
         }
       },
-      "VerifyTransaction202": {
+      "VerifyTransaction202Response": {
         "type": "object",
         "properties": {
           "status": {
-            "enum": [
-              "PENDING_RESULT"
-            ],
-            "type": "string",
-            "additionalProperties": false
+            "$ref": "#/components/schemas/VerifyTransaction202ResponseStatus"
           }
         }
       },
       "ExamplePayload": {
         "type": "object",
         "description": "Placeholder schema for path example refs"
+      },
+      "UnauthorizedErrorResponsePlainContent": {
+        "type": "string"
+      },
+      "ForbiddenErrorResponsePlainContent": {
+        "type": "string"
+      },
+      "DecisionResponseStatus": {
+        "enum": [
+          "ACCEPTED",
+          "REVIEW",
+          "DECLINED",
+          "ERROR",
+          "NO_RESULT",
+          "PENDING_RESULT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "DecisionResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCEPTED",
+              "name": "Accepted"
+            },
+            {
+              "value": "REVIEW",
+              "name": "Review"
+            },
+            {
+              "value": "DECLINED",
+              "name": "Declined"
+            },
+            {
+              "value": "ERROR",
+              "name": "Error"
+            },
+            {
+              "value": "NO_RESULT",
+              "name": "NoResult"
+            },
+            {
+              "value": "PENDING_RESULT",
+              "name": "PendingResult"
+            }
+          ]
+        }
+      },
+      "TransactionResultResponseStatus": {
+        "enum": [
+          "ACCEPTED",
+          "REVIEW",
+          "DECLINED",
+          "ERROR",
+          "NO_RESULT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The decision of the verification.",
+        "example": "REVIEW",
+        "x-ms-enum": {
+          "name": "TransactionResultResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCEPTED",
+              "name": "Accepted"
+            },
+            {
+              "value": "REVIEW",
+              "name": "Review"
+            },
+            {
+              "value": "DECLINED",
+              "name": "Declined"
+            },
+            {
+              "value": "ERROR",
+              "name": "Error"
+            },
+            {
+              "value": "NO_RESULT",
+              "name": "NoResult"
+            }
+          ]
+        }
+      },
+      "DocumentDocumentType": {
+        "enum": [
+          "PASSPORT",
+          "DRIVERS_LICENSE",
+          "ID_CARD",
+          "RESIDENCE_PERMIT",
+          "MILITARY_ID",
+          "VISA",
+          "HEALTH_CARD",
+          "TRAVEL_DOCUMENT",
+          "VOTER_ID",
+          "TAX_ID",
+          "OTHER",
+          "UNKNOWN",
+          "UNSUPPORTED",
+          "NOT_STARTED",
+          "ERROR"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Type of the identification document provided.",
+        "x-ms-enum": {
+          "name": "DocumentDocumentType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PASSPORT",
+              "name": "Passport"
+            },
+            {
+              "value": "DRIVERS_LICENSE",
+              "name": "DriversLicense"
+            },
+            {
+              "value": "ID_CARD",
+              "name": "IdCard"
+            },
+            {
+              "value": "RESIDENCE_PERMIT",
+              "name": "ResidencePermit"
+            },
+            {
+              "value": "MILITARY_ID",
+              "name": "MilitaryId"
+            },
+            {
+              "value": "VISA",
+              "name": "Visa"
+            },
+            {
+              "value": "HEALTH_CARD",
+              "name": "HealthCard"
+            },
+            {
+              "value": "TRAVEL_DOCUMENT",
+              "name": "TravelDocument"
+            },
+            {
+              "value": "VOTER_ID",
+              "name": "VoterId"
+            },
+            {
+              "value": "TAX_ID",
+              "name": "TaxId"
+            },
+            {
+              "value": "OTHER",
+              "name": "Other"
+            },
+            {
+              "value": "UNKNOWN",
+              "name": "Unknown"
+            },
+            {
+              "value": "UNSUPPORTED",
+              "name": "Unsupported"
+            },
+            {
+              "value": "NOT_STARTED",
+              "name": "NotStarted"
+            },
+            {
+              "value": "ERROR",
+              "name": "Error"
+            }
+          ]
+        }
+      },
+      "IndicatorType": {
+        "enum": [
+          "DOCUMENT",
+          "FACE_MATCH",
+          "LIVENESS"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "DOCUMENT",
+        "x-ms-enum": {
+          "name": "IndicatorType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "DOCUMENT",
+              "name": "Document"
+            },
+            {
+              "value": "FACE_MATCH",
+              "name": "FaceMatch"
+            },
+            {
+              "value": "LIVENESS",
+              "name": "Liveness"
+            }
+          ]
+        }
+      },
+      "IndicatorResult": {
+        "enum": [
+          "ACCEPTED",
+          "DECLINED",
+          "REVIEW",
+          "ERROR",
+          "NO_RESULT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "REVIEW",
+        "x-ms-enum": {
+          "name": "IndicatorResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCEPTED",
+              "name": "Accepted"
+            },
+            {
+              "value": "DECLINED",
+              "name": "Declined"
+            },
+            {
+              "value": "REVIEW",
+              "name": "Review"
+            },
+            {
+              "value": "ERROR",
+              "name": "Error"
+            },
+            {
+              "value": "NO_RESULT",
+              "name": "NoResult"
+            }
+          ]
+        }
+      },
+      "SubindicatorResult": {
+        "enum": [
+          "ACCEPTED",
+          "DECLINED",
+          "REVIEW",
+          "ERROR",
+          "NO_RESULT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "example": "REVIEW",
+        "x-ms-enum": {
+          "name": "SubindicatorResult",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "ACCEPTED",
+              "name": "Accepted"
+            },
+            {
+              "value": "DECLINED",
+              "name": "Declined"
+            },
+            {
+              "value": "REVIEW",
+              "name": "Review"
+            },
+            {
+              "value": "ERROR",
+              "name": "Error"
+            },
+            {
+              "value": "NO_RESULT",
+              "name": "NoResult"
+            }
+          ]
+        }
+      },
+      "SubindicatorCode": {
+        "enum": [
+          "NONE",
+          "DAMAGED",
+          "UNSUPPORTED_DOCUMENT",
+          "EXPIRED",
+          "INVALID_CHARACTERS",
+          "POOR_IMAGE_QUALITY",
+          "SUSPICIOUS",
+          "SCREEN_USED",
+          "PRINTOUT_USED",
+          "DATA_XCHECK_REFERENCE",
+          "DOCUMENT_TAMPERING",
+          "LIVENESS_FAIL",
+          "PHOTOS_MISSING",
+          "DECLINED_FACE_MATCH",
+          "ACCEPTED_DOCUMENT",
+          "ACCEPTED_FACE_MATCH",
+          "ACCEPTED_LIVENESS",
+          "ERROR_DOCUMENT",
+          "ERROR_FACE_MATCH",
+          "MISSING_FIELD",
+          "ISSUE_DATE_OVER_10Y",
+          "DIFFERENT_DOCUMENTS",
+          "INVALID_MRZ",
+          "INVALID_BARCODE",
+          "DATA_XCHECK_REFERENCE_DOB",
+          "DATA_XCHECK_REFERENCE_GIVEN_NAME",
+          "DATA_XCHECK_REFERENCE_SURNAME",
+          "DATA_XCHECK_REFERENCE_NAME",
+          "DATA_XCHECK_REFERENCE_ADDRESS",
+          "DATA_XCHECK_REFERENCE_EXPIRY",
+          "INVALID_CONFIG_DOCTYPE",
+          "INVALID_CONFIG_COUNTRY",
+          "UNKNOWN_DOCUMENT_TYPE",
+          "MISSING_CODE_MAPPING",
+          "INVALID_CONFIG_JURISDICTION",
+          "JURISDICTION_NOT_FOUND",
+          "DOCUMENT_NOT_FOUND",
+          "DOCUMENT_PHOTO_NOT_FOUND",
+          "ERROR_DOCUMENT_LIVENESS",
+          "DOCUMENT_CROPPED",
+          "TOO_MANY_DOCUMENTS",
+          "INPUT_MATCH_FAILED",
+          "INPUT_MATCH_PASSED",
+          "CUSTOMER_INPUT_MISSING",
+          "OCR_MISSING"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "SubindicatorCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "NONE",
+              "name": "None"
+            },
+            {
+              "value": "DAMAGED",
+              "name": "Damaged"
+            },
+            {
+              "value": "UNSUPPORTED_DOCUMENT",
+              "name": "UnsupportedDocument"
+            },
+            {
+              "value": "EXPIRED",
+              "name": "Expired"
+            },
+            {
+              "value": "INVALID_CHARACTERS",
+              "name": "InvalidCharacters"
+            },
+            {
+              "value": "POOR_IMAGE_QUALITY",
+              "name": "PoorImageQuality"
+            },
+            {
+              "value": "SUSPICIOUS",
+              "name": "Suspicious"
+            },
+            {
+              "value": "SCREEN_USED",
+              "name": "ScreenUsed"
+            },
+            {
+              "value": "PRINTOUT_USED",
+              "name": "PrintoutUsed"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE",
+              "name": "DataXcheckReference"
+            },
+            {
+              "value": "DOCUMENT_TAMPERING",
+              "name": "DocumentTampering"
+            },
+            {
+              "value": "LIVENESS_FAIL",
+              "name": "LivenessFail"
+            },
+            {
+              "value": "PHOTOS_MISSING",
+              "name": "PhotosMissing"
+            },
+            {
+              "value": "DECLINED_FACE_MATCH",
+              "name": "DeclinedFaceMatch"
+            },
+            {
+              "value": "ACCEPTED_DOCUMENT",
+              "name": "AcceptedDocument"
+            },
+            {
+              "value": "ACCEPTED_FACE_MATCH",
+              "name": "AcceptedFaceMatch"
+            },
+            {
+              "value": "ACCEPTED_LIVENESS",
+              "name": "AcceptedLiveness"
+            },
+            {
+              "value": "ERROR_DOCUMENT",
+              "name": "ErrorDocument"
+            },
+            {
+              "value": "ERROR_FACE_MATCH",
+              "name": "ErrorFaceMatch"
+            },
+            {
+              "value": "MISSING_FIELD",
+              "name": "MissingField"
+            },
+            {
+              "value": "ISSUE_DATE_OVER_10Y",
+              "name": "IssueDateOver10Y"
+            },
+            {
+              "value": "DIFFERENT_DOCUMENTS",
+              "name": "DifferentDocuments"
+            },
+            {
+              "value": "INVALID_MRZ",
+              "name": "InvalidMrz"
+            },
+            {
+              "value": "INVALID_BARCODE",
+              "name": "InvalidBarcode"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE_DOB",
+              "name": "DataXcheckReferenceDob"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE_GIVEN_NAME",
+              "name": "DataXcheckReferenceGivenName"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE_SURNAME",
+              "name": "DataXcheckReferenceSurname"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE_NAME",
+              "name": "DataXcheckReferenceName"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE_ADDRESS",
+              "name": "DataXcheckReferenceAddress"
+            },
+            {
+              "value": "DATA_XCHECK_REFERENCE_EXPIRY",
+              "name": "DataXcheckReferenceExpiry"
+            },
+            {
+              "value": "INVALID_CONFIG_DOCTYPE",
+              "name": "InvalidConfigDoctype"
+            },
+            {
+              "value": "INVALID_CONFIG_COUNTRY",
+              "name": "InvalidConfigCountry"
+            },
+            {
+              "value": "UNKNOWN_DOCUMENT_TYPE",
+              "name": "UnknownDocumentType"
+            },
+            {
+              "value": "MISSING_CODE_MAPPING",
+              "name": "MissingCodeMapping"
+            },
+            {
+              "value": "INVALID_CONFIG_JURISDICTION",
+              "name": "InvalidConfigJurisdiction"
+            },
+            {
+              "value": "JURISDICTION_NOT_FOUND",
+              "name": "JurisdictionNotFound"
+            },
+            {
+              "value": "DOCUMENT_NOT_FOUND",
+              "name": "DocumentNotFound"
+            },
+            {
+              "value": "DOCUMENT_PHOTO_NOT_FOUND",
+              "name": "DocumentPhotoNotFound"
+            },
+            {
+              "value": "ERROR_DOCUMENT_LIVENESS",
+              "name": "ErrorDocumentLiveness"
+            },
+            {
+              "value": "DOCUMENT_CROPPED",
+              "name": "DocumentCropped"
+            },
+            {
+              "value": "TOO_MANY_DOCUMENTS",
+              "name": "TooManyDocuments"
+            },
+            {
+              "value": "INPUT_MATCH_FAILED",
+              "name": "InputMatchFailed"
+            },
+            {
+              "value": "INPUT_MATCH_PASSED",
+              "name": "InputMatchPassed"
+            },
+            {
+              "value": "CUSTOMER_INPUT_MISSING",
+              "name": "CustomerInputMissing"
+            },
+            {
+              "value": "OCR_MISSING",
+              "name": "OcrMissing"
+            }
+          ]
+        }
+      },
+      "MatcherTokenToken": {
+        "enum": [
+          "FIRST_NAME",
+          "LAST_NAME",
+          "MIDDLE_NAME",
+          "FULL_NAME",
+          "DATE_OF_BIRTH",
+          "ADDRESS_LINE_1",
+          "CITY",
+          "STATE_PROVINCE",
+          "POSTAL_CODE",
+          "COUNTRY",
+          "FIRST_LAST_NAME",
+          "SECOND_LAST_NAME",
+          "SPOUSE_LAST_NAME",
+          "BIRTH_LAST_NAME"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "MatcherTokenToken",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "FIRST_NAME",
+              "name": "FirstName"
+            },
+            {
+              "value": "LAST_NAME",
+              "name": "LastName"
+            },
+            {
+              "value": "MIDDLE_NAME",
+              "name": "MiddleName"
+            },
+            {
+              "value": "FULL_NAME",
+              "name": "FullName"
+            },
+            {
+              "value": "DATE_OF_BIRTH",
+              "name": "DateOfBirth"
+            },
+            {
+              "value": "ADDRESS_LINE_1",
+              "name": "AddressLine1"
+            },
+            {
+              "value": "CITY",
+              "name": "City"
+            },
+            {
+              "value": "STATE_PROVINCE",
+              "name": "StateProvince"
+            },
+            {
+              "value": "POSTAL_CODE",
+              "name": "PostalCode"
+            },
+            {
+              "value": "COUNTRY",
+              "name": "Country"
+            },
+            {
+              "value": "FIRST_LAST_NAME",
+              "name": "FirstLastName"
+            },
+            {
+              "value": "SECOND_LAST_NAME",
+              "name": "SecondLastName"
+            },
+            {
+              "value": "SPOUSE_LAST_NAME",
+              "name": "SpouseLastName"
+            },
+            {
+              "value": "BIRTH_LAST_NAME",
+              "name": "BirthLastName"
+            }
+          ]
+        }
+      },
+      "MatcherTokenPrecision": {
+        "enum": [
+          "NO_MATCH",
+          "POOR_MATCH",
+          "PARTIAL_MATCH",
+          "HIGH_PARTIAL_MATCH",
+          "EXACT_MATCH"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "MatcherTokenPrecision",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "NO_MATCH",
+              "name": "NoMatch"
+            },
+            {
+              "value": "POOR_MATCH",
+              "name": "PoorMatch"
+            },
+            {
+              "value": "PARTIAL_MATCH",
+              "name": "PartialMatch"
+            },
+            {
+              "value": "HIGH_PARTIAL_MATCH",
+              "name": "HighPartialMatch"
+            },
+            {
+              "value": "EXACT_MATCH",
+              "name": "ExactMatch"
+            }
+          ]
+        }
+      },
+      "LivenessCheckCalibration": {
+        "enum": [
+          "LOW",
+          "MEDIUM",
+          "HIGH"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "LivenessCheckCalibration",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "LOW",
+              "name": "Low"
+            },
+            {
+              "value": "MEDIUM",
+              "name": "Medium"
+            },
+            {
+              "value": "HIGH",
+              "name": "High"
+            }
+          ]
+        }
+      },
+      "UnProcessableEntityResponseMessage": {
+        "enum": [
+          "Front image missing. Make sure the front image is available.",
+          "Back image missing. Make sure the back image is available.",
+          "Face image missing. Make sure the selfie image is available.",
+          "Document not fully in frame.",
+          "Face not fully in frame."
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "UnProcessableEntityResponseMessage",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "Front image missing. Make sure the front image is available.",
+              "name": "FrontImageMissingMakeSureTheFrontImageIsAvailable"
+            },
+            {
+              "value": "Back image missing. Make sure the back image is available.",
+              "name": "BackImageMissingMakeSureTheBackImageIsAvailable"
+            },
+            {
+              "value": "Face image missing. Make sure the selfie image is available.",
+              "name": "FaceImageMissingMakeSureTheSelfieImageIsAvailable"
+            },
+            {
+              "value": "Document not fully in frame.",
+              "name": "DocumentNotFullyInFrame"
+            },
+            {
+              "value": "Face not fully in frame.",
+              "name": "FaceNotFullyInFrame"
+            }
+          ]
+        }
+      },
+      "TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType": {
+        "enum": [
+          "DRIVERS_LICENSE",
+          "PASSPORT",
+          "ID_CARD",
+          "RESIDENCE_PERMIT",
+          "MILITARY_ID",
+          "VISA",
+          "HEALTH_CARD",
+          "TRAVEL_DOCUMENT",
+          "VOTER_ID",
+          "TAX_ID"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Document type.",
+        "example": "DRIVERS_LICENSE",
+        "x-ms-enum": {
+          "name": "TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "DRIVERS_LICENSE",
+              "name": "DriversLicense"
+            },
+            {
+              "value": "PASSPORT",
+              "name": "Passport"
+            },
+            {
+              "value": "ID_CARD",
+              "name": "IdCard"
+            },
+            {
+              "value": "RESIDENCE_PERMIT",
+              "name": "ResidencePermit"
+            },
+            {
+              "value": "MILITARY_ID",
+              "name": "MilitaryId"
+            },
+            {
+              "value": "VISA",
+              "name": "Visa"
+            },
+            {
+              "value": "HEALTH_CARD",
+              "name": "HealthCard"
+            },
+            {
+              "value": "TRAVEL_DOCUMENT",
+              "name": "TravelDocument"
+            },
+            {
+              "value": "VOTER_ID",
+              "name": "VoterId"
+            },
+            {
+              "value": "TAX_ID",
+              "name": "TaxId"
+            }
+          ]
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItemToken": {
+        "enum": [
+          "FIRST_NAME",
+          "MIDDLE_NAME",
+          "LAST_NAME",
+          "FULL_NAME",
+          "DATE_OF_BIRTH",
+          "ADDRESS_LINE_1",
+          "CITY",
+          "STATE_PROVINCE",
+          "POSTAL_CODE",
+          "COUNTRY",
+          "FIRST_LAST_NAME",
+          "SECOND_LAST_NAME",
+          "SPOUSE_LAST_NAME",
+          "BIRTH_LAST_NAME"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "TransactionConfigurationMatcherConfigsItemMatchersItemToken",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "FIRST_NAME",
+              "name": "FirstName"
+            },
+            {
+              "value": "MIDDLE_NAME",
+              "name": "MiddleName"
+            },
+            {
+              "value": "LAST_NAME",
+              "name": "LastName"
+            },
+            {
+              "value": "FULL_NAME",
+              "name": "FullName"
+            },
+            {
+              "value": "DATE_OF_BIRTH",
+              "name": "DateOfBirth"
+            },
+            {
+              "value": "ADDRESS_LINE_1",
+              "name": "AddressLine1"
+            },
+            {
+              "value": "CITY",
+              "name": "City"
+            },
+            {
+              "value": "STATE_PROVINCE",
+              "name": "StateProvince"
+            },
+            {
+              "value": "POSTAL_CODE",
+              "name": "PostalCode"
+            },
+            {
+              "value": "COUNTRY",
+              "name": "Country"
+            },
+            {
+              "value": "FIRST_LAST_NAME",
+              "name": "FirstLastName"
+            },
+            {
+              "value": "SECOND_LAST_NAME",
+              "name": "SecondLastName"
+            },
+            {
+              "value": "SPOUSE_LAST_NAME",
+              "name": "SpouseLastName"
+            },
+            {
+              "value": "BIRTH_LAST_NAME",
+              "name": "BirthLastName"
+            }
+          ]
+        }
+      },
+      "TransactionConfigurationMatcherConfigsItemMatchersItemPrecision": {
+        "enum": [
+          "EXACT_MATCH",
+          "HIGH_PARTIAL_MATCH",
+          "PARTIAL_MATCH",
+          "POOR_MATCH",
+          "NO_MATCH"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "TransactionConfigurationMatcherConfigsItemMatchersItemPrecision",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "EXACT_MATCH",
+              "name": "ExactMatch"
+            },
+            {
+              "value": "HIGH_PARTIAL_MATCH",
+              "name": "HighPartialMatch"
+            },
+            {
+              "value": "PARTIAL_MATCH",
+              "name": "PartialMatch"
+            },
+            {
+              "value": "POOR_MATCH",
+              "name": "PoorMatch"
+            },
+            {
+              "value": "NO_MATCH",
+              "name": "NoMatch"
+            }
+          ]
+        }
+      },
+      "TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode": {
+        "enum": [
+          "AD",
+          "AE",
+          "AF",
+          "AG",
+          "AI",
+          "AL",
+          "AM",
+          "AO",
+          "AR",
+          "AS",
+          "AT",
+          "AU",
+          "AW",
+          "AX",
+          "AZ",
+          "BA",
+          "BB",
+          "BD",
+          "BE",
+          "BF",
+          "BG",
+          "BH",
+          "BI",
+          "BJ",
+          "BL",
+          "BM",
+          "BN",
+          "BO",
+          "BQ",
+          "BR",
+          "BS",
+          "BT",
+          "BV",
+          "BW",
+          "BY",
+          "BZ",
+          "CA",
+          "CC",
+          "CD",
+          "CF",
+          "CG",
+          "CH",
+          "CI",
+          "CK",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CU",
+          "CV",
+          "CW",
+          "CX",
+          "CY",
+          "CZ",
+          "DE",
+          "DJ",
+          "DK",
+          "DM",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "EH",
+          "ER",
+          "ES",
+          "ET",
+          "FI",
+          "FJ",
+          "FK",
+          "FM",
+          "FO",
+          "FR",
+          "GA",
+          "GB",
+          "GD",
+          "GE",
+          "GF",
+          "GG",
+          "GH",
+          "GI",
+          "GL",
+          "GM",
+          "GN",
+          "GP",
+          "GQ",
+          "GR",
+          "GS",
+          "GT",
+          "GU",
+          "GW",
+          "GY",
+          "HK",
+          "HM",
+          "HN",
+          "HR",
+          "HT",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IM",
+          "IN",
+          "IO",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JE",
+          "JM",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KI",
+          "KM",
+          "KN",
+          "KP",
+          "KR",
+          "KW",
+          "KY",
+          "KZ",
+          "LA",
+          "LB",
+          "LC",
+          "LI",
+          "LK",
+          "LR",
+          "LS",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MC",
+          "MD",
+          "ME",
+          "MF",
+          "MG",
+          "MH",
+          "MK",
+          "ML",
+          "MM",
+          "MN",
+          "MO",
+          "MP",
+          "MQ",
+          "MR",
+          "MS",
+          "MT",
+          "MU",
+          "MV",
+          "MW",
+          "MX",
+          "MY",
+          "MZ",
+          "NA",
+          "NC",
+          "NE",
+          "NF",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NR",
+          "NU",
+          "NZ",
+          "OM",
+          "PA",
+          "PE",
+          "PF",
+          "PG",
+          "PH",
+          "PK",
+          "PL",
+          "PM",
+          "PN",
+          "PR",
+          "PS",
+          "PT",
+          "PW",
+          "PY",
+          "QA",
+          "RE",
+          "RO",
+          "RS",
+          "RU",
+          "RW",
+          "SA",
+          "SB",
+          "SC",
+          "SD",
+          "SE",
+          "SG",
+          "SH",
+          "SI",
+          "SJ",
+          "SK",
+          "SL",
+          "SM",
+          "SN",
+          "SO",
+          "SR",
+          "SS",
+          "ST",
+          "SV",
+          "SX",
+          "SY",
+          "SZ",
+          "TC",
+          "TD",
+          "TF",
+          "TG",
+          "TH",
+          "TJ",
+          "TK",
+          "TL",
+          "TM",
+          "TN",
+          "TO",
+          "TR",
+          "TT",
+          "TV",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "UM",
+          "US",
+          "UY",
+          "UZ",
+          "VA",
+          "VC",
+          "VE",
+          "VG",
+          "VI",
+          "VN",
+          "VU",
+          "WF",
+          "WS",
+          "XK",
+          "YE",
+          "YT",
+          "ZA",
+          "ZM",
+          "ZW"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "Country Code (ISO 3166-1 alpha-2 format)",
+        "example": "CA",
+        "x-ms-enum": {
+          "name": "TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "AD",
+              "name": "Ad"
+            },
+            {
+              "value": "AE",
+              "name": "Ae"
+            },
+            {
+              "value": "AF",
+              "name": "Af"
+            },
+            {
+              "value": "AG",
+              "name": "Ag"
+            },
+            {
+              "value": "AI",
+              "name": "Ai"
+            },
+            {
+              "value": "AL",
+              "name": "Al"
+            },
+            {
+              "value": "AM",
+              "name": "Am"
+            },
+            {
+              "value": "AO",
+              "name": "Ao"
+            },
+            {
+              "value": "AR",
+              "name": "Ar"
+            },
+            {
+              "value": "AS",
+              "name": "AsValue"
+            },
+            {
+              "value": "AT",
+              "name": "At"
+            },
+            {
+              "value": "AU",
+              "name": "Au"
+            },
+            {
+              "value": "AW",
+              "name": "Aw"
+            },
+            {
+              "value": "AX",
+              "name": "Ax"
+            },
+            {
+              "value": "AZ",
+              "name": "Az"
+            },
+            {
+              "value": "BA",
+              "name": "Ba"
+            },
+            {
+              "value": "BB",
+              "name": "Bb"
+            },
+            {
+              "value": "BD",
+              "name": "Bd"
+            },
+            {
+              "value": "BE",
+              "name": "Be"
+            },
+            {
+              "value": "BF",
+              "name": "Bf"
+            },
+            {
+              "value": "BG",
+              "name": "Bg"
+            },
+            {
+              "value": "BH",
+              "name": "Bh"
+            },
+            {
+              "value": "BI",
+              "name": "Bi"
+            },
+            {
+              "value": "BJ",
+              "name": "Bj"
+            },
+            {
+              "value": "BL",
+              "name": "Bl"
+            },
+            {
+              "value": "BM",
+              "name": "Bm"
+            },
+            {
+              "value": "BN",
+              "name": "Bn"
+            },
+            {
+              "value": "BO",
+              "name": "Bo"
+            },
+            {
+              "value": "BQ",
+              "name": "Bq"
+            },
+            {
+              "value": "BR",
+              "name": "Br"
+            },
+            {
+              "value": "BS",
+              "name": "Bs"
+            },
+            {
+              "value": "BT",
+              "name": "Bt"
+            },
+            {
+              "value": "BV",
+              "name": "Bv"
+            },
+            {
+              "value": "BW",
+              "name": "Bw"
+            },
+            {
+              "value": "BY",
+              "name": "By"
+            },
+            {
+              "value": "BZ",
+              "name": "Bz"
+            },
+            {
+              "value": "CA",
+              "name": "Ca"
+            },
+            {
+              "value": "CC",
+              "name": "Cc"
+            },
+            {
+              "value": "CD",
+              "name": "Cd"
+            },
+            {
+              "value": "CF",
+              "name": "Cf"
+            },
+            {
+              "value": "CG",
+              "name": "Cg"
+            },
+            {
+              "value": "CH",
+              "name": "Ch"
+            },
+            {
+              "value": "CI",
+              "name": "Ci"
+            },
+            {
+              "value": "CK",
+              "name": "Ck"
+            },
+            {
+              "value": "CL",
+              "name": "Cl"
+            },
+            {
+              "value": "CM",
+              "name": "Cm"
+            },
+            {
+              "value": "CN",
+              "name": "Cn"
+            },
+            {
+              "value": "CO",
+              "name": "Co"
+            },
+            {
+              "value": "CR",
+              "name": "Cr"
+            },
+            {
+              "value": "CU",
+              "name": "Cu"
+            },
+            {
+              "value": "CV",
+              "name": "Cv"
+            },
+            {
+              "value": "CW",
+              "name": "Cw"
+            },
+            {
+              "value": "CX",
+              "name": "Cx"
+            },
+            {
+              "value": "CY",
+              "name": "Cy"
+            },
+            {
+              "value": "CZ",
+              "name": "Cz"
+            },
+            {
+              "value": "DE",
+              "name": "De"
+            },
+            {
+              "value": "DJ",
+              "name": "Dj"
+            },
+            {
+              "value": "DK",
+              "name": "Dk"
+            },
+            {
+              "value": "DM",
+              "name": "Dm"
+            },
+            {
+              "value": "DO",
+              "name": "DoValue"
+            },
+            {
+              "value": "DZ",
+              "name": "Dz"
+            },
+            {
+              "value": "EC",
+              "name": "Ec"
+            },
+            {
+              "value": "EE",
+              "name": "Ee"
+            },
+            {
+              "value": "EG",
+              "name": "Eg"
+            },
+            {
+              "value": "EH",
+              "name": "Eh"
+            },
+            {
+              "value": "ER",
+              "name": "Er"
+            },
+            {
+              "value": "ES",
+              "name": "Es"
+            },
+            {
+              "value": "ET",
+              "name": "Et"
+            },
+            {
+              "value": "FI",
+              "name": "Fi"
+            },
+            {
+              "value": "FJ",
+              "name": "Fj"
+            },
+            {
+              "value": "FK",
+              "name": "Fk"
+            },
+            {
+              "value": "FM",
+              "name": "Fm"
+            },
+            {
+              "value": "FO",
+              "name": "Fo"
+            },
+            {
+              "value": "FR",
+              "name": "Fr"
+            },
+            {
+              "value": "GA",
+              "name": "Ga"
+            },
+            {
+              "value": "GB",
+              "name": "Gb"
+            },
+            {
+              "value": "GD",
+              "name": "Gd"
+            },
+            {
+              "value": "GE",
+              "name": "Ge"
+            },
+            {
+              "value": "GF",
+              "name": "Gf"
+            },
+            {
+              "value": "GG",
+              "name": "Gg"
+            },
+            {
+              "value": "GH",
+              "name": "Gh"
+            },
+            {
+              "value": "GI",
+              "name": "Gi"
+            },
+            {
+              "value": "GL",
+              "name": "Gl"
+            },
+            {
+              "value": "GM",
+              "name": "Gm"
+            },
+            {
+              "value": "GN",
+              "name": "Gn"
+            },
+            {
+              "value": "GP",
+              "name": "Gp"
+            },
+            {
+              "value": "GQ",
+              "name": "Gq"
+            },
+            {
+              "value": "GR",
+              "name": "Gr"
+            },
+            {
+              "value": "GS",
+              "name": "Gs"
+            },
+            {
+              "value": "GT",
+              "name": "Gt"
+            },
+            {
+              "value": "GU",
+              "name": "Gu"
+            },
+            {
+              "value": "GW",
+              "name": "Gw"
+            },
+            {
+              "value": "GY",
+              "name": "Gy"
+            },
+            {
+              "value": "HK",
+              "name": "Hk"
+            },
+            {
+              "value": "HM",
+              "name": "Hm"
+            },
+            {
+              "value": "HN",
+              "name": "Hn"
+            },
+            {
+              "value": "HR",
+              "name": "Hr"
+            },
+            {
+              "value": "HT",
+              "name": "Ht"
+            },
+            {
+              "value": "HU",
+              "name": "Hu"
+            },
+            {
+              "value": "ID",
+              "name": "Id"
+            },
+            {
+              "value": "IE",
+              "name": "Ie"
+            },
+            {
+              "value": "IL",
+              "name": "Il"
+            },
+            {
+              "value": "IM",
+              "name": "Im"
+            },
+            {
+              "value": "IN",
+              "name": "InValue"
+            },
+            {
+              "value": "IO",
+              "name": "Io"
+            },
+            {
+              "value": "IQ",
+              "name": "Iq"
+            },
+            {
+              "value": "IR",
+              "name": "Ir"
+            },
+            {
+              "value": "IS",
+              "name": "IsValue"
+            },
+            {
+              "value": "IT",
+              "name": "It"
+            },
+            {
+              "value": "JE",
+              "name": "Je"
+            },
+            {
+              "value": "JM",
+              "name": "Jm"
+            },
+            {
+              "value": "JO",
+              "name": "Jo"
+            },
+            {
+              "value": "JP",
+              "name": "Jp"
+            },
+            {
+              "value": "KE",
+              "name": "Ke"
+            },
+            {
+              "value": "KG",
+              "name": "Kg"
+            },
+            {
+              "value": "KH",
+              "name": "Kh"
+            },
+            {
+              "value": "KI",
+              "name": "Ki"
+            },
+            {
+              "value": "KM",
+              "name": "Km"
+            },
+            {
+              "value": "KN",
+              "name": "Kn"
+            },
+            {
+              "value": "KP",
+              "name": "Kp"
+            },
+            {
+              "value": "KR",
+              "name": "Kr"
+            },
+            {
+              "value": "KW",
+              "name": "Kw"
+            },
+            {
+              "value": "KY",
+              "name": "Ky"
+            },
+            {
+              "value": "KZ",
+              "name": "Kz"
+            },
+            {
+              "value": "LA",
+              "name": "La"
+            },
+            {
+              "value": "LB",
+              "name": "Lb"
+            },
+            {
+              "value": "LC",
+              "name": "Lc"
+            },
+            {
+              "value": "LI",
+              "name": "Li"
+            },
+            {
+              "value": "LK",
+              "name": "Lk"
+            },
+            {
+              "value": "LR",
+              "name": "Lr"
+            },
+            {
+              "value": "LS",
+              "name": "Ls"
+            },
+            {
+              "value": "LT",
+              "name": "Lt"
+            },
+            {
+              "value": "LU",
+              "name": "Lu"
+            },
+            {
+              "value": "LV",
+              "name": "Lv"
+            },
+            {
+              "value": "LY",
+              "name": "Ly"
+            },
+            {
+              "value": "MA",
+              "name": "Ma"
+            },
+            {
+              "value": "MC",
+              "name": "Mc"
+            },
+            {
+              "value": "MD",
+              "name": "Md"
+            },
+            {
+              "value": "ME",
+              "name": "Me"
+            },
+            {
+              "value": "MF",
+              "name": "Mf"
+            },
+            {
+              "value": "MG",
+              "name": "Mg"
+            },
+            {
+              "value": "MH",
+              "name": "Mh"
+            },
+            {
+              "value": "MK",
+              "name": "Mk"
+            },
+            {
+              "value": "ML",
+              "name": "Ml"
+            },
+            {
+              "value": "MM",
+              "name": "Mm"
+            },
+            {
+              "value": "MN",
+              "name": "Mn"
+            },
+            {
+              "value": "MO",
+              "name": "Mo"
+            },
+            {
+              "value": "MP",
+              "name": "Mp"
+            },
+            {
+              "value": "MQ",
+              "name": "Mq"
+            },
+            {
+              "value": "MR",
+              "name": "Mr"
+            },
+            {
+              "value": "MS",
+              "name": "Ms"
+            },
+            {
+              "value": "MT",
+              "name": "Mt"
+            },
+            {
+              "value": "MU",
+              "name": "Mu"
+            },
+            {
+              "value": "MV",
+              "name": "Mv"
+            },
+            {
+              "value": "MW",
+              "name": "Mw"
+            },
+            {
+              "value": "MX",
+              "name": "Mx"
+            },
+            {
+              "value": "MY",
+              "name": "My"
+            },
+            {
+              "value": "MZ",
+              "name": "Mz"
+            },
+            {
+              "value": "NA",
+              "name": "Na"
+            },
+            {
+              "value": "NC",
+              "name": "Nc"
+            },
+            {
+              "value": "NE",
+              "name": "Ne"
+            },
+            {
+              "value": "NF",
+              "name": "Nf"
+            },
+            {
+              "value": "NG",
+              "name": "Ng"
+            },
+            {
+              "value": "NI",
+              "name": "Ni"
+            },
+            {
+              "value": "NL",
+              "name": "Nl"
+            },
+            {
+              "value": "NO",
+              "name": "No"
+            },
+            {
+              "value": "NP",
+              "name": "Np"
+            },
+            {
+              "value": "NR",
+              "name": "Nr"
+            },
+            {
+              "value": "NU",
+              "name": "Nu"
+            },
+            {
+              "value": "NZ",
+              "name": "Nz"
+            },
+            {
+              "value": "OM",
+              "name": "Om"
+            },
+            {
+              "value": "PA",
+              "name": "Pa"
+            },
+            {
+              "value": "PE",
+              "name": "Pe"
+            },
+            {
+              "value": "PF",
+              "name": "Pf"
+            },
+            {
+              "value": "PG",
+              "name": "Pg"
+            },
+            {
+              "value": "PH",
+              "name": "Ph"
+            },
+            {
+              "value": "PK",
+              "name": "Pk"
+            },
+            {
+              "value": "PL",
+              "name": "Pl"
+            },
+            {
+              "value": "PM",
+              "name": "Pm"
+            },
+            {
+              "value": "PN",
+              "name": "Pn"
+            },
+            {
+              "value": "PR",
+              "name": "Pr"
+            },
+            {
+              "value": "PS",
+              "name": "Ps"
+            },
+            {
+              "value": "PT",
+              "name": "Pt"
+            },
+            {
+              "value": "PW",
+              "name": "Pw"
+            },
+            {
+              "value": "PY",
+              "name": "Py"
+            },
+            {
+              "value": "QA",
+              "name": "Qa"
+            },
+            {
+              "value": "RE",
+              "name": "Re"
+            },
+            {
+              "value": "RO",
+              "name": "Ro"
+            },
+            {
+              "value": "RS",
+              "name": "Rs"
+            },
+            {
+              "value": "RU",
+              "name": "Ru"
+            },
+            {
+              "value": "RW",
+              "name": "Rw"
+            },
+            {
+              "value": "SA",
+              "name": "Sa"
+            },
+            {
+              "value": "SB",
+              "name": "Sb"
+            },
+            {
+              "value": "SC",
+              "name": "Sc"
+            },
+            {
+              "value": "SD",
+              "name": "Sd"
+            },
+            {
+              "value": "SE",
+              "name": "Se"
+            },
+            {
+              "value": "SG",
+              "name": "Sg"
+            },
+            {
+              "value": "SH",
+              "name": "Sh"
+            },
+            {
+              "value": "SI",
+              "name": "Si"
+            },
+            {
+              "value": "SJ",
+              "name": "Sj"
+            },
+            {
+              "value": "SK",
+              "name": "Sk"
+            },
+            {
+              "value": "SL",
+              "name": "Sl"
+            },
+            {
+              "value": "SM",
+              "name": "Sm"
+            },
+            {
+              "value": "SN",
+              "name": "Sn"
+            },
+            {
+              "value": "SO",
+              "name": "So"
+            },
+            {
+              "value": "SR",
+              "name": "Sr"
+            },
+            {
+              "value": "SS",
+              "name": "Ss"
+            },
+            {
+              "value": "ST",
+              "name": "St"
+            },
+            {
+              "value": "SV",
+              "name": "Sv"
+            },
+            {
+              "value": "SX",
+              "name": "Sx"
+            },
+            {
+              "value": "SY",
+              "name": "Sy"
+            },
+            {
+              "value": "SZ",
+              "name": "Sz"
+            },
+            {
+              "value": "TC",
+              "name": "Tc"
+            },
+            {
+              "value": "TD",
+              "name": "Td"
+            },
+            {
+              "value": "TF",
+              "name": "Tf"
+            },
+            {
+              "value": "TG",
+              "name": "Tg"
+            },
+            {
+              "value": "TH",
+              "name": "Th"
+            },
+            {
+              "value": "TJ",
+              "name": "Tj"
+            },
+            {
+              "value": "TK",
+              "name": "Tk"
+            },
+            {
+              "value": "TL",
+              "name": "Tl"
+            },
+            {
+              "value": "TM",
+              "name": "Tm"
+            },
+            {
+              "value": "TN",
+              "name": "Tn"
+            },
+            {
+              "value": "TO",
+              "name": "To"
+            },
+            {
+              "value": "TR",
+              "name": "Tr"
+            },
+            {
+              "value": "TT",
+              "name": "Tt"
+            },
+            {
+              "value": "TV",
+              "name": "Tv"
+            },
+            {
+              "value": "TW",
+              "name": "Tw"
+            },
+            {
+              "value": "TZ",
+              "name": "Tz"
+            },
+            {
+              "value": "UA",
+              "name": "Ua"
+            },
+            {
+              "value": "UG",
+              "name": "Ug"
+            },
+            {
+              "value": "UM",
+              "name": "Um"
+            },
+            {
+              "value": "US",
+              "name": "Us"
+            },
+            {
+              "value": "UY",
+              "name": "Uy"
+            },
+            {
+              "value": "UZ",
+              "name": "Uz"
+            },
+            {
+              "value": "VA",
+              "name": "Va"
+            },
+            {
+              "value": "VC",
+              "name": "Vc"
+            },
+            {
+              "value": "VE",
+              "name": "Ve"
+            },
+            {
+              "value": "VG",
+              "name": "Vg"
+            },
+            {
+              "value": "VI",
+              "name": "Vi"
+            },
+            {
+              "value": "VN",
+              "name": "Vn"
+            },
+            {
+              "value": "VU",
+              "name": "Vu"
+            },
+            {
+              "value": "WF",
+              "name": "Wf"
+            },
+            {
+              "value": "WS",
+              "name": "Ws"
+            },
+            {
+              "value": "XK",
+              "name": "Xk"
+            },
+            {
+              "value": "YE",
+              "name": "Ye"
+            },
+            {
+              "value": "YT",
+              "name": "Yt"
+            },
+            {
+              "value": "ZA",
+              "name": "Za"
+            },
+            {
+              "value": "ZM",
+              "name": "Zm"
+            },
+            {
+              "value": "ZW",
+              "name": "Zw"
+            }
+          ]
+        }
+      },
+      "UploadDocumentFormDataRequestContext": {
+        "enum": [
+          "front",
+          "back",
+          "live",
+          "pdf"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "description": "The \u0060front\u0060 or \u0060back\u0060 of the document, or \u0060live\u0060 for selfie. Use \u0060pdf\u0060 for PDF files.",
+        "x-ms-enum": {
+          "name": "UploadDocumentFormDataRequestContext",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "front",
+              "name": "Front"
+            },
+            {
+              "value": "back",
+              "name": "Back"
+            },
+            {
+              "value": "live",
+              "name": "Live"
+            },
+            {
+              "value": "pdf",
+              "name": "Pdf"
+            }
+          ]
+        }
+      },
+      "VerifyTransaction202ResponseStatus": {
+        "enum": [
+          "PENDING_RESULT"
+        ],
+        "type": "string",
+        "additionalProperties": false,
+        "x-ms-enum": {
+          "name": "VerifyTransaction202ResponseStatus",
+          "modelAsString": false,
+          "values": [
+            {
+              "value": "PENDING_RESULT",
+              "name": "PendingResult"
+            }
+          ]
+        }
       }
     },
     "responses": {
@@ -1917,30 +3740,23 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "messsage": {
-                  "type": "string",
-                  "default": "Make sure your request is formatted correctly."
-                }
-              }
+              "$ref": "#/components/schemas/BadRequestResponse"
             }
           }
         }
       },
       "UnauthorizedError": {
-        "description": "\"Unauthorized \n \n `default`: Jwt is expired\"",
+        "description": "\u0022Unauthorized \n \n \u0060default\u0060: Jwt is expired\u0022",
         "content": {
           "text/plain": {
             "schema": {
-              "type": "string",
-              "default": "Jwt is expired"
+              "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContent"
             }
           }
         }
       },
       "ForbiddenError": {
-        "description": "\"Forbidden \n \n `default`: Access Denied\"",
+        "description": "\u0022Forbidden \n \n \u0060default\u0060: Access Denied\u0022",
         "headers": {
           "Accept-Version": {
             "description": "API Version of the response",
@@ -1952,8 +3768,7 @@
         "content": {
           "text/plain": {
             "schema": {
-              "type": "string",
-              "default": "Access Denied"
+              "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContent"
             }
           }
         }
@@ -1971,13 +3786,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "default": "Check if the transactionId is correct."
-                }
-              }
+              "$ref": "#/components/schemas/NotFoundResponse"
             }
           }
         }
@@ -1995,20 +3804,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "enum": [
-                    "Front image missing. Make sure the front image is available.",
-                    "Back image missing. Make sure the back image is available.",
-                    "Face image missing. Make sure the selfie image is available.",
-                    "Document not fully in frame.",
-                    "Face not fully in frame."
-                  ],
-                  "type": "string",
-                  "additionalProperties": false
-                }
-              }
+              "$ref": "#/components/schemas/UnProcessableEntityResponse"
             }
           }
         }
@@ -2026,13 +3822,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "default": "The server encountered an error. Please email us at support@trulioo.com."
-                }
-              }
+              "$ref": "#/components/schemas/InternalErrorResponse"
             }
           }
         }
@@ -2050,13 +3840,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "default": "Service is currently not available. Please try again."
-                }
-              }
+              "$ref": "#/components/schemas/ServiceUnavailableResponse"
             }
           }
         }
@@ -2093,7 +3877,7 @@
   },
   "security": [
     {
-      "AccessToken": [ ]
+      "AccessToken": []
     }
   ],
   "tags": [

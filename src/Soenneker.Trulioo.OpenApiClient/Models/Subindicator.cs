@@ -15,7 +15,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The code property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator_code? Code { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.SubindicatorCode? Code { get; set; }
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,7 +25,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The result property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator_result? Result { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.SubindicatorResult? Result { get; set; }
         /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,9 +59,9 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator_code>(); } },
+                { "code", n => { Code = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.SubindicatorCode>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator_result>(); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.SubindicatorResult>(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -72,9 +72,9 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator_code>("code", Code);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.SubindicatorCode>("code", Code);
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator_result>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.SubindicatorResult>("result", Result);
             writer.WriteStringValue("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }

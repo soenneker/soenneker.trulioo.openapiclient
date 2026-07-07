@@ -71,7 +71,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public global::Soenneker.Trulioo.OpenApiClient.Models.Person Person { get; set; }
 #endif
         /// <summary>The decision of the verification.</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse_status? Status { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus? Status { get; set; }
         /// <summary>Date and time (ISO 8601) when the transaction took place.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -120,7 +120,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
                 { "indicators", n => { Indicators = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator>(global::Soenneker.Trulioo.OpenApiClient.Models.Indicator.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "matcherResults", n => { MatcherResults = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult>(global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "person", n => { Person = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.Person>(global::Soenneker.Trulioo.OpenApiClient.Models.Person.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus>(); } },
                 { "timeOfTransaction", n => { TimeOfTransaction = n.GetStringValue(); } },
                 { "transactionId", n => { TransactionId = n.GetStringValue(); } },
             };
@@ -139,7 +139,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator>("indicators", Indicators);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult>("matcherResults", MatcherResults);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.Person>("person", Person);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus>("status", Status);
             writer.WriteStringValue("timeOfTransaction", TimeOfTransaction);
             writer.WriteStringValue("transactionId", TransactionId);
             writer.WriteAdditionalData(AdditionalData);

@@ -29,6 +29,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public TransactionConfigurationDocumentLivenessOptions()
         {
             AdditionalData = new Dictionary<string, object>();
+            SkipAlreadyCropped = false;
+            SkipPortraitSubstitution = false;
+            SkipPrintout = false;
+            SkipScreenUsed = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

@@ -23,9 +23,9 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii Pii { get; set; }
 #endif
         /// <summary>The precision property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken_precision? Precision { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision? Precision { get; set; }
         /// <summary>The token property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken_token? Token { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken? Token { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken"/> and sets the default values.
         /// </summary>
@@ -52,8 +52,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "pii", n => { Pii = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii>(global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii.CreateFromDiscriminatorValue); } },
-                { "precision", n => { Precision = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken_precision>(); } },
-                { "token", n => { Token = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken_token>(); } },
+                { "precision", n => { Precision = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision>(); } },
+                { "token", n => { Token = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken>(); } },
             };
         }
         /// <summary>
@@ -64,8 +64,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii>("pii", Pii);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken_precision>("precision", Precision);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken_token>("token", Token);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision>("precision", Precision);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken>("token", Token);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

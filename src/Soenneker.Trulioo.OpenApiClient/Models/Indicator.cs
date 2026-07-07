@@ -23,7 +23,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public string Description { get; set; }
 #endif
         /// <summary>The result property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Indicator_result? Result { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.IndicatorResult? Result { get; set; }
         /// <summary>The score property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public List<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator> Subindicators { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Indicator_type? Type { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.IndicatorType? Type { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.Indicator"/> and sets the default values.
         /// </summary>
@@ -68,10 +68,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator_result>(); } },
+                { "result", n => { Result = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.IndicatorResult>(); } },
                 { "score", n => { Score = n.GetStringValue(); } },
                 { "subindicators", n => { Subindicators = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator>(global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator_type>(); } },
+                { "type", n => { Type = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.IndicatorType>(); } },
             };
         }
         /// <summary>
@@ -82,10 +82,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator_result>("result", Result);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.IndicatorResult>("result", Result);
             writer.WriteStringValue("score", Score);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.Subindicator>("subindicators", Subindicators);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator_type>("type", Type);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.IndicatorType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

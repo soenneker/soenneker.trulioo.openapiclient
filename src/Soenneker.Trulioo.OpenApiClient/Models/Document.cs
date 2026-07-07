@@ -119,7 +119,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public string DocumentNumber4 { get; set; }
 #endif
         /// <summary>Type of the identification document provided.</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Document_documentType? DocumentType { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.DocumentDocumentType? DocumentType { get; set; }
         /// <summary>Date at which document will or has expired.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -206,7 +206,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
                 { "documentNumber2", n => { DocumentNumber2 = n.GetStringValue(); } },
                 { "documentNumber3", n => { DocumentNumber3 = n.GetStringValue(); } },
                 { "documentNumber4", n => { DocumentNumber4 = n.GetStringValue(); } },
-                { "documentType", n => { DocumentType = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Document_documentType>(); } },
+                { "documentType", n => { DocumentType = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.DocumentDocumentType>(); } },
                 { "expirationDate", n => { ExpirationDate = n.GetStringValue(); } },
                 { "issueDate", n => { IssueDate = n.GetStringValue(); } },
                 { "jurisdictionCode", n => { JurisdictionCode = n.GetStringValue(); } },
@@ -235,7 +235,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteStringValue("documentNumber2", DocumentNumber2);
             writer.WriteStringValue("documentNumber3", DocumentNumber3);
             writer.WriteStringValue("documentNumber4", DocumentNumber4);
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.Document_documentType>("documentType", DocumentType);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.DocumentDocumentType>("documentType", DocumentType);
             writer.WriteStringValue("expirationDate", ExpirationDate);
             writer.WriteStringValue("issueDate", IssueDate);
             writer.WriteStringValue("jurisdictionCode", JurisdictionCode);

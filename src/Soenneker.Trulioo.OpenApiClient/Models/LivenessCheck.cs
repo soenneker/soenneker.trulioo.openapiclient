@@ -15,7 +15,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The calibration property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck_calibration? Calibration { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheckCalibration? Calibration { get; set; }
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
         /// <summary>
@@ -24,7 +24,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public LivenessCheck()
         {
             AdditionalData = new Dictionary<string, object>();
-            Calibration = global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck_calibration.MEDIUM;
+            Enabled = true;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,7 +44,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "calibration", n => { Calibration = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck_calibration>(); } },
+                { "calibration", n => { Calibration = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheckCalibration>(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck_calibration>("calibration", Calibration);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheckCalibration>("calibration", Calibration);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteAdditionalData(AdditionalData);
         }

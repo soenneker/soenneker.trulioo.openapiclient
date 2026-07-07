@@ -36,10 +36,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>List of permissible document types combined with document issuing countries and states or provinces. An empty array will result in accepting all countries and all document types for the verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification_documentsAccepted>? DocumentsAccepted { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem>? DocumentsAccepted { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification_documentsAccepted> DocumentsAccepted { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem> DocumentsAccepted { get; set; }
 #endif
         /// <summary>Enables/disables document verification</summary>
         public bool? Enabled { get; set; }
@@ -49,6 +49,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public TransactionConfigurationDocumentVerification()
         {
             AdditionalData = new Dictionary<string, object>();
+            AcceptFrontImageOnly = false;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -71,7 +72,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
                 { "acceptFrontImageOnly", n => { AcceptFrontImageOnly = n.GetBoolValue(); } },
                 { "acceptList", n => { AcceptList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "denyList", n => { DenyList = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "documentsAccepted", n => { DocumentsAccepted = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification_documentsAccepted>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification_documentsAccepted.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "documentsAccepted", n => { DocumentsAccepted = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
             };
         }
@@ -85,7 +86,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteBoolValue("acceptFrontImageOnly", AcceptFrontImageOnly);
             writer.WriteCollectionOfPrimitiveValues<string>("acceptList", AcceptList);
             writer.WriteCollectionOfPrimitiveValues<string>("denyList", DenyList);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification_documentsAccepted>("documentsAccepted", DocumentsAccepted);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem>("documentsAccepted", DocumentsAccepted);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteAdditionalData(AdditionalData);
         }

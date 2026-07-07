@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "1CFDB600956BD7957546B74F582A07F80923FD34C353C1E5A6BB4F33ACE3F5BD4348FEFD374CAEDA90BF190DDEADD2C2622A50FD518A17A8D92979E723A70AAC",
+  "descriptionHash": "6161977569575AC26ACF8D5B523052AEF4223C2CCFF1577EE5BE84B7AFFDE42A689AE4741EA8BD405777AF22D428D0698A02DF153231095D11F18C9AAC055C5B",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.31.1",
+  "kiotaVersion": "1.33.0",
   "clientClassName": "TruliooOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Trulioo.OpenApiClient",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }

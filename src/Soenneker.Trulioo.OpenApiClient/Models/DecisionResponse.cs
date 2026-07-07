@@ -15,7 +15,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The status property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse_status? Status { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponseStatus? Status { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse"/> and sets the default values.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse_status>(); } },
+                { "status", n => { Status = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponseStatus>(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse_status>("status", Status);
+            writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponseStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

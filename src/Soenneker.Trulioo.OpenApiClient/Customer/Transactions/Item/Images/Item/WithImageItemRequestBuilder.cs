@@ -39,9 +39,9 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Item.Images.Item
         /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse500Error">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -54,9 +54,9 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Item.Images.Item
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse400Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse404Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse500Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

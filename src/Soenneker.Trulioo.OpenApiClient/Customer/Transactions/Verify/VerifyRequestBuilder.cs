@@ -39,11 +39,11 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
         /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse400Error">When receiving a 400 status code</exception>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse404Error">When receiving a 404 status code</exception>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse422Error">When receiving a 422 status code</exception>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse500Error">When receiving a 500 status code</exception>
-        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse503Error">When receiving a 503 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponse">When receiving a 422 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse">When receiving a 500 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.ServiceUnavailableResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -56,11 +56,11 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
             var requestInfo = ToPostRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "400", global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse400Error.CreateFromDiscriminatorValue },
-                { "404", global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse404Error.CreateFromDiscriminatorValue },
-                { "422", global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse422Error.CreateFromDiscriminatorValue },
-                { "500", global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse500Error.CreateFromDiscriminatorValue },
-                { "503", global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse503Error.CreateFromDiscriminatorValue },
+                { "400", global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "404", global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
+                { "422", global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponse.CreateFromDiscriminatorValue },
+                { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
+                { "503", global::Soenneker.Trulioo.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

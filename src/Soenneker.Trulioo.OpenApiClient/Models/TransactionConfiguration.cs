@@ -49,10 +49,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>Matcher configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_matcherConfigs>? MatcherConfigs { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem>? MatcherConfigs { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_matcherConfigs> MatcherConfigs { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem> MatcherConfigs { get; set; }
 #endif
         /// <summary>Selfie liveness verification configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,10 +73,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>List of Customer Input Personal Identification Information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_subjectInfoList>? SubjectInfoList { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfoListItem>? SubjectInfoList { get; set; }
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_subjectInfoList> SubjectInfoList { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfoListItem> SubjectInfoList { get; set; }
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration"/> and sets the default values.
@@ -107,10 +107,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
                 { "documentLivenessOptions", n => { DocumentLivenessOptions = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions.CreateFromDiscriminatorValue); } },
                 { "documentVerification", n => { DocumentVerification = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification.CreateFromDiscriminatorValue); } },
                 { "faceMatchVerification", n => { FaceMatchVerification = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationFaceMatchVerification>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationFaceMatchVerification.CreateFromDiscriminatorValue); } },
-                { "matcherConfigs", n => { MatcherConfigs = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_matcherConfigs>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_matcherConfigs.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "matcherConfigs", n => { MatcherConfigs = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "selfieVerification", n => { SelfieVerification = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification.CreateFromDiscriminatorValue); } },
                 { "subjectInfo", n => { SubjectInfo = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfo>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfo.CreateFromDiscriminatorValue); } },
-                { "subjectInfoList", n => { SubjectInfoList = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_subjectInfoList>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_subjectInfoList.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "subjectInfoList", n => { SubjectInfoList = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfoListItem>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfoListItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -124,10 +124,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions>("documentLivenessOptions", DocumentLivenessOptions);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification>("documentVerification", DocumentVerification);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationFaceMatchVerification>("faceMatchVerification", FaceMatchVerification);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_matcherConfigs>("matcherConfigs", MatcherConfigs);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem>("matcherConfigs", MatcherConfigs);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSelfieVerification>("selfieVerification", SelfieVerification);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfo>("subjectInfo", SubjectInfo);
-            writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfiguration_subjectInfoList>("subjectInfoList", SubjectInfoList);
+            writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationSubjectInfoListItem>("subjectInfoList", SubjectInfoList);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
