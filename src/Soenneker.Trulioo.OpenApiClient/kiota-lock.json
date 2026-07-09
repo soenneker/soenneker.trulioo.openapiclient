@@ -2,7 +2,7 @@
   "descriptionHash": "6161977569575AC26ACF8D5B523052AEF4223C2CCFF1577EE5BE84B7AFFDE42A689AE4741EA8BD405777AF22D428D0698A02DF153231095D11F18C9AAC055C5B",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.33.0",
+  "kiotaVersion": "1.34.0",
   "clientClassName": "TruliooOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Trulioo.OpenApiClient",
