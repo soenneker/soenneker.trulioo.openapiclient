@@ -622,6 +622,18 @@
             "type": "string",
             "description": "Last name of spouse",
             "example": "Smith"
+          },
+          "estimatedMinAge": {
+            "type": "integer",
+            "description": "Minimum estimated age. Null when age estimation did not run; 0 when it ran but errored.",
+            "nullable": true,
+            "example": 23
+          },
+          "estimatedMaxAge": {
+            "type": "integer",
+            "description": "Maximum estimated age. Null when age estimation did not run; 0 when it ran but errored.",
+            "nullable": true,
+            "example": 25
           }
         }
       },

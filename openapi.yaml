@@ -725,6 +725,20 @@ components:
           type: string
           description: Last name of spouse
           example: Smith
+        estimatedMinAge:
+          type: integer
+          nullable: true
+          description: >-
+            Minimum estimated age. Null when age estimation did not run; 0 when
+            it ran but errored.
+          example: 23
+        estimatedMaxAge:
+          type: integer
+          nullable: true
+          description: >-
+            Maximum estimated age. Null when age estimation did not run; 0 when
+            it ran but errored.
+          example: 25
     Document:
       title: Document
       type: object

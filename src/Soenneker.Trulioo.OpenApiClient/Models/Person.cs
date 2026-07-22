@@ -94,6 +94,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 #else
         public string DateOfBirth { get; set; }
 #endif
+        /// <summary>Maximum estimated age. Null when age estimation did not run; 0 when it ran but errored.</summary>
+        public int? EstimatedMaxAge { get; set; }
+        /// <summary>Minimum estimated age. Null when age estimation did not run; 0 when it ran but errored.</summary>
+        public int? EstimatedMinAge { get; set; }
         /// <summary>The firstLastName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -225,6 +229,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
                 { "alternateSecondLastname", n => { AlternateSecondLastname = n.GetStringValue(); } },
                 { "birthLastName", n => { BirthLastName = n.GetStringValue(); } },
                 { "dateOfBirth", n => { DateOfBirth = n.GetStringValue(); } },
+                { "estimatedMaxAge", n => { EstimatedMaxAge = n.GetIntValue(); } },
+                { "estimatedMinAge", n => { EstimatedMinAge = n.GetIntValue(); } },
                 { "firstLastName", n => { FirstLastName = n.GetStringValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "fullName", n => { FullName = n.GetStringValue(); } },
@@ -256,6 +262,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteStringValue("alternateSecondLastname", AlternateSecondLastname);
             writer.WriteStringValue("birthLastName", BirthLastName);
             writer.WriteStringValue("dateOfBirth", DateOfBirth);
+            writer.WriteIntValue("estimatedMaxAge", EstimatedMaxAge);
+            writer.WriteIntValue("estimatedMinAge", EstimatedMinAge);
             writer.WriteStringValue("firstLastName", FirstLastName);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("fullName", FullName);
