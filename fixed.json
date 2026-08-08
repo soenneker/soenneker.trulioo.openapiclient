@@ -756,7 +756,7 @@
           },
           "score": {
             "type": "string",
-            "example": 90
+            "example": "90"
           },
           "subindicators": {
             "type": "array",
@@ -1441,7 +1441,7 @@
             "type": "array",
             "items": {
               "type": "string",
-              "example": 2018
+              "example": "2018"
             },
             "description": "This configuration is currently unsupported, any values will be ignored.",
             "default": []
