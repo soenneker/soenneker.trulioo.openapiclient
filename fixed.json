@@ -44,6 +44,14 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -88,6 +96,14 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -134,11 +150,20 @@
                 "$ref": "#/components/schemas/TransactionConfiguration"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
             "description": "Created",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -188,11 +213,20 @@
                 "$ref": "#/components/schemas/UploadDocumentFormDataRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
             "description": "Upload result",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -238,6 +272,14 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -310,6 +352,14 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version of the response",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -362,6 +412,14 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version of the response",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -1199,7 +1257,7 @@
             "default": false
           }
         },
-        "description": "\u0022Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM, HIGH].\u0022"
+        "description": "Document liveness check configuration (NOTE: If set, this config overrides documentLivenessOptions). Supported Calibrations: Screen Used=[MEDIUM, HIGH], Printout=[MEDIUM, HIGH] Portrait Substitution=[MEDIUM, HIGH], Digital Manipulation=[LOW, MEDIUM, HIGH]."
       },
       "TransactionConfigurationMatcherConfigsItem": {
         "type": "object",
@@ -1538,7 +1596,7 @@
         "type": "object",
         "properties": {
           "status": {
-            "$ref": "#/components/schemas/VerifyTransaction202ResponseStatus"
+            "$ref": "#/components/schemas/PendingResultStatus"
           }
         }
       },
@@ -1649,7 +1707,8 @@
           "UNKNOWN",
           "UNSUPPORTED",
           "NOT_STARTED",
-          "ERROR"
+          "ERROR",
+          ""
         ],
         "type": "string",
         "additionalProperties": false,
@@ -3720,14 +3779,14 @@
           ]
         }
       },
-      "VerifyTransaction202ResponseStatus": {
+      "PendingResultStatus": {
         "enum": [
           "PENDING_RESULT"
         ],
         "type": "string",
         "additionalProperties": false,
         "x-ms-enum": {
-          "name": "VerifyTransaction202ResponseStatus",
+          "name": "PendingResultStatus",
           "modelAsString": false,
           "values": [
             {
@@ -3758,7 +3817,7 @@
         }
       },
       "UnauthorizedError": {
-        "description": "\u0022Unauthorized \n \n \u0060default\u0060: Jwt is expired\u0022",
+        "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
         "content": {
           "text/plain": {
             "schema": {
@@ -3768,7 +3827,7 @@
         }
       },
       "ForbiddenError": {
-        "description": "\u0022Forbidden \n \n \u0060default\u0060: Access Denied\u0022",
+        "description": "Forbidden \n \n \u0060default\u0060: Access Denied",
         "headers": {
           "Accept-Version": {
             "description": "API Version of the response",
@@ -3878,12 +3937,6 @@
         "description": "JWT token of type access with image IDs",
         "name": "authorization",
         "in": "query"
-      },
-      "assets_jwt": {
-        "type": "http",
-        "description": "JWT used for assets upload",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
       }
     }
   },
