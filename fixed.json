@@ -3817,7 +3817,7 @@
         }
       },
       "UnauthorizedError": {
-        "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+        "description": "Unauthorized \n\n \u0060default\u0060: Jwt is expired",
         "content": {
           "text/plain": {
             "schema": {
@@ -3827,7 +3827,7 @@
         }
       },
       "ForbiddenError": {
-        "description": "Forbidden \n \n \u0060default\u0060: Access Denied",
+        "description": "Forbidden \n\n \u0060default\u0060: Access Denied",
         "headers": {
           "Accept-Version": {
             "description": "API Version of the response",
