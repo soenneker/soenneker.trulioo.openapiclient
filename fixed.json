@@ -975,7 +975,8 @@
           },
           "tokenType": {
             "type": "string",
-            "description": "The type of the token."
+            "description": "The type of the token.",
+            "default": ""
           },
           "expiresIn": {
             "type": "number",
@@ -1028,7 +1029,67 @@
               "$ref": "#/components/schemas/TransactionConfigurationMatcherConfigsItem"
             },
             "description": "Matcher configuration",
-            "default": []
+            "default": [],
+            "example": [
+              {
+                "matchers": [
+                  {
+                    "token": "FIRST_NAME",
+                    "precision": "HIGH_PARTIAL_MATCH",
+                    "strategy": {
+                      "transliterationMatch": {
+                        "enabled": false
+                      },
+                      "tokenMatch": {
+                        "enabled": false,
+                        "tokenSimilarityThreshold": 0.75
+                      },
+                      "basicFuzzyMatch": {
+                        "enabled": true
+                      }
+                    }
+                  },
+                  {
+                    "token": "LAST_NAME",
+                    "precision": "EXACT_MATCH",
+                    "strategy": {
+                      "transliterationMatch": {
+                        "enabled": false
+                      },
+                      "tokenMatch": {
+                        "enabled": false,
+                        "tokenSimilarityThreshold": 0.75
+                      },
+                      "basicFuzzyMatch": {
+                        "enabled": true
+                      }
+                    }
+                  }
+                ],
+                "active": true
+              },
+              {
+                "matchers": [
+                  {
+                    "token": "MIDDLE_NAME",
+                    "precision": "HIGH_PARTIAL_MATCH",
+                    "strategy": {
+                      "transliterationMatch": {
+                        "enabled": false
+                      },
+                      "tokenMatch": {
+                        "enabled": false,
+                        "tokenSimilarityThreshold": 0.75
+                      },
+                      "basicFuzzyMatch": {
+                        "enabled": true
+                      }
+                    }
+                  }
+                ],
+                "active": false
+              }
+            ]
           },
           "subjectInfo": {
             "$ref": "#/components/schemas/TransactionConfigurationSubjectInfo"
@@ -1039,7 +1100,33 @@
               "$ref": "#/components/schemas/TransactionConfigurationSubjectInfoListItem"
             },
             "description": "List of Customer Input Personal Identification Information",
-            "default": []
+            "default": [],
+            "example": [
+              {
+                "firstName": "John1",
+                "middleName": "Smith",
+                "lastName": "Doe",
+                "fullName": "John Smith Doe",
+                "dateOfBirth": "YYYY-MM-DD",
+                "addressLine1": "123 Main Street1",
+                "stateProvince": "BC",
+                "city": "Vancouver",
+                "postalCode": "V5V 0A0",
+                "country": "CA"
+              },
+              {
+                "firstName": "John2",
+                "middleName": "Smith",
+                "lastName": "Doe",
+                "fullName": "John Smith Doe",
+                "dateOfBirth": "YYYY-MM-DD",
+                "addressLine1": "123 Main Street2",
+                "stateProvince": "BC",
+                "city": "Vancouver",
+                "postalCode": "V5V 0A0",
+                "country": "CA"
+              }
+            ]
           }
         }
       },
@@ -1160,7 +1247,23 @@
               "$ref": "#/components/schemas/TransactionConfigurationDocumentVerificationDocumentsAcceptedItem"
             },
             "description": "List of permissible document types combined with document issuing countries and states or provinces. An empty array will result in accepting all countries and all document types for the verification.",
-            "default": []
+            "default": [],
+            "example": [
+              {
+                "documentType": "DRIVERS_LICENSE",
+                "documentOrigin": [
+                  {
+                    "countryCode": "US",
+                    "jurisdictions": [
+                      {
+                        "jurisdictionCode": "CO",
+                        "years": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           "acceptFrontImageOnly": {
             "type": "boolean",
@@ -1173,7 +1276,11 @@
               "type": "string"
             },
             "description": "List of allowed Trulioo document IDs for bypass of territory and document type criteria outlined elsewhere in the documentsAccepted array. An empty array (or omitting this field) will result in no additional bypass behaviour for the verification.",
-            "default": []
+            "default": [],
+            "example": [
+              "1000",
+              "1001"
+            ]
           },
           "denyList": {
             "type": "array",
@@ -1181,7 +1288,11 @@
               "type": "string"
             },
             "description": "List of unacceptable Trulioo document IDs for bypass of territory and document type criteria outlined elsewhere in the documentsAccepted array. An empty array (or omitting this field) will result in no additional bypass behaviour for the verification.",
-            "default": []
+            "default": [],
+            "example": [
+              "2000",
+              "2001"
+            ]
           }
         },
         "description": "Document verification configuration"
@@ -1605,10 +1716,12 @@
         "description": "Placeholder schema for path example refs"
       },
       "UnauthorizedErrorResponsePlainContent": {
-        "type": "string"
+        "type": "string",
+        "default": "Jwt is expired"
       },
       "ForbiddenErrorResponsePlainContent": {
-        "type": "string"
+        "type": "string",
+        "default": "Access Denied"
       },
       "DecisionResponseStatus": {
         "enum": [
@@ -1620,7 +1733,6 @@
           "PENDING_RESULT"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "DecisionResponseStatus",
           "modelAsString": false,
@@ -1661,7 +1773,6 @@
           "NO_RESULT"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The decision of the verification.",
         "example": "REVIEW",
         "x-ms-enum": {
@@ -1711,7 +1822,6 @@
           ""
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Type of the identification document provided.",
         "x-ms-enum": {
           "name": "DocumentDocumentType",
@@ -1787,7 +1897,6 @@
           "LIVENESS"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "DOCUMENT",
         "x-ms-enum": {
           "name": "IndicatorType",
@@ -1817,7 +1926,6 @@
           "NO_RESULT"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "REVIEW",
         "x-ms-enum": {
           "name": "IndicatorResult",
@@ -1855,7 +1963,6 @@
           "NO_RESULT"
         ],
         "type": "string",
-        "additionalProperties": false,
         "example": "REVIEW",
         "x-ms-enum": {
           "name": "SubindicatorResult",
@@ -1933,7 +2040,6 @@
           "OCR_MISSING"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "SubindicatorCode",
           "modelAsString": false,
@@ -2139,7 +2245,6 @@
           "BIRTH_LAST_NAME"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MatcherTokenToken",
           "modelAsString": false,
@@ -2212,7 +2317,6 @@
           "EXACT_MATCH"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "MatcherTokenPrecision",
           "modelAsString": false,
@@ -2247,7 +2351,6 @@
           "HIGH"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "LivenessCheckCalibration",
           "modelAsString": false,
@@ -2276,7 +2379,6 @@
           "Face not fully in frame."
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "UnProcessableEntityResponseMessage",
           "modelAsString": false,
@@ -2318,7 +2420,6 @@
           "TAX_ID"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Document type.",
         "example": "DRIVERS_LICENSE",
         "x-ms-enum": {
@@ -2386,7 +2487,6 @@
           "BIRTH_LAST_NAME"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "TransactionConfigurationMatcherConfigsItemMatchersItemToken",
           "modelAsString": false,
@@ -2459,7 +2559,6 @@
           "NO_MATCH"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "TransactionConfigurationMatcherConfigsItemMatchersItemPrecision",
           "modelAsString": false,
@@ -2740,7 +2839,6 @@
           "ZW"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "Country Code (ISO 3166-1 alpha-2 format)",
         "example": "CA",
         "x-ms-enum": {
@@ -3754,7 +3852,6 @@
           "pdf"
         ],
         "type": "string",
-        "additionalProperties": false,
         "description": "The \u0060front\u0060 or \u0060back\u0060 of the document, or \u0060live\u0060 for selfie. Use \u0060pdf\u0060 for PDF files.",
         "x-ms-enum": {
           "name": "UploadDocumentFormDataRequestContext",
@@ -3784,7 +3881,6 @@
           "PENDING_RESULT"
         ],
         "type": "string",
-        "additionalProperties": false,
         "x-ms-enum": {
           "name": "PendingResultStatus",
           "modelAsString": false,
