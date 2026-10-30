@@ -17,8 +17,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("jurisdictionCode") is { } nullNodeJurisdictionCode && nullNodeJurisdictionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JurisdictionCode = null;
-            if (parseNode.GetChildNode("years") is { } nullNodeYears && nullNodeYears.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Years = null;
+            if (parseNode.GetChildNode("jurisdictionCode") is null) { _explicitNullValueJurisdictionCode = default!; _explicitNullProperties?.Remove("jurisdictionCode"); }
+            else if (parseNode.GetChildNode("jurisdictionCode") is { } nullNodeJurisdictionCode && nullNodeJurisdictionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JurisdictionCode = null;
+            if (parseNode.GetChildNode("years") is null) { _explicitNullValueYears = default!; _explicitNullProperties?.Remove("years"); }
+            else if (parseNode.GetChildNode("years") is { } nullNodeYears && nullNodeYears.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Years = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>State or province code (ISO 3166-1 alpha-2 format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
+        public string? JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; AdditionalData?.Remove("jurisdictionCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
         private string? _explicitNullValueJurisdictionCode = default!;
 #nullable restore
 #else
-        public string JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
+        public string JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; AdditionalData?.Remove("jurisdictionCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
         private string _explicitNullValueJurisdictionCode = default!;
 #endif
         /// <summary>This configuration is currently unsupported, any values will be ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Years { get => _explicitNullValueYears; set { _explicitNullValueYears = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("years"); else _explicitNullProperties?.Remove("years"); } }
+        public List<string>? Years { get => _explicitNullValueYears; set { _explicitNullValueYears = value; AdditionalData?.Remove("years"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("years"); else _explicitNullProperties?.Remove("years"); } }
         private List<string>? _explicitNullValueYears = default!;
 #nullable restore
 #else
-        public List<string> Years { get => _explicitNullValueYears; set { _explicitNullValueYears = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("years"); else _explicitNullProperties?.Remove("years"); } }
+        public List<string> Years { get => _explicitNullValueYears; set { _explicitNullValueYears = value; AdditionalData?.Remove("years"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("years"); else _explicitNullProperties?.Remove("years"); } }
         private List<string> _explicitNullValueYears = default!;
 #endif
         /// <summary>

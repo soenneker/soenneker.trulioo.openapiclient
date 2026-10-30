@@ -17,7 +17,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("imageId") is { } nullNodeImageId && nullNodeImageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageId = null;
+            if (parseNode.GetChildNode("imageId") is null) { _explicitNullValueImageId = default!; _explicitNullProperties?.Remove("imageId"); }
+            else if (parseNode.GetChildNode("imageId") is { } nullNodeImageId && nullNodeImageId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ImageId = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -25,11 +26,11 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The identifier (UUID) of the uploaded image</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imageId"); else _explicitNullProperties?.Remove("imageId"); } }
+        public string? ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; AdditionalData?.Remove("imageId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imageId"); else _explicitNullProperties?.Remove("imageId"); } }
         private string? _explicitNullValueImageId = default!;
 #nullable restore
 #else
-        public string ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imageId"); else _explicitNullProperties?.Remove("imageId"); } }
+        public string ImageId { get => _explicitNullValueImageId; set { _explicitNullValueImageId = value; AdditionalData?.Remove("imageId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("imageId"); else _explicitNullProperties?.Remove("imageId"); } }
         private string _explicitNullValueImageId = default!;
 #endif
         /// <summary>

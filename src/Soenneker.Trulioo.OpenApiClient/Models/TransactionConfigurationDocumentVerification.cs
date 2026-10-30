@@ -18,24 +18,29 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("acceptFrontImageOnly") is { } nullNodeAcceptFrontImageOnly && nullNodeAcceptFrontImageOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptFrontImageOnly = null;
-            if (parseNode.GetChildNode("acceptList") is { } nullNodeAcceptList && nullNodeAcceptList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptList = null;
-            if (parseNode.GetChildNode("denyList") is { } nullNodeDenyList && nullNodeDenyList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DenyList = null;
-            if (parseNode.GetChildNode("documentsAccepted") is { } nullNodeDocumentsAccepted && nullNodeDocumentsAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentsAccepted = null;
-            if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
+            if (parseNode.GetChildNode("acceptFrontImageOnly") is null) { _explicitNullValueAcceptFrontImageOnly = default!; _explicitNullProperties?.Remove("acceptFrontImageOnly"); }
+            else if (parseNode.GetChildNode("acceptFrontImageOnly") is { } nullNodeAcceptFrontImageOnly && nullNodeAcceptFrontImageOnly.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptFrontImageOnly = null;
+            if (parseNode.GetChildNode("acceptList") is null) { _explicitNullValueAcceptList = default!; _explicitNullProperties?.Remove("acceptList"); }
+            else if (parseNode.GetChildNode("acceptList") is { } nullNodeAcceptList && nullNodeAcceptList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AcceptList = null;
+            if (parseNode.GetChildNode("denyList") is null) { _explicitNullValueDenyList = default!; _explicitNullProperties?.Remove("denyList"); }
+            else if (parseNode.GetChildNode("denyList") is { } nullNodeDenyList && nullNodeDenyList.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DenyList = null;
+            if (parseNode.GetChildNode("documentsAccepted") is null) { _explicitNullValueDocumentsAccepted = default!; _explicitNullProperties?.Remove("documentsAccepted"); }
+            else if (parseNode.GetChildNode("documentsAccepted") is { } nullNodeDocumentsAccepted && nullNodeDocumentsAccepted.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentsAccepted = null;
+            if (parseNode.GetChildNode("enabled") is null) { _explicitNullValueEnabled = default!; _explicitNullProperties?.Remove("enabled"); }
+            else if (parseNode.GetChildNode("enabled") is { } nullNodeEnabled && nullNodeEnabled.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Enabled = null;
         }
 
         /// <summary>Flag to determine the transaction is only focus on front image only</summary>
-        public bool? AcceptFrontImageOnly { get => _explicitNullValueAcceptFrontImageOnly; set { _explicitNullValueAcceptFrontImageOnly = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptFrontImageOnly"); else _explicitNullProperties?.Remove("acceptFrontImageOnly"); } }
+        public bool? AcceptFrontImageOnly { get => _explicitNullValueAcceptFrontImageOnly; set { _explicitNullValueAcceptFrontImageOnly = value; AdditionalData?.Remove("acceptFrontImageOnly"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptFrontImageOnly"); else _explicitNullProperties?.Remove("acceptFrontImageOnly"); } }
         private bool? _explicitNullValueAcceptFrontImageOnly = default!;
         /// <summary>List of allowed Trulioo document IDs for bypass of territory and document type criteria outlined elsewhere in the documentsAccepted array. An empty array (or omitting this field) will result in no additional bypass behaviour for the verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? AcceptList { get => _explicitNullValueAcceptList; set { _explicitNullValueAcceptList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptList"); else _explicitNullProperties?.Remove("acceptList"); } }
+        public List<string>? AcceptList { get => _explicitNullValueAcceptList; set { _explicitNullValueAcceptList = value; AdditionalData?.Remove("acceptList"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptList"); else _explicitNullProperties?.Remove("acceptList"); } }
         private List<string>? _explicitNullValueAcceptList = default!;
 #nullable restore
 #else
-        public List<string> AcceptList { get => _explicitNullValueAcceptList; set { _explicitNullValueAcceptList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptList"); else _explicitNullProperties?.Remove("acceptList"); } }
+        public List<string> AcceptList { get => _explicitNullValueAcceptList; set { _explicitNullValueAcceptList = value; AdditionalData?.Remove("acceptList"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("acceptList"); else _explicitNullProperties?.Remove("acceptList"); } }
         private List<string> _explicitNullValueAcceptList = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -43,25 +48,25 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>List of unacceptable Trulioo document IDs for bypass of territory and document type criteria outlined elsewhere in the documentsAccepted array. An empty array (or omitting this field) will result in no additional bypass behaviour for the verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? DenyList { get => _explicitNullValueDenyList; set { _explicitNullValueDenyList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("denyList"); else _explicitNullProperties?.Remove("denyList"); } }
+        public List<string>? DenyList { get => _explicitNullValueDenyList; set { _explicitNullValueDenyList = value; AdditionalData?.Remove("denyList"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("denyList"); else _explicitNullProperties?.Remove("denyList"); } }
         private List<string>? _explicitNullValueDenyList = default!;
 #nullable restore
 #else
-        public List<string> DenyList { get => _explicitNullValueDenyList; set { _explicitNullValueDenyList = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("denyList"); else _explicitNullProperties?.Remove("denyList"); } }
+        public List<string> DenyList { get => _explicitNullValueDenyList; set { _explicitNullValueDenyList = value; AdditionalData?.Remove("denyList"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("denyList"); else _explicitNullProperties?.Remove("denyList"); } }
         private List<string> _explicitNullValueDenyList = default!;
 #endif
         /// <summary>List of permissible document types combined with document issuing countries and states or provinces. An empty array will result in accepting all countries and all document types for the verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem>? DocumentsAccepted { get => _explicitNullValueDocumentsAccepted; set { _explicitNullValueDocumentsAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentsAccepted"); else _explicitNullProperties?.Remove("documentsAccepted"); } }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem>? DocumentsAccepted { get => _explicitNullValueDocumentsAccepted; set { _explicitNullValueDocumentsAccepted = value; AdditionalData?.Remove("documentsAccepted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentsAccepted"); else _explicitNullProperties?.Remove("documentsAccepted"); } }
         private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem>? _explicitNullValueDocumentsAccepted = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem> DocumentsAccepted { get => _explicitNullValueDocumentsAccepted; set { _explicitNullValueDocumentsAccepted = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentsAccepted"); else _explicitNullProperties?.Remove("documentsAccepted"); } }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem> DocumentsAccepted { get => _explicitNullValueDocumentsAccepted; set { _explicitNullValueDocumentsAccepted = value; AdditionalData?.Remove("documentsAccepted"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentsAccepted"); else _explicitNullProperties?.Remove("documentsAccepted"); } }
         private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem> _explicitNullValueDocumentsAccepted = default!;
 #endif
         /// <summary>Enables/disables document verification</summary>
-        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
+        public bool? Enabled { get => _explicitNullValueEnabled; set { _explicitNullValueEnabled = value; AdditionalData?.Remove("enabled"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("enabled"); else _explicitNullProperties?.Remove("enabled"); } }
         private bool? _explicitNullValueEnabled = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerification"/> and sets the default values.

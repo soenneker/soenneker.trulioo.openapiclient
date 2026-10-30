@@ -18,7 +18,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("message") is { } nullNodeMessageEscaped && nullNodeMessageEscaped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageEscaped = null;
+            if (parseNode.GetChildNode("message") is null) { _explicitNullValueMessageEscaped = default!; _explicitNullProperties?.Remove("message"); }
+            else if (parseNode.GetChildNode("message") is { } nullNodeMessageEscaped && nullNodeMessageEscaped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MessageEscaped = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,7 +27,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The primary error message.</summary>
         public override string Message { get => base.Message; }
         /// <summary>The message property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponseMessage? MessageEscaped { get => _explicitNullValueMessageEscaped; set { _explicitNullValueMessageEscaped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponseMessage? MessageEscaped { get => _explicitNullValueMessageEscaped; set { _explicitNullValueMessageEscaped = value; AdditionalData?.Remove("message"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("message"); else _explicitNullProperties?.Remove("message"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponseMessage? _explicitNullValueMessageEscaped = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponse"/> and sets the default values.
@@ -53,7 +54,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "message", n => { MessageEscaped = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponseMessage>(); } },
+                { "message", n => { var parsed = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponseMessage>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueMessageEscaped = default; _explicitNullProperties?.Remove("message"); AdditionalData["message"] = unknown; } else { MessageEscaped = parsed; AdditionalData.Remove("message"); } } },
             };
         }
         /// <summary>

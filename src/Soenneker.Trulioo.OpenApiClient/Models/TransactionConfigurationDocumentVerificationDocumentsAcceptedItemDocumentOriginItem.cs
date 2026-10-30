@@ -17,23 +17,25 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("countryCode") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
-            if (parseNode.GetChildNode("jurisdictions") is { } nullNodeJurisdictions && nullNodeJurisdictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jurisdictions = null;
+            if (parseNode.GetChildNode("countryCode") is null) { _explicitNullValueCountryCode = default!; _explicitNullProperties?.Remove("countryCode"); }
+            else if (parseNode.GetChildNode("countryCode") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("jurisdictions") is null) { _explicitNullValueJurisdictions = default!; _explicitNullProperties?.Remove("jurisdictions"); }
+            else if (parseNode.GetChildNode("jurisdictions") is { } nullNodeJurisdictions && nullNodeJurisdictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jurisdictions = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Country Code (ISO 3166-1 alpha-2 format)</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("countryCode"); else _explicitNullProperties?.Remove("countryCode"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; AdditionalData?.Remove("countryCode"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("countryCode"); else _explicitNullProperties?.Remove("countryCode"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode? _explicitNullValueCountryCode = default!;
         /// <summary>List of allowed states or provinces corresponding to a specified document type and its issuing country. This configuration applies exclusively to the United States and Canada and is applicable only to specific document types. To set the document type configuration solely at the country level, input an empty array as the jurisdiction value. When all jurisdictions are listed, the document must contain jurisdictional information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>? Jurisdictions { get => _explicitNullValueJurisdictions; set { _explicitNullValueJurisdictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictions"); else _explicitNullProperties?.Remove("jurisdictions"); } }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>? Jurisdictions { get => _explicitNullValueJurisdictions; set { _explicitNullValueJurisdictions = value; AdditionalData?.Remove("jurisdictions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictions"); else _explicitNullProperties?.Remove("jurisdictions"); } }
         private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>? _explicitNullValueJurisdictions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem> Jurisdictions { get => _explicitNullValueJurisdictions; set { _explicitNullValueJurisdictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictions"); else _explicitNullProperties?.Remove("jurisdictions"); } }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem> Jurisdictions { get => _explicitNullValueJurisdictions; set { _explicitNullValueJurisdictions = value; AdditionalData?.Remove("jurisdictions"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictions"); else _explicitNullProperties?.Remove("jurisdictions"); } }
         private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem> _explicitNullValueJurisdictions = default!;
 #endif
         /// <summary>
@@ -61,7 +63,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "countryCode", n => { CountryCode = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode>(); } },
+                { "countryCode", n => { var parsed = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueCountryCode = default; _explicitNullProperties?.Remove("countryCode"); AdditionalData["countryCode"] = unknown; } else { CountryCode = parsed; AdditionalData.Remove("countryCode"); } } },
                 { "jurisdictions", n => { Jurisdictions = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }

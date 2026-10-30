@@ -17,9 +17,12 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
-            if (parseNode.GetChildNode("matcherToken") is { } nullNodeMatcherToken && nullNodeMatcherToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatcherToken = null;
-            if (parseNode.GetChildNode("resultPrecision") is { } nullNodeResultPrecision && nullNodeResultPrecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultPrecision = null;
+            if (parseNode.GetChildNode("description") is null) { _explicitNullValueDescription = default!; _explicitNullProperties?.Remove("description"); }
+            else if (parseNode.GetChildNode("description") is { } nullNodeDescription && nullNodeDescription.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Description = null;
+            if (parseNode.GetChildNode("matcherToken") is null) { _explicitNullValueMatcherToken = default!; _explicitNullProperties?.Remove("matcherToken"); }
+            else if (parseNode.GetChildNode("matcherToken") is { } nullNodeMatcherToken && nullNodeMatcherToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatcherToken = null;
+            if (parseNode.GetChildNode("resultPrecision") is null) { _explicitNullValueResultPrecision = default!; _explicitNullProperties?.Remove("resultPrecision"); }
+            else if (parseNode.GetChildNode("resultPrecision") is { } nullNodeResultPrecision && nullNodeResultPrecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ResultPrecision = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,31 +30,31 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>Error message</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string? Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string? _explicitNullValueDescription = default!;
 #nullable restore
 #else
-        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
+        public string Description { get => _explicitNullValueDescription; set { _explicitNullValueDescription = value; AdditionalData?.Remove("description"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("description"); else _explicitNullProperties?.Remove("description"); } }
         private string _explicitNullValueDescription = default!;
 #endif
         /// <summary>The matcherToken property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken? MatcherToken { get => _explicitNullValueMatcherToken; set { _explicitNullValueMatcherToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matcherToken"); else _explicitNullProperties?.Remove("matcherToken"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken? MatcherToken { get => _explicitNullValueMatcherToken; set { _explicitNullValueMatcherToken = value; AdditionalData?.Remove("matcherToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matcherToken"); else _explicitNullProperties?.Remove("matcherToken"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken? _explicitNullValueMatcherToken = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken MatcherToken { get => _explicitNullValueMatcherToken; set { _explicitNullValueMatcherToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matcherToken"); else _explicitNullProperties?.Remove("matcherToken"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken MatcherToken { get => _explicitNullValueMatcherToken; set { _explicitNullValueMatcherToken = value; AdditionalData?.Remove("matcherToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matcherToken"); else _explicitNullProperties?.Remove("matcherToken"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken _explicitNullValueMatcherToken = default!;
 #endif
         /// <summary>The resultPrecision property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ResultPrecision { get => _explicitNullValueResultPrecision; set { _explicitNullValueResultPrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resultPrecision"); else _explicitNullProperties?.Remove("resultPrecision"); } }
+        public string? ResultPrecision { get => _explicitNullValueResultPrecision; set { _explicitNullValueResultPrecision = value; AdditionalData?.Remove("resultPrecision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resultPrecision"); else _explicitNullProperties?.Remove("resultPrecision"); } }
         private string? _explicitNullValueResultPrecision = default!;
 #nullable restore
 #else
-        public string ResultPrecision { get => _explicitNullValueResultPrecision; set { _explicitNullValueResultPrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resultPrecision"); else _explicitNullProperties?.Remove("resultPrecision"); } }
+        public string ResultPrecision { get => _explicitNullValueResultPrecision; set { _explicitNullValueResultPrecision = value; AdditionalData?.Remove("resultPrecision"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("resultPrecision"); else _explicitNullProperties?.Remove("resultPrecision"); } }
         private string _explicitNullValueResultPrecision = default!;
 #endif
         /// <summary>

@@ -18,9 +18,12 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("basicFuzzyMatch") is { } nullNodeBasicFuzzyMatch && nullNodeBasicFuzzyMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicFuzzyMatch = null;
-            if (parseNode.GetChildNode("tokenMatch") is { } nullNodeTokenMatch && nullNodeTokenMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenMatch = null;
-            if (parseNode.GetChildNode("transliterationMatch") is { } nullNodeTransliterationMatch && nullNodeTransliterationMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransliterationMatch = null;
+            if (parseNode.GetChildNode("basicFuzzyMatch") is null) { _explicitNullValueBasicFuzzyMatch = default!; _explicitNullProperties?.Remove("basicFuzzyMatch"); }
+            else if (parseNode.GetChildNode("basicFuzzyMatch") is { } nullNodeBasicFuzzyMatch && nullNodeBasicFuzzyMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BasicFuzzyMatch = null;
+            if (parseNode.GetChildNode("tokenMatch") is null) { _explicitNullValueTokenMatch = default!; _explicitNullProperties?.Remove("tokenMatch"); }
+            else if (parseNode.GetChildNode("tokenMatch") is { } nullNodeTokenMatch && nullNodeTokenMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TokenMatch = null;
+            if (parseNode.GetChildNode("transliterationMatch") is null) { _explicitNullValueTransliterationMatch = default!; _explicitNullProperties?.Remove("transliterationMatch"); }
+            else if (parseNode.GetChildNode("transliterationMatch") is { } nullNodeTransliterationMatch && nullNodeTransliterationMatch.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransliterationMatch = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,31 +31,31 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The basicFuzzyMatch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch? BasicFuzzyMatch { get => _explicitNullValueBasicFuzzyMatch; set { _explicitNullValueBasicFuzzyMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basicFuzzyMatch"); else _explicitNullProperties?.Remove("basicFuzzyMatch"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch? BasicFuzzyMatch { get => _explicitNullValueBasicFuzzyMatch; set { _explicitNullValueBasicFuzzyMatch = value; AdditionalData?.Remove("basicFuzzyMatch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basicFuzzyMatch"); else _explicitNullProperties?.Remove("basicFuzzyMatch"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch? _explicitNullValueBasicFuzzyMatch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch BasicFuzzyMatch { get => _explicitNullValueBasicFuzzyMatch; set { _explicitNullValueBasicFuzzyMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basicFuzzyMatch"); else _explicitNullProperties?.Remove("basicFuzzyMatch"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch BasicFuzzyMatch { get => _explicitNullValueBasicFuzzyMatch; set { _explicitNullValueBasicFuzzyMatch = value; AdditionalData?.Remove("basicFuzzyMatch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("basicFuzzyMatch"); else _explicitNullProperties?.Remove("basicFuzzyMatch"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyBasicFuzzyMatch _explicitNullValueBasicFuzzyMatch = default!;
 #endif
         /// <summary>The tokenMatch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch? TokenMatch { get => _explicitNullValueTokenMatch; set { _explicitNullValueTokenMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenMatch"); else _explicitNullProperties?.Remove("tokenMatch"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch? TokenMatch { get => _explicitNullValueTokenMatch; set { _explicitNullValueTokenMatch = value; AdditionalData?.Remove("tokenMatch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenMatch"); else _explicitNullProperties?.Remove("tokenMatch"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch? _explicitNullValueTokenMatch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch TokenMatch { get => _explicitNullValueTokenMatch; set { _explicitNullValueTokenMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenMatch"); else _explicitNullProperties?.Remove("tokenMatch"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch TokenMatch { get => _explicitNullValueTokenMatch; set { _explicitNullValueTokenMatch = value; AdditionalData?.Remove("tokenMatch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("tokenMatch"); else _explicitNullProperties?.Remove("tokenMatch"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTokenMatch _explicitNullValueTokenMatch = default!;
 #endif
         /// <summary>The transliterationMatch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch? TransliterationMatch { get => _explicitNullValueTransliterationMatch; set { _explicitNullValueTransliterationMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transliterationMatch"); else _explicitNullProperties?.Remove("transliterationMatch"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch? TransliterationMatch { get => _explicitNullValueTransliterationMatch; set { _explicitNullValueTransliterationMatch = value; AdditionalData?.Remove("transliterationMatch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transliterationMatch"); else _explicitNullProperties?.Remove("transliterationMatch"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch? _explicitNullValueTransliterationMatch = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch TransliterationMatch { get => _explicitNullValueTransliterationMatch; set { _explicitNullValueTransliterationMatch = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transliterationMatch"); else _explicitNullProperties?.Remove("transliterationMatch"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch TransliterationMatch { get => _explicitNullValueTransliterationMatch; set { _explicitNullValueTransliterationMatch = value; AdditionalData?.Remove("transliterationMatch"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transliterationMatch"); else _explicitNullProperties?.Remove("transliterationMatch"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategyTransliterationMatch _explicitNullValueTransliterationMatch = default!;
 #endif
         /// <summary>

@@ -17,8 +17,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("customerInput") is { } nullNodeCustomerInput && nullNodeCustomerInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerInput = null;
-            if (parseNode.GetChildNode("ocrInput") is { } nullNodeOcrInput && nullNodeOcrInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OcrInput = null;
+            if (parseNode.GetChildNode("customerInput") is null) { _explicitNullValueCustomerInput = default!; _explicitNullProperties?.Remove("customerInput"); }
+            else if (parseNode.GetChildNode("customerInput") is { } nullNodeCustomerInput && nullNodeCustomerInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CustomerInput = null;
+            if (parseNode.GetChildNode("ocrInput") is null) { _explicitNullValueOcrInput = default!; _explicitNullProperties?.Remove("ocrInput"); }
+            else if (parseNode.GetChildNode("ocrInput") is { } nullNodeOcrInput && nullNodeOcrInput.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) OcrInput = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,21 +28,21 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The customerInput property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? CustomerInput { get => _explicitNullValueCustomerInput; set { _explicitNullValueCustomerInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerInput"); else _explicitNullProperties?.Remove("customerInput"); } }
+        public string? CustomerInput { get => _explicitNullValueCustomerInput; set { _explicitNullValueCustomerInput = value; AdditionalData?.Remove("customerInput"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerInput"); else _explicitNullProperties?.Remove("customerInput"); } }
         private string? _explicitNullValueCustomerInput = default!;
 #nullable restore
 #else
-        public string CustomerInput { get => _explicitNullValueCustomerInput; set { _explicitNullValueCustomerInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerInput"); else _explicitNullProperties?.Remove("customerInput"); } }
+        public string CustomerInput { get => _explicitNullValueCustomerInput; set { _explicitNullValueCustomerInput = value; AdditionalData?.Remove("customerInput"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("customerInput"); else _explicitNullProperties?.Remove("customerInput"); } }
         private string _explicitNullValueCustomerInput = default!;
 #endif
         /// <summary>The ocrInput property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OcrInput { get => _explicitNullValueOcrInput; set { _explicitNullValueOcrInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ocrInput"); else _explicitNullProperties?.Remove("ocrInput"); } }
+        public string? OcrInput { get => _explicitNullValueOcrInput; set { _explicitNullValueOcrInput = value; AdditionalData?.Remove("ocrInput"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ocrInput"); else _explicitNullProperties?.Remove("ocrInput"); } }
         private string? _explicitNullValueOcrInput = default!;
 #nullable restore
 #else
-        public string OcrInput { get => _explicitNullValueOcrInput; set { _explicitNullValueOcrInput = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ocrInput"); else _explicitNullProperties?.Remove("ocrInput"); } }
+        public string OcrInput { get => _explicitNullValueOcrInput; set { _explicitNullValueOcrInput = value; AdditionalData?.Remove("ocrInput"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("ocrInput"); else _explicitNullProperties?.Remove("ocrInput"); } }
         private string _explicitNullValueOcrInput = default!;
 #endif
         /// <summary>

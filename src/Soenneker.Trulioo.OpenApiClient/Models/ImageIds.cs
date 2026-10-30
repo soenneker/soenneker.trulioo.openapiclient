@@ -18,23 +18,30 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("accessToken") is { } nullNodeAccessToken && nullNodeAccessToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessToken = null;
-            if (parseNode.GetChildNode("backDocumentId") is { } nullNodeBackDocumentId && nullNodeBackDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackDocumentId = null;
-            if (parseNode.GetChildNode("documentBackUrl") is { } nullNodeDocumentBackUrl && nullNodeDocumentBackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentBackUrl = null;
-            if (parseNode.GetChildNode("documentFrontUrl") is { } nullNodeDocumentFrontUrl && nullNodeDocumentFrontUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentFrontUrl = null;
-            if (parseNode.GetChildNode("frontDocumentId") is { } nullNodeFrontDocumentId && nullNodeFrontDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrontDocumentId = null;
-            if (parseNode.GetChildNode("selfieId") is { } nullNodeSelfieId && nullNodeSelfieId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieId = null;
-            if (parseNode.GetChildNode("selfieUrl") is { } nullNodeSelfieUrl && nullNodeSelfieUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieUrl = null;
+            if (parseNode.GetChildNode("accessToken") is null) { _explicitNullValueAccessToken = default!; _explicitNullProperties?.Remove("accessToken"); }
+            else if (parseNode.GetChildNode("accessToken") is { } nullNodeAccessToken && nullNodeAccessToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AccessToken = null;
+            if (parseNode.GetChildNode("backDocumentId") is null) { _explicitNullValueBackDocumentId = default!; _explicitNullProperties?.Remove("backDocumentId"); }
+            else if (parseNode.GetChildNode("backDocumentId") is { } nullNodeBackDocumentId && nullNodeBackDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BackDocumentId = null;
+            if (parseNode.GetChildNode("documentBackUrl") is null) { _explicitNullValueDocumentBackUrl = default!; _explicitNullProperties?.Remove("documentBackUrl"); }
+            else if (parseNode.GetChildNode("documentBackUrl") is { } nullNodeDocumentBackUrl && nullNodeDocumentBackUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentBackUrl = null;
+            if (parseNode.GetChildNode("documentFrontUrl") is null) { _explicitNullValueDocumentFrontUrl = default!; _explicitNullProperties?.Remove("documentFrontUrl"); }
+            else if (parseNode.GetChildNode("documentFrontUrl") is { } nullNodeDocumentFrontUrl && nullNodeDocumentFrontUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentFrontUrl = null;
+            if (parseNode.GetChildNode("frontDocumentId") is null) { _explicitNullValueFrontDocumentId = default!; _explicitNullProperties?.Remove("frontDocumentId"); }
+            else if (parseNode.GetChildNode("frontDocumentId") is { } nullNodeFrontDocumentId && nullNodeFrontDocumentId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FrontDocumentId = null;
+            if (parseNode.GetChildNode("selfieId") is null) { _explicitNullValueSelfieId = default!; _explicitNullProperties?.Remove("selfieId"); }
+            else if (parseNode.GetChildNode("selfieId") is { } nullNodeSelfieId && nullNodeSelfieId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieId = null;
+            if (parseNode.GetChildNode("selfieUrl") is null) { _explicitNullValueSelfieUrl = default!; _explicitNullProperties?.Remove("selfieUrl"); }
+            else if (parseNode.GetChildNode("selfieUrl") is { } nullNodeSelfieUrl && nullNodeSelfieUrl.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SelfieUrl = null;
         }
 
         /// <summary>The short lived access token in the format of JWT which contains ID of images. This access token is used as authorization token to retrieve images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accessToken"); else _explicitNullProperties?.Remove("accessToken"); } }
+        public string? AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; AdditionalData?.Remove("accessToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accessToken"); else _explicitNullProperties?.Remove("accessToken"); } }
         private string? _explicitNullValueAccessToken = default!;
 #nullable restore
 #else
-        public string AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accessToken"); else _explicitNullProperties?.Remove("accessToken"); } }
+        public string AccessToken { get => _explicitNullValueAccessToken; set { _explicitNullValueAccessToken = value; AdditionalData?.Remove("accessToken"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("accessToken"); else _explicitNullProperties?.Remove("accessToken"); } }
         private string _explicitNullValueAccessToken = default!;
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -42,61 +49,61 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The backDocumentId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BackDocumentId { get => _explicitNullValueBackDocumentId; set { _explicitNullValueBackDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backDocumentId"); else _explicitNullProperties?.Remove("backDocumentId"); } }
+        public string? BackDocumentId { get => _explicitNullValueBackDocumentId; set { _explicitNullValueBackDocumentId = value; AdditionalData?.Remove("backDocumentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backDocumentId"); else _explicitNullProperties?.Remove("backDocumentId"); } }
         private string? _explicitNullValueBackDocumentId = default!;
 #nullable restore
 #else
-        public string BackDocumentId { get => _explicitNullValueBackDocumentId; set { _explicitNullValueBackDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backDocumentId"); else _explicitNullProperties?.Remove("backDocumentId"); } }
+        public string BackDocumentId { get => _explicitNullValueBackDocumentId; set { _explicitNullValueBackDocumentId = value; AdditionalData?.Remove("backDocumentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("backDocumentId"); else _explicitNullProperties?.Remove("backDocumentId"); } }
         private string _explicitNullValueBackDocumentId = default!;
 #endif
         /// <summary>URL to download document back image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentBackUrl { get => _explicitNullValueDocumentBackUrl; set { _explicitNullValueDocumentBackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentBackUrl"); else _explicitNullProperties?.Remove("documentBackUrl"); } }
+        public string? DocumentBackUrl { get => _explicitNullValueDocumentBackUrl; set { _explicitNullValueDocumentBackUrl = value; AdditionalData?.Remove("documentBackUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentBackUrl"); else _explicitNullProperties?.Remove("documentBackUrl"); } }
         private string? _explicitNullValueDocumentBackUrl = default!;
 #nullable restore
 #else
-        public string DocumentBackUrl { get => _explicitNullValueDocumentBackUrl; set { _explicitNullValueDocumentBackUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentBackUrl"); else _explicitNullProperties?.Remove("documentBackUrl"); } }
+        public string DocumentBackUrl { get => _explicitNullValueDocumentBackUrl; set { _explicitNullValueDocumentBackUrl = value; AdditionalData?.Remove("documentBackUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentBackUrl"); else _explicitNullProperties?.Remove("documentBackUrl"); } }
         private string _explicitNullValueDocumentBackUrl = default!;
 #endif
         /// <summary>URL to download document front image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentFrontUrl { get => _explicitNullValueDocumentFrontUrl; set { _explicitNullValueDocumentFrontUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentFrontUrl"); else _explicitNullProperties?.Remove("documentFrontUrl"); } }
+        public string? DocumentFrontUrl { get => _explicitNullValueDocumentFrontUrl; set { _explicitNullValueDocumentFrontUrl = value; AdditionalData?.Remove("documentFrontUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentFrontUrl"); else _explicitNullProperties?.Remove("documentFrontUrl"); } }
         private string? _explicitNullValueDocumentFrontUrl = default!;
 #nullable restore
 #else
-        public string DocumentFrontUrl { get => _explicitNullValueDocumentFrontUrl; set { _explicitNullValueDocumentFrontUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentFrontUrl"); else _explicitNullProperties?.Remove("documentFrontUrl"); } }
+        public string DocumentFrontUrl { get => _explicitNullValueDocumentFrontUrl; set { _explicitNullValueDocumentFrontUrl = value; AdditionalData?.Remove("documentFrontUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentFrontUrl"); else _explicitNullProperties?.Remove("documentFrontUrl"); } }
         private string _explicitNullValueDocumentFrontUrl = default!;
 #endif
         /// <summary>The frontDocumentId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FrontDocumentId { get => _explicitNullValueFrontDocumentId; set { _explicitNullValueFrontDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frontDocumentId"); else _explicitNullProperties?.Remove("frontDocumentId"); } }
+        public string? FrontDocumentId { get => _explicitNullValueFrontDocumentId; set { _explicitNullValueFrontDocumentId = value; AdditionalData?.Remove("frontDocumentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frontDocumentId"); else _explicitNullProperties?.Remove("frontDocumentId"); } }
         private string? _explicitNullValueFrontDocumentId = default!;
 #nullable restore
 #else
-        public string FrontDocumentId { get => _explicitNullValueFrontDocumentId; set { _explicitNullValueFrontDocumentId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frontDocumentId"); else _explicitNullProperties?.Remove("frontDocumentId"); } }
+        public string FrontDocumentId { get => _explicitNullValueFrontDocumentId; set { _explicitNullValueFrontDocumentId = value; AdditionalData?.Remove("frontDocumentId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("frontDocumentId"); else _explicitNullProperties?.Remove("frontDocumentId"); } }
         private string _explicitNullValueFrontDocumentId = default!;
 #endif
         /// <summary>The selfieId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieId { get => _explicitNullValueSelfieId; set { _explicitNullValueSelfieId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieId"); else _explicitNullProperties?.Remove("selfieId"); } }
+        public string? SelfieId { get => _explicitNullValueSelfieId; set { _explicitNullValueSelfieId = value; AdditionalData?.Remove("selfieId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieId"); else _explicitNullProperties?.Remove("selfieId"); } }
         private string? _explicitNullValueSelfieId = default!;
 #nullable restore
 #else
-        public string SelfieId { get => _explicitNullValueSelfieId; set { _explicitNullValueSelfieId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieId"); else _explicitNullProperties?.Remove("selfieId"); } }
+        public string SelfieId { get => _explicitNullValueSelfieId; set { _explicitNullValueSelfieId = value; AdditionalData?.Remove("selfieId"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieId"); else _explicitNullProperties?.Remove("selfieId"); } }
         private string _explicitNullValueSelfieId = default!;
 #endif
         /// <summary>URL to download selfie image.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SelfieUrl { get => _explicitNullValueSelfieUrl; set { _explicitNullValueSelfieUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieUrl"); else _explicitNullProperties?.Remove("selfieUrl"); } }
+        public string? SelfieUrl { get => _explicitNullValueSelfieUrl; set { _explicitNullValueSelfieUrl = value; AdditionalData?.Remove("selfieUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieUrl"); else _explicitNullProperties?.Remove("selfieUrl"); } }
         private string? _explicitNullValueSelfieUrl = default!;
 #nullable restore
 #else
-        public string SelfieUrl { get => _explicitNullValueSelfieUrl; set { _explicitNullValueSelfieUrl = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieUrl"); else _explicitNullProperties?.Remove("selfieUrl"); } }
+        public string SelfieUrl { get => _explicitNullValueSelfieUrl; set { _explicitNullValueSelfieUrl = value; AdditionalData?.Remove("selfieUrl"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("selfieUrl"); else _explicitNullProperties?.Remove("selfieUrl"); } }
         private string _explicitNullValueSelfieUrl = default!;
 #endif
         /// <summary>

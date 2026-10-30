@@ -17,8 +17,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("documentOrigin") is { } nullNodeDocumentOrigin && nullNodeDocumentOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentOrigin = null;
-            if (parseNode.GetChildNode("documentType") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
+            if (parseNode.GetChildNode("documentOrigin") is null) { _explicitNullValueDocumentOrigin = default!; _explicitNullProperties?.Remove("documentOrigin"); }
+            else if (parseNode.GetChildNode("documentOrigin") is { } nullNodeDocumentOrigin && nullNodeDocumentOrigin.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentOrigin = null;
+            if (parseNode.GetChildNode("documentType") is null) { _explicitNullValueDocumentType = default!; _explicitNullProperties?.Remove("documentType"); }
+            else if (parseNode.GetChildNode("documentType") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -26,15 +28,15 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>List of permissible issuing countries combined with states or provinces per specified document type. An empty array will result in accepting all countries.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem>? DocumentOrigin { get => _explicitNullValueDocumentOrigin; set { _explicitNullValueDocumentOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentOrigin"); else _explicitNullProperties?.Remove("documentOrigin"); } }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem>? DocumentOrigin { get => _explicitNullValueDocumentOrigin; set { _explicitNullValueDocumentOrigin = value; AdditionalData?.Remove("documentOrigin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentOrigin"); else _explicitNullProperties?.Remove("documentOrigin"); } }
         private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem>? _explicitNullValueDocumentOrigin = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem> DocumentOrigin { get => _explicitNullValueDocumentOrigin; set { _explicitNullValueDocumentOrigin = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentOrigin"); else _explicitNullProperties?.Remove("documentOrigin"); } }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem> DocumentOrigin { get => _explicitNullValueDocumentOrigin; set { _explicitNullValueDocumentOrigin = value; AdditionalData?.Remove("documentOrigin"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentOrigin"); else _explicitNullProperties?.Remove("documentOrigin"); } }
         private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem> _explicitNullValueDocumentOrigin = default!;
 #endif
         /// <summary>Document type.</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentType"); else _explicitNullProperties?.Remove("documentType"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; AdditionalData?.Remove("documentType"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentType"); else _explicitNullProperties?.Remove("documentType"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType? _explicitNullValueDocumentType = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItem"/> and sets the default values.
@@ -62,7 +64,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "documentOrigin", n => { DocumentOrigin = n.GetCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "documentType", n => { DocumentType = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType>(); } },
+                { "documentType", n => { var parsed = n.GetEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentType>(); if (parsed == null && n.GetStringValue() is string unknown) { _explicitNullValueDocumentType = default; _explicitNullProperties?.Remove("documentType"); AdditionalData["documentType"] = unknown; } else { DocumentType = parsed; AdditionalData.Remove("documentType"); } } },
             };
         }
         /// <summary>

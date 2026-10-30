@@ -18,7 +18,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("messsage") is { } nullNodeMesssage && nullNodeMesssage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messsage = null;
+            if (parseNode.GetChildNode("messsage") is null) { _explicitNullValueMesssage = default!; _explicitNullProperties?.Remove("messsage"); }
+            else if (parseNode.GetChildNode("messsage") is { } nullNodeMesssage && nullNodeMesssage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messsage = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -28,11 +29,11 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The messsage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Messsage { get => _explicitNullValueMesssage; set { _explicitNullValueMesssage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messsage"); else _explicitNullProperties?.Remove("messsage"); } }
+        public string? Messsage { get => _explicitNullValueMesssage; set { _explicitNullValueMesssage = value; AdditionalData?.Remove("messsage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messsage"); else _explicitNullProperties?.Remove("messsage"); } }
         private string? _explicitNullValueMesssage = default!;
 #nullable restore
 #else
-        public string Messsage { get => _explicitNullValueMesssage; set { _explicitNullValueMesssage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messsage"); else _explicitNullProperties?.Remove("messsage"); } }
+        public string Messsage { get => _explicitNullValueMesssage; set { _explicitNullValueMesssage = value; AdditionalData?.Remove("messsage"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messsage"); else _explicitNullProperties?.Remove("messsage"); } }
         private string _explicitNullValueMesssage = default!;
 #endif
         /// <summary>

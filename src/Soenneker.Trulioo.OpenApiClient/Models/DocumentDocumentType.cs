@@ -7,6 +7,9 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DocumentDocumentType
     {
+        [EnumMember(Value = "")]
+        EmptyString,
+
         [EnumMember(Value = "PASSPORT")]
         #pragma warning disable CS1591
         Passport,

@@ -1892,6 +1892,10 @@
             {
               "value": "ERROR",
               "name": "Error"
+            },
+            {
+              "value": "",
+              "name": "EnumValue"
             }
           ]
         }

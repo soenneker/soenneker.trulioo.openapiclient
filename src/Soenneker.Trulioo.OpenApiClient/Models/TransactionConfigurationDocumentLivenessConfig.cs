@@ -18,11 +18,16 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
 
         public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
         {
-            if (parseNode.GetChildNode("digitalManipulation") is { } nullNodeDigitalManipulation && nullNodeDigitalManipulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DigitalManipulation = null;
-            if (parseNode.GetChildNode("portraitSubstitution") is { } nullNodePortraitSubstitution && nullNodePortraitSubstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortraitSubstitution = null;
-            if (parseNode.GetChildNode("printout") is { } nullNodePrintout && nullNodePrintout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Printout = null;
-            if (parseNode.GetChildNode("screenUsed") is { } nullNodeScreenUsed && nullNodeScreenUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScreenUsed = null;
-            if (parseNode.GetChildNode("skipAlreadyCropped") is { } nullNodeSkipAlreadyCropped && nullNodeSkipAlreadyCropped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipAlreadyCropped = null;
+            if (parseNode.GetChildNode("digitalManipulation") is null) { _explicitNullValueDigitalManipulation = default!; _explicitNullProperties?.Remove("digitalManipulation"); }
+            else if (parseNode.GetChildNode("digitalManipulation") is { } nullNodeDigitalManipulation && nullNodeDigitalManipulation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DigitalManipulation = null;
+            if (parseNode.GetChildNode("portraitSubstitution") is null) { _explicitNullValuePortraitSubstitution = default!; _explicitNullProperties?.Remove("portraitSubstitution"); }
+            else if (parseNode.GetChildNode("portraitSubstitution") is { } nullNodePortraitSubstitution && nullNodePortraitSubstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PortraitSubstitution = null;
+            if (parseNode.GetChildNode("printout") is null) { _explicitNullValuePrintout = default!; _explicitNullProperties?.Remove("printout"); }
+            else if (parseNode.GetChildNode("printout") is { } nullNodePrintout && nullNodePrintout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Printout = null;
+            if (parseNode.GetChildNode("screenUsed") is null) { _explicitNullValueScreenUsed = default!; _explicitNullProperties?.Remove("screenUsed"); }
+            else if (parseNode.GetChildNode("screenUsed") is { } nullNodeScreenUsed && nullNodeScreenUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ScreenUsed = null;
+            if (parseNode.GetChildNode("skipAlreadyCropped") is null) { _explicitNullValueSkipAlreadyCropped = default!; _explicitNullProperties?.Remove("skipAlreadyCropped"); }
+            else if (parseNode.GetChildNode("skipAlreadyCropped") is { } nullNodeSkipAlreadyCropped && nullNodeSkipAlreadyCropped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipAlreadyCropped = null;
         }
 
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -30,45 +35,45 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The digitalManipulation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? DigitalManipulation { get => _explicitNullValueDigitalManipulation; set { _explicitNullValueDigitalManipulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalManipulation"); else _explicitNullProperties?.Remove("digitalManipulation"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? DigitalManipulation { get => _explicitNullValueDigitalManipulation; set { _explicitNullValueDigitalManipulation = value; AdditionalData?.Remove("digitalManipulation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalManipulation"); else _explicitNullProperties?.Remove("digitalManipulation"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? _explicitNullValueDigitalManipulation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck DigitalManipulation { get => _explicitNullValueDigitalManipulation; set { _explicitNullValueDigitalManipulation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalManipulation"); else _explicitNullProperties?.Remove("digitalManipulation"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck DigitalManipulation { get => _explicitNullValueDigitalManipulation; set { _explicitNullValueDigitalManipulation = value; AdditionalData?.Remove("digitalManipulation"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("digitalManipulation"); else _explicitNullProperties?.Remove("digitalManipulation"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck _explicitNullValueDigitalManipulation = default!;
 #endif
         /// <summary>The portraitSubstitution property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? PortraitSubstitution { get => _explicitNullValuePortraitSubstitution; set { _explicitNullValuePortraitSubstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portraitSubstitution"); else _explicitNullProperties?.Remove("portraitSubstitution"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? PortraitSubstitution { get => _explicitNullValuePortraitSubstitution; set { _explicitNullValuePortraitSubstitution = value; AdditionalData?.Remove("portraitSubstitution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portraitSubstitution"); else _explicitNullProperties?.Remove("portraitSubstitution"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? _explicitNullValuePortraitSubstitution = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck PortraitSubstitution { get => _explicitNullValuePortraitSubstitution; set { _explicitNullValuePortraitSubstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portraitSubstitution"); else _explicitNullProperties?.Remove("portraitSubstitution"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck PortraitSubstitution { get => _explicitNullValuePortraitSubstitution; set { _explicitNullValuePortraitSubstitution = value; AdditionalData?.Remove("portraitSubstitution"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("portraitSubstitution"); else _explicitNullProperties?.Remove("portraitSubstitution"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck _explicitNullValuePortraitSubstitution = default!;
 #endif
         /// <summary>The printout property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? Printout { get => _explicitNullValuePrintout; set { _explicitNullValuePrintout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("printout"); else _explicitNullProperties?.Remove("printout"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? Printout { get => _explicitNullValuePrintout; set { _explicitNullValuePrintout = value; AdditionalData?.Remove("printout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("printout"); else _explicitNullProperties?.Remove("printout"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? _explicitNullValuePrintout = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck Printout { get => _explicitNullValuePrintout; set { _explicitNullValuePrintout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("printout"); else _explicitNullProperties?.Remove("printout"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck Printout { get => _explicitNullValuePrintout; set { _explicitNullValuePrintout = value; AdditionalData?.Remove("printout"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("printout"); else _explicitNullProperties?.Remove("printout"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck _explicitNullValuePrintout = default!;
 #endif
         /// <summary>The screenUsed property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? ScreenUsed { get => _explicitNullValueScreenUsed; set { _explicitNullValueScreenUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("screenUsed"); else _explicitNullProperties?.Remove("screenUsed"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? ScreenUsed { get => _explicitNullValueScreenUsed; set { _explicitNullValueScreenUsed = value; AdditionalData?.Remove("screenUsed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("screenUsed"); else _explicitNullProperties?.Remove("screenUsed"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck? _explicitNullValueScreenUsed = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck ScreenUsed { get => _explicitNullValueScreenUsed; set { _explicitNullValueScreenUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("screenUsed"); else _explicitNullProperties?.Remove("screenUsed"); } }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck ScreenUsed { get => _explicitNullValueScreenUsed; set { _explicitNullValueScreenUsed = value; AdditionalData?.Remove("screenUsed"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("screenUsed"); else _explicitNullProperties?.Remove("screenUsed"); } }
         private global::Soenneker.Trulioo.OpenApiClient.Models.LivenessCheck _explicitNullValueScreenUsed = default!;
 #endif
         /// <summary>Skip Cropped Image check</summary>
-        public bool? SkipAlreadyCropped { get => _explicitNullValueSkipAlreadyCropped; set { _explicitNullValueSkipAlreadyCropped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipAlreadyCropped"); else _explicitNullProperties?.Remove("skipAlreadyCropped"); } }
+        public bool? SkipAlreadyCropped { get => _explicitNullValueSkipAlreadyCropped; set { _explicitNullValueSkipAlreadyCropped = value; AdditionalData?.Remove("skipAlreadyCropped"); if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipAlreadyCropped"); else _explicitNullProperties?.Remove("skipAlreadyCropped"); } }
         private bool? _explicitNullValueSkipAlreadyCropped = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessConfig"/> and sets the default values.
