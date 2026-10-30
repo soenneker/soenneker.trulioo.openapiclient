@@ -55,6 +55,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Authorize.Customer
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.AuthorizationResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.AuthorizationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

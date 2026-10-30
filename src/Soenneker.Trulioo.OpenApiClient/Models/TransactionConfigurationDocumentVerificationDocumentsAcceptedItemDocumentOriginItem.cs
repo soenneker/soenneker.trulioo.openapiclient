@@ -11,18 +11,30 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("countryCode") is { } nullNodeCountryCode && nullNodeCountryCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) CountryCode = null;
+            if (parseNode.GetChildNode("jurisdictions") is { } nullNodeJurisdictions && nullNodeJurisdictions.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Jurisdictions = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Country Code (ISO 3166-1 alpha-2 format)</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode? CountryCode { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode? CountryCode { get => _explicitNullValueCountryCode; set { _explicitNullValueCountryCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("countryCode"); else _explicitNullProperties?.Remove("countryCode"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode? _explicitNullValueCountryCode = default!;
         /// <summary>List of allowed states or provinces corresponding to a specified document type and its issuing country. This configuration applies exclusively to the United States and Canada and is applicable only to specific document types. To set the document type configuration solely at the country level, input an empty array as the jurisdiction value. When all jurisdictions are listed, the document must contain jurisdictional information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>? Jurisdictions { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>? Jurisdictions { get => _explicitNullValueJurisdictions; set { _explicitNullValueJurisdictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictions"); else _explicitNullProperties?.Remove("jurisdictions"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>? _explicitNullValueJurisdictions = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem> Jurisdictions { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem> Jurisdictions { get => _explicitNullValueJurisdictions; set { _explicitNullValueJurisdictions = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictions"); else _explicitNullProperties?.Remove("jurisdictions"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem> _explicitNullValueJurisdictions = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemCountryCode>("countryCode", CountryCode);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem>("jurisdictions", Jurisdictions);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

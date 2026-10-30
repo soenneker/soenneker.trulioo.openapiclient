@@ -12,17 +12,32 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransactionConfigurationDocumentLivenessOptions : IAdditionalDataHolder, IParsable
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("skipAlreadyCropped") is { } nullNodeSkipAlreadyCropped && nullNodeSkipAlreadyCropped.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipAlreadyCropped = null;
+            if (parseNode.GetChildNode("skipPortraitSubstitution") is { } nullNodeSkipPortraitSubstitution && nullNodeSkipPortraitSubstitution.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPortraitSubstitution = null;
+            if (parseNode.GetChildNode("skipPrintout") is { } nullNodeSkipPrintout && nullNodeSkipPrintout.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipPrintout = null;
+            if (parseNode.GetChildNode("skipScreenUsed") is { } nullNodeSkipScreenUsed && nullNodeSkipScreenUsed.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SkipScreenUsed = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Skip Cropped Image check</summary>
-        public bool? SkipAlreadyCropped { get; set; }
+        public bool? SkipAlreadyCropped { get => _explicitNullValueSkipAlreadyCropped; set { _explicitNullValueSkipAlreadyCropped = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipAlreadyCropped"); else _explicitNullProperties?.Remove("skipAlreadyCropped"); } }
+        private bool? _explicitNullValueSkipAlreadyCropped = default!;
         /// <summary>Skip Portrait Substitution check</summary>
-        public bool? SkipPortraitSubstitution { get; set; }
+        public bool? SkipPortraitSubstitution { get => _explicitNullValueSkipPortraitSubstitution; set { _explicitNullValueSkipPortraitSubstitution = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipPortraitSubstitution"); else _explicitNullProperties?.Remove("skipPortraitSubstitution"); } }
+        private bool? _explicitNullValueSkipPortraitSubstitution = default!;
         /// <summary>Skip Printout check</summary>
-        public bool? SkipPrintout { get; set; }
+        public bool? SkipPrintout { get => _explicitNullValueSkipPrintout; set { _explicitNullValueSkipPrintout = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipPrintout"); else _explicitNullProperties?.Remove("skipPrintout"); } }
+        private bool? _explicitNullValueSkipPrintout = default!;
         /// <summary>Skip Screen Used check</summary>
-        public bool? SkipScreenUsed { get; set; }
+        public bool? SkipScreenUsed { get => _explicitNullValueSkipScreenUsed; set { _explicitNullValueSkipScreenUsed = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("skipScreenUsed"); else _explicitNullProperties?.Remove("skipScreenUsed"); } }
+        private bool? _explicitNullValueSkipScreenUsed = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions"/> and sets the default values.
         /// </summary>
@@ -42,7 +57,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,6 +84,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteBoolValue("skipPortraitSubstitution", SkipPortraitSubstitution);
             writer.WriteBoolValue("skipPrintout", SkipPrintout);
             writer.WriteBoolValue("skipScreenUsed", SkipScreenUsed);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

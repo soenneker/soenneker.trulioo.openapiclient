@@ -12,7 +12,15 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class BadRequestResponse : ApiException, IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("messsage") is { } nullNodeMesssage && nullNodeMesssage.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Messsage = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The primary error message.</summary>
@@ -20,10 +28,12 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <summary>The messsage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Messsage { get; set; }
+        public string? Messsage { get => _explicitNullValueMesssage; set { _explicitNullValueMesssage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messsage"); else _explicitNullProperties?.Remove("messsage"); } }
+        private string? _explicitNullValueMesssage = default!;
 #nullable restore
 #else
-        public string Messsage { get; set; }
+        public string Messsage { get => _explicitNullValueMesssage; set { _explicitNullValueMesssage = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("messsage"); else _explicitNullProperties?.Remove("messsage"); } }
+        private string _explicitNullValueMesssage = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse"/> and sets the default values.
@@ -41,7 +51,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +72,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("messsage", Messsage);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

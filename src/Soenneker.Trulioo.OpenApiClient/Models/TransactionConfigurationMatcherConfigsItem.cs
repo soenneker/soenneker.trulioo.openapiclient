@@ -11,18 +11,30 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TransactionConfigurationMatcherConfigsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("active") is { } nullNodeActive && nullNodeActive.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Active = null;
+            if (parseNode.GetChildNode("matchers") is { } nullNodeMatchers && nullNodeMatchers.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Matchers = null;
+        }
+
         /// <summary>Flag to determine whether the matcher is active or passive</summary>
-        public bool? Active { get; set; }
+        public bool? Active { get => _explicitNullValueActive; set { _explicitNullValueActive = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("active"); else _explicitNullProperties?.Remove("active"); } }
+        private bool? _explicitNullValueActive = default!;
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>List of matchers with matcher name and precision</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem>? Matchers { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem>? Matchers { get => _explicitNullValueMatchers; set { _explicitNullValueMatchers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matchers"); else _explicitNullProperties?.Remove("matchers"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem>? _explicitNullValueMatchers = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem> Matchers { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem> Matchers { get => _explicitNullValueMatchers; set { _explicitNullValueMatchers = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matchers"); else _explicitNullProperties?.Remove("matchers"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem> _explicitNullValueMatchers = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem"/> and sets the default values.
@@ -39,7 +51,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,6 +74,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("active", Active);
             writer.WriteCollectionOfObjectValues<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem>("matchers", Matchers);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

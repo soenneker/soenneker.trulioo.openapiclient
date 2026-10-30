@@ -11,21 +11,35 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TransactionConfigurationMatcherConfigsItemMatchersItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("precision") is { } nullNodePrecision && nullNodePrecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Precision = null;
+            if (parseNode.GetChildNode("strategy") is { } nullNodeStrategy && nullNodeStrategy.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Strategy = null;
+            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The precision property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemPrecision? Precision { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemPrecision? Precision { get => _explicitNullValuePrecision; set { _explicitNullValuePrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("precision"); else _explicitNullProperties?.Remove("precision"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemPrecision? _explicitNullValuePrecision = default!;
         /// <summary>This configuration object will control matcher strategies in the matcher pipeline. The configuration object will control transliteration, tokenization, and basic fuzzy match. Before running match pipeline, both inputs will be normalized with diacritic removal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy? Strategy { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy? Strategy { get => _explicitNullValueStrategy; set { _explicitNullValueStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strategy"); else _explicitNullProperties?.Remove("strategy"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy? _explicitNullValueStrategy = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy Strategy { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy Strategy { get => _explicitNullValueStrategy; set { _explicitNullValueStrategy = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("strategy"); else _explicitNullProperties?.Remove("strategy"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy _explicitNullValueStrategy = default!;
 #endif
         /// <summary>The token property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemToken? Token { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemToken? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemToken? _explicitNullValueToken = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemPrecision>("precision", Precision);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemStrategy>("strategy", Strategy);
             writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationMatcherConfigsItemMatchersItemToken>("token", Token);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

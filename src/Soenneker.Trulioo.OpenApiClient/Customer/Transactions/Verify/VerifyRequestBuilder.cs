@@ -36,7 +36,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
         /// <summary>
         /// Starts the verification process and returns the status.
         /// </summary>
-        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse"/></returns>
+        /// <returns>A <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.VerifyTransactionSuccessResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
@@ -46,11 +46,11 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
         /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.ServiceUnavailableResponse">When receiving a 503 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Trulioo.OpenApiClient.Models.VerifyTransactionSuccessResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Soenneker.Trulioo.OpenApiClient.Models.VerifyTransactionSuccessResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -61,8 +61,10 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
                 { "422", global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
                 { "503", global::Soenneker.Trulioo.OpenApiClient.Models.ServiceUnavailableResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.DecisionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.VerifyTransactionSuccessResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.VerifyTransactionSuccessResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// Starts the verification process and returns the status.

@@ -11,24 +11,37 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("jurisdictionCode") is { } nullNodeJurisdictionCode && nullNodeJurisdictionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JurisdictionCode = null;
+            if (parseNode.GetChildNode("years") is { } nullNodeYears && nullNodeYears.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Years = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>State or province code (ISO 3166-1 alpha-2 format)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JurisdictionCode { get; set; }
+        public string? JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
+        private string? _explicitNullValueJurisdictionCode = default!;
 #nullable restore
 #else
-        public string JurisdictionCode { get; set; }
+        public string JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
+        private string _explicitNullValueJurisdictionCode = default!;
 #endif
         /// <summary>This configuration is currently unsupported, any values will be ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Years { get; set; }
+        public List<string>? Years { get => _explicitNullValueYears; set { _explicitNullValueYears = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("years"); else _explicitNullProperties?.Remove("years"); } }
+        private List<string>? _explicitNullValueYears = default!;
 #nullable restore
 #else
-        public List<string> Years { get; set; }
+        public List<string> Years { get => _explicitNullValueYears; set { _explicitNullValueYears = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("years"); else _explicitNullProperties?.Remove("years"); } }
+        private List<string> _explicitNullValueYears = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem"/> and sets the default values.
@@ -45,7 +58,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentVerificationDocumentsAcceptedItemDocumentOriginItemJurisdictionsItem(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,6 +81,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("jurisdictionCode", JurisdictionCode);
             writer.WriteCollectionOfPrimitiveValues<string>("years", Years);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

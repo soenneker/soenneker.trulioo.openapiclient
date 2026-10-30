@@ -11,188 +11,265 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Person : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alternateDateOfBirth") is { } nullNodeAlternateDateOfBirth && nullNodeAlternateDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateDateOfBirth = null;
+            if (parseNode.GetChildNode("alternateFirstLastname") is { } nullNodeAlternateFirstLastname && nullNodeAlternateFirstLastname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateFirstLastname = null;
+            if (parseNode.GetChildNode("alternateFirstName") is { } nullNodeAlternateFirstName && nullNodeAlternateFirstName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateFirstName = null;
+            if (parseNode.GetChildNode("alternateFullName") is { } nullNodeAlternateFullName && nullNodeAlternateFullName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateFullName = null;
+            if (parseNode.GetChildNode("alternateLastName") is { } nullNodeAlternateLastName && nullNodeAlternateLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateLastName = null;
+            if (parseNode.GetChildNode("alternateLocation") is { } nullNodeAlternateLocation && nullNodeAlternateLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateLocation = null;
+            if (parseNode.GetChildNode("alternateMiddleName") is { } nullNodeAlternateMiddleName && nullNodeAlternateMiddleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateMiddleName = null;
+            if (parseNode.GetChildNode("alternateSecondLastname") is { } nullNodeAlternateSecondLastname && nullNodeAlternateSecondLastname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateSecondLastname = null;
+            if (parseNode.GetChildNode("birthLastName") is { } nullNodeBirthLastName && nullNodeBirthLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) BirthLastName = null;
+            if (parseNode.GetChildNode("dateOfBirth") is { } nullNodeDateOfBirth && nullNodeDateOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DateOfBirth = null;
+            if (parseNode.GetChildNode("estimatedMaxAge") is { } nullNodeEstimatedMaxAge && nullNodeEstimatedMaxAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedMaxAge = null;
+            if (parseNode.GetChildNode("estimatedMinAge") is { } nullNodeEstimatedMinAge && nullNodeEstimatedMinAge.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) EstimatedMinAge = null;
+            if (parseNode.GetChildNode("firstLastName") is { } nullNodeFirstLastName && nullNodeFirstLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstLastName = null;
+            if (parseNode.GetChildNode("firstName") is { } nullNodeFirstName && nullNodeFirstName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FirstName = null;
+            if (parseNode.GetChildNode("fullName") is { } nullNodeFullName && nullNodeFullName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) FullName = null;
+            if (parseNode.GetChildNode("gender") is { } nullNodeGender && nullNodeGender.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Gender = null;
+            if (parseNode.GetChildNode("lastName") is { } nullNodeLastName && nullNodeLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) LastName = null;
+            if (parseNode.GetChildNode("location") is { } nullNodeLocation && nullNodeLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Location = null;
+            if (parseNode.GetChildNode("middleName") is { } nullNodeMiddleName && nullNodeMiddleName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MiddleName = null;
+            if (parseNode.GetChildNode("nationality") is { } nullNodeNationality && nullNodeNationality.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Nationality = null;
+            if (parseNode.GetChildNode("placeOfBirth") is { } nullNodePlaceOfBirth && nullNodePlaceOfBirth.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) PlaceOfBirth = null;
+            if (parseNode.GetChildNode("secondLastname") is { } nullNodeSecondLastname && nullNodeSecondLastname.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SecondLastname = null;
+            if (parseNode.GetChildNode("spouseLastName") is { } nullNodeSpouseLastName && nullNodeSpouseLastName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) SpouseLastName = null;
+            if (parseNode.GetChildNode("standardizedLocation") is { } nullNodeStandardizedLocation && nullNodeStandardizedLocation.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) StandardizedLocation = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The alternateDateOfBirth property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateDateOfBirth { get; set; }
+        public string? AlternateDateOfBirth { get => _explicitNullValueAlternateDateOfBirth; set { _explicitNullValueAlternateDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDateOfBirth"); else _explicitNullProperties?.Remove("alternateDateOfBirth"); } }
+        private string? _explicitNullValueAlternateDateOfBirth = default!;
 #nullable restore
 #else
-        public string AlternateDateOfBirth { get; set; }
+        public string AlternateDateOfBirth { get => _explicitNullValueAlternateDateOfBirth; set { _explicitNullValueAlternateDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDateOfBirth"); else _explicitNullProperties?.Remove("alternateDateOfBirth"); } }
+        private string _explicitNullValueAlternateDateOfBirth = default!;
 #endif
         /// <summary>The alternateFirstLastname property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateFirstLastname { get; set; }
+        public string? AlternateFirstLastname { get => _explicitNullValueAlternateFirstLastname; set { _explicitNullValueAlternateFirstLastname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateFirstLastname"); else _explicitNullProperties?.Remove("alternateFirstLastname"); } }
+        private string? _explicitNullValueAlternateFirstLastname = default!;
 #nullable restore
 #else
-        public string AlternateFirstLastname { get; set; }
+        public string AlternateFirstLastname { get => _explicitNullValueAlternateFirstLastname; set { _explicitNullValueAlternateFirstLastname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateFirstLastname"); else _explicitNullProperties?.Remove("alternateFirstLastname"); } }
+        private string _explicitNullValueAlternateFirstLastname = default!;
 #endif
         /// <summary>First name that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateFirstName { get; set; }
+        public string? AlternateFirstName { get => _explicitNullValueAlternateFirstName; set { _explicitNullValueAlternateFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateFirstName"); else _explicitNullProperties?.Remove("alternateFirstName"); } }
+        private string? _explicitNullValueAlternateFirstName = default!;
 #nullable restore
 #else
-        public string AlternateFirstName { get; set; }
+        public string AlternateFirstName { get => _explicitNullValueAlternateFirstName; set { _explicitNullValueAlternateFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateFirstName"); else _explicitNullProperties?.Remove("alternateFirstName"); } }
+        private string _explicitNullValueAlternateFirstName = default!;
 #endif
         /// <summary>Full name that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateFullName { get; set; }
+        public string? AlternateFullName { get => _explicitNullValueAlternateFullName; set { _explicitNullValueAlternateFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateFullName"); else _explicitNullProperties?.Remove("alternateFullName"); } }
+        private string? _explicitNullValueAlternateFullName = default!;
 #nullable restore
 #else
-        public string AlternateFullName { get; set; }
+        public string AlternateFullName { get => _explicitNullValueAlternateFullName; set { _explicitNullValueAlternateFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateFullName"); else _explicitNullProperties?.Remove("alternateFullName"); } }
+        private string _explicitNullValueAlternateFullName = default!;
 #endif
         /// <summary>Middle name that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateLastName { get; set; }
+        public string? AlternateLastName { get => _explicitNullValueAlternateLastName; set { _explicitNullValueAlternateLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateLastName"); else _explicitNullProperties?.Remove("alternateLastName"); } }
+        private string? _explicitNullValueAlternateLastName = default!;
 #nullable restore
 #else
-        public string AlternateLastName { get; set; }
+        public string AlternateLastName { get => _explicitNullValueAlternateLastName; set { _explicitNullValueAlternateLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateLastName"); else _explicitNullProperties?.Remove("alternateLastName"); } }
+        private string _explicitNullValueAlternateLastName = default!;
 #endif
         /// <summary>The alternateLocation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation? AlternateLocation { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation? AlternateLocation { get => _explicitNullValueAlternateLocation; set { _explicitNullValueAlternateLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateLocation"); else _explicitNullProperties?.Remove("alternateLocation"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation? _explicitNullValueAlternateLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation AlternateLocation { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation AlternateLocation { get => _explicitNullValueAlternateLocation; set { _explicitNullValueAlternateLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateLocation"); else _explicitNullProperties?.Remove("alternateLocation"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.PersonAlternateLocation _explicitNullValueAlternateLocation = default!;
 #endif
         /// <summary>Middle name that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateMiddleName { get; set; }
+        public string? AlternateMiddleName { get => _explicitNullValueAlternateMiddleName; set { _explicitNullValueAlternateMiddleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateMiddleName"); else _explicitNullProperties?.Remove("alternateMiddleName"); } }
+        private string? _explicitNullValueAlternateMiddleName = default!;
 #nullable restore
 #else
-        public string AlternateMiddleName { get; set; }
+        public string AlternateMiddleName { get => _explicitNullValueAlternateMiddleName; set { _explicitNullValueAlternateMiddleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateMiddleName"); else _explicitNullProperties?.Remove("alternateMiddleName"); } }
+        private string _explicitNullValueAlternateMiddleName = default!;
 #endif
         /// <summary>The alternateSecondLastname property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateSecondLastname { get; set; }
+        public string? AlternateSecondLastname { get => _explicitNullValueAlternateSecondLastname; set { _explicitNullValueAlternateSecondLastname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateSecondLastname"); else _explicitNullProperties?.Remove("alternateSecondLastname"); } }
+        private string? _explicitNullValueAlternateSecondLastname = default!;
 #nullable restore
 #else
-        public string AlternateSecondLastname { get; set; }
+        public string AlternateSecondLastname { get => _explicitNullValueAlternateSecondLastname; set { _explicitNullValueAlternateSecondLastname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateSecondLastname"); else _explicitNullProperties?.Remove("alternateSecondLastname"); } }
+        private string _explicitNullValueAlternateSecondLastname = default!;
 #endif
         /// <summary>Last name by birth</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? BirthLastName { get; set; }
+        public string? BirthLastName { get => _explicitNullValueBirthLastName; set { _explicitNullValueBirthLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthLastName"); else _explicitNullProperties?.Remove("birthLastName"); } }
+        private string? _explicitNullValueBirthLastName = default!;
 #nullable restore
 #else
-        public string BirthLastName { get; set; }
+        public string BirthLastName { get => _explicitNullValueBirthLastName; set { _explicitNullValueBirthLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("birthLastName"); else _explicitNullProperties?.Remove("birthLastName"); } }
+        private string _explicitNullValueBirthLastName = default!;
 #endif
         /// <summary>Date of birth of the subject/applicant (ISO 8601)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DateOfBirth { get; set; }
+        public string? DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        private string? _explicitNullValueDateOfBirth = default!;
 #nullable restore
 #else
-        public string DateOfBirth { get; set; }
+        public string DateOfBirth { get => _explicitNullValueDateOfBirth; set { _explicitNullValueDateOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dateOfBirth"); else _explicitNullProperties?.Remove("dateOfBirth"); } }
+        private string _explicitNullValueDateOfBirth = default!;
 #endif
         /// <summary>Maximum estimated age. Null when age estimation did not run; 0 when it ran but errored.</summary>
-        public int? EstimatedMaxAge { get; set; }
+        public int? EstimatedMaxAge { get => _explicitNullValueEstimatedMaxAge; set { _explicitNullValueEstimatedMaxAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimatedMaxAge"); else _explicitNullProperties?.Remove("estimatedMaxAge"); } }
+        private int? _explicitNullValueEstimatedMaxAge = default!;
         /// <summary>Minimum estimated age. Null when age estimation did not run; 0 when it ran but errored.</summary>
-        public int? EstimatedMinAge { get; set; }
+        public int? EstimatedMinAge { get => _explicitNullValueEstimatedMinAge; set { _explicitNullValueEstimatedMinAge = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("estimatedMinAge"); else _explicitNullProperties?.Remove("estimatedMinAge"); } }
+        private int? _explicitNullValueEstimatedMinAge = default!;
         /// <summary>The firstLastName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstLastName { get; set; }
+        public string? FirstLastName { get => _explicitNullValueFirstLastName; set { _explicitNullValueFirstLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firstLastName"); else _explicitNullProperties?.Remove("firstLastName"); } }
+        private string? _explicitNullValueFirstLastName = default!;
 #nullable restore
 #else
-        public string FirstLastName { get; set; }
+        public string FirstLastName { get => _explicitNullValueFirstLastName; set { _explicitNullValueFirstLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firstLastName"); else _explicitNullProperties?.Remove("firstLastName"); } }
+        private string _explicitNullValueFirstLastName = default!;
 #endif
         /// <summary>The firstName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FirstName { get; set; }
+        public string? FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firstName"); else _explicitNullProperties?.Remove("firstName"); } }
+        private string? _explicitNullValueFirstName = default!;
 #nullable restore
 #else
-        public string FirstName { get; set; }
+        public string FirstName { get => _explicitNullValueFirstName; set { _explicitNullValueFirstName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("firstName"); else _explicitNullProperties?.Remove("firstName"); } }
+        private string _explicitNullValueFirstName = default!;
 #endif
         /// <summary>Full name of the subject/applicant. Used in case of indistinguishable first and last name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? FullName { get; set; }
+        public string? FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fullName"); else _explicitNullProperties?.Remove("fullName"); } }
+        private string? _explicitNullValueFullName = default!;
 #nullable restore
 #else
-        public string FullName { get; set; }
+        public string FullName { get => _explicitNullValueFullName; set { _explicitNullValueFullName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("fullName"); else _explicitNullProperties?.Remove("fullName"); } }
+        private string _explicitNullValueFullName = default!;
 #endif
         /// <summary>Person&apos;s gender as denoted by the letters M for male or F for female.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Gender { get; set; }
+        public string? Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        private string? _explicitNullValueGender = default!;
 #nullable restore
 #else
-        public string Gender { get; set; }
+        public string Gender { get => _explicitNullValueGender; set { _explicitNullValueGender = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("gender"); else _explicitNullProperties?.Remove("gender"); } }
+        private string _explicitNullValueGender = default!;
 #endif
         /// <summary>The lastName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? LastName { get; set; }
+        public string? LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastName"); else _explicitNullProperties?.Remove("lastName"); } }
+        private string? _explicitNullValueLastName = default!;
 #nullable restore
 #else
-        public string LastName { get; set; }
+        public string LastName { get => _explicitNullValueLastName; set { _explicitNullValueLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("lastName"); else _explicitNullProperties?.Remove("lastName"); } }
+        private string _explicitNullValueLastName = default!;
 #endif
         /// <summary>The location property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Address? Location { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Address? Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Address? _explicitNullValueLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Address Location { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Address Location { get => _explicitNullValueLocation; set { _explicitNullValueLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("location"); else _explicitNullProperties?.Remove("location"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Address _explicitNullValueLocation = default!;
 #endif
         /// <summary>The middleName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MiddleName { get; set; }
+        public string? MiddleName { get => _explicitNullValueMiddleName; set { _explicitNullValueMiddleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("middleName"); else _explicitNullProperties?.Remove("middleName"); } }
+        private string? _explicitNullValueMiddleName = default!;
 #nullable restore
 #else
-        public string MiddleName { get; set; }
+        public string MiddleName { get => _explicitNullValueMiddleName; set { _explicitNullValueMiddleName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("middleName"); else _explicitNullProperties?.Remove("middleName"); } }
+        private string _explicitNullValueMiddleName = default!;
 #endif
         /// <summary>A person&apos;s nationality.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Nationality { get; set; }
+        public string? Nationality { get => _explicitNullValueNationality; set { _explicitNullValueNationality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nationality"); else _explicitNullProperties?.Remove("nationality"); } }
+        private string? _explicitNullValueNationality = default!;
 #nullable restore
 #else
-        public string Nationality { get; set; }
+        public string Nationality { get => _explicitNullValueNationality; set { _explicitNullValueNationality = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("nationality"); else _explicitNullProperties?.Remove("nationality"); } }
+        private string _explicitNullValueNationality = default!;
 #endif
         /// <summary>Place of birth of the subject/applicant</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? PlaceOfBirth { get; set; }
+        public string? PlaceOfBirth { get => _explicitNullValuePlaceOfBirth; set { _explicitNullValuePlaceOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("placeOfBirth"); else _explicitNullProperties?.Remove("placeOfBirth"); } }
+        private string? _explicitNullValuePlaceOfBirth = default!;
 #nullable restore
 #else
-        public string PlaceOfBirth { get; set; }
+        public string PlaceOfBirth { get => _explicitNullValuePlaceOfBirth; set { _explicitNullValuePlaceOfBirth = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("placeOfBirth"); else _explicitNullProperties?.Remove("placeOfBirth"); } }
+        private string _explicitNullValuePlaceOfBirth = default!;
 #endif
         /// <summary>The secondLastname property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SecondLastname { get; set; }
+        public string? SecondLastname { get => _explicitNullValueSecondLastname; set { _explicitNullValueSecondLastname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondLastname"); else _explicitNullProperties?.Remove("secondLastname"); } }
+        private string? _explicitNullValueSecondLastname = default!;
 #nullable restore
 #else
-        public string SecondLastname { get; set; }
+        public string SecondLastname { get => _explicitNullValueSecondLastname; set { _explicitNullValueSecondLastname = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("secondLastname"); else _explicitNullProperties?.Remove("secondLastname"); } }
+        private string _explicitNullValueSecondLastname = default!;
 #endif
         /// <summary>Last name of spouse</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SpouseLastName { get; set; }
+        public string? SpouseLastName { get => _explicitNullValueSpouseLastName; set { _explicitNullValueSpouseLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spouseLastName"); else _explicitNullProperties?.Remove("spouseLastName"); } }
+        private string? _explicitNullValueSpouseLastName = default!;
 #nullable restore
 #else
-        public string SpouseLastName { get; set; }
+        public string SpouseLastName { get => _explicitNullValueSpouseLastName; set { _explicitNullValueSpouseLastName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("spouseLastName"); else _explicitNullProperties?.Remove("spouseLastName"); } }
+        private string _explicitNullValueSpouseLastName = default!;
 #endif
         /// <summary>The standardizedLocation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Address? StandardizedLocation { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Address? StandardizedLocation { get => _explicitNullValueStandardizedLocation; set { _explicitNullValueStandardizedLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standardizedLocation"); else _explicitNullProperties?.Remove("standardizedLocation"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Address? _explicitNullValueStandardizedLocation = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Address StandardizedLocation { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Address StandardizedLocation { get => _explicitNullValueStandardizedLocation; set { _explicitNullValueStandardizedLocation = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("standardizedLocation"); else _explicitNullProperties?.Remove("standardizedLocation"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Address _explicitNullValueStandardizedLocation = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.Person"/> and sets the default values.
@@ -209,7 +286,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.Person CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.Person();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.Person(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -276,6 +353,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteStringValue("secondLastname", SecondLastname);
             writer.WriteStringValue("spouseLastName", SpouseLastName);
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.Address>("standardizedLocation", StandardizedLocation);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

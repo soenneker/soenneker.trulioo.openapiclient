@@ -283,6 +283,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/VerifyTransactionSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/DecisionResponse"
                 }
               }
@@ -293,6 +296,9 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/VerifyTransactionSuccessResponse"
+                },
+                "x-client-original-success-schema": {
                   "$ref": "#/components/schemas/VerifyTransaction202Response"
                 }
               }
@@ -3891,6 +3897,16 @@
             }
           ]
         }
+      },
+      "VerifyTransactionSuccessResponse": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/DecisionResponse"
+          },
+          {
+            "$ref": "#/components/schemas/VerifyTransaction202Response"
+          }
+        ]
       }
     },
     "responses": {

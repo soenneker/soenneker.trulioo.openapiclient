@@ -11,82 +11,118 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class TransactionResultResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("clientId") is { } nullNodeClientId && nullNodeClientId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ClientId = null;
+            if (parseNode.GetChildNode("document") is { } nullNodeDocument && nullNodeDocument.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Document = null;
+            if (parseNode.GetChildNode("errors") is { } nullNodeErrors && nullNodeErrors.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Errors = null;
+            if (parseNode.GetChildNode("images") is { } nullNodeImages && nullNodeImages.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Images = null;
+            if (parseNode.GetChildNode("indicators") is { } nullNodeIndicators && nullNodeIndicators.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Indicators = null;
+            if (parseNode.GetChildNode("matcherResults") is { } nullNodeMatcherResults && nullNodeMatcherResults.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MatcherResults = null;
+            if (parseNode.GetChildNode("person") is { } nullNodePerson && nullNodePerson.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Person = null;
+            if (parseNode.GetChildNode("status") is { } nullNodeStatus && nullNodeStatus.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Status = null;
+            if (parseNode.GetChildNode("timeOfTransaction") is { } nullNodeTimeOfTransaction && nullNodeTimeOfTransaction.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TimeOfTransaction = null;
+            if (parseNode.GetChildNode("transactionId") is { } nullNodeTransactionId && nullNodeTransactionId.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) TransactionId = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The unique identifier referencing client id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ClientId { get; set; }
+        public string? ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientId"); else _explicitNullProperties?.Remove("clientId"); } }
+        private string? _explicitNullValueClientId = default!;
 #nullable restore
 #else
-        public string ClientId { get; set; }
+        public string ClientId { get => _explicitNullValueClientId; set { _explicitNullValueClientId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("clientId"); else _explicitNullProperties?.Remove("clientId"); } }
+        private string _explicitNullValueClientId = default!;
 #endif
         /// <summary>The document property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Document? Document { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Document? Document { get => _explicitNullValueDocument; set { _explicitNullValueDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document"); else _explicitNullProperties?.Remove("document"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Document? _explicitNullValueDocument = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Document Document { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Document Document { get => _explicitNullValueDocument; set { _explicitNullValueDocument = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("document"); else _explicitNullProperties?.Remove("document"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Document _explicitNullValueDocument = default!;
 #endif
         /// <summary>List of errors related to image processing, network with vendor, or vendor errors during verification.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? Errors { get; set; }
+        public List<string>? Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<string>? _explicitNullValueErrors = default!;
 #nullable restore
 #else
-        public List<string> Errors { get; set; }
+        public List<string> Errors { get => _explicitNullValueErrors; set { _explicitNullValueErrors = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("errors"); else _explicitNullProperties?.Remove("errors"); } }
+        private List<string> _explicitNullValueErrors = default!;
 #endif
         /// <summary>The object contain all submitted images.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.ImageIds? Images { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.ImageIds? Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.ImageIds? _explicitNullValueImages = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.ImageIds Images { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.ImageIds Images { get => _explicitNullValueImages; set { _explicitNullValueImages = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("images"); else _explicitNullProperties?.Remove("images"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.ImageIds _explicitNullValueImages = default!;
 #endif
         /// <summary>Reasons of verification failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator>? Indicators { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator>? Indicators { get => _explicitNullValueIndicators; set { _explicitNullValueIndicators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indicators"); else _explicitNullProperties?.Remove("indicators"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator>? _explicitNullValueIndicators = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator> Indicators { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator> Indicators { get => _explicitNullValueIndicators; set { _explicitNullValueIndicators = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("indicators"); else _explicitNullProperties?.Remove("indicators"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.Indicator> _explicitNullValueIndicators = default!;
 #endif
         /// <summary>List of results from user-input matching in the workflow</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult>? MatcherResults { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult>? MatcherResults { get => _explicitNullValueMatcherResults; set { _explicitNullValueMatcherResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matcherResults"); else _explicitNullProperties?.Remove("matcherResults"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult>? _explicitNullValueMatcherResults = default!;
 #nullable restore
 #else
-        public List<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult> MatcherResults { get; set; }
+        public List<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult> MatcherResults { get => _explicitNullValueMatcherResults; set { _explicitNullValueMatcherResults = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("matcherResults"); else _explicitNullProperties?.Remove("matcherResults"); } }
+        private List<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherResult> _explicitNullValueMatcherResults = default!;
 #endif
         /// <summary>The person property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Person? Person { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Person? Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Person? _explicitNullValuePerson = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.Person Person { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.Person Person { get => _explicitNullValuePerson; set { _explicitNullValuePerson = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("person"); else _explicitNullProperties?.Remove("person"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.Person _explicitNullValuePerson = default!;
 #endif
         /// <summary>The decision of the verification.</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus? Status { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus? Status { get => _explicitNullValueStatus; set { _explicitNullValueStatus = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("status"); else _explicitNullProperties?.Remove("status"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus? _explicitNullValueStatus = default!;
         /// <summary>Date and time (ISO 8601) when the transaction took place.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TimeOfTransaction { get; set; }
+        public string? TimeOfTransaction { get => _explicitNullValueTimeOfTransaction; set { _explicitNullValueTimeOfTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeOfTransaction"); else _explicitNullProperties?.Remove("timeOfTransaction"); } }
+        private string? _explicitNullValueTimeOfTransaction = default!;
 #nullable restore
 #else
-        public string TimeOfTransaction { get; set; }
+        public string TimeOfTransaction { get => _explicitNullValueTimeOfTransaction; set { _explicitNullValueTimeOfTransaction = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("timeOfTransaction"); else _explicitNullProperties?.Remove("timeOfTransaction"); } }
+        private string _explicitNullValueTimeOfTransaction = default!;
 #endif
         /// <summary>The unique identifier of a Trulioo document verification transaction.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TransactionId { get; set; }
+        public string? TransactionId { get => _explicitNullValueTransactionId; set { _explicitNullValueTransactionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionId"); else _explicitNullProperties?.Remove("transactionId"); } }
+        private string? _explicitNullValueTransactionId = default!;
 #nullable restore
 #else
-        public string TransactionId { get; set; }
+        public string TransactionId { get => _explicitNullValueTransactionId; set { _explicitNullValueTransactionId = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("transactionId"); else _explicitNullProperties?.Remove("transactionId"); } }
+        private string _explicitNullValueTransactionId = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse"/> and sets the default values.
@@ -103,7 +139,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponse(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -142,6 +178,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResultResponseStatus>("status", Status);
             writer.WriteStringValue("timeOfTransaction", TimeOfTransaction);
             writer.WriteStringValue("transactionId", TransactionId);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

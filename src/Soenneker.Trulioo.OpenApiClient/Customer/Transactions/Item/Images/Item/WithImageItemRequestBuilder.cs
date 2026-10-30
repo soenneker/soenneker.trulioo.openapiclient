@@ -57,6 +57,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Item.Images.Item
                 { "400", global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.DownloadResultResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

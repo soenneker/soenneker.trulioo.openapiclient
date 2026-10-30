@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "8B22D9F7F42033E29BB2662D7AA86C0D3BBE61EB8F9BA1973F611FFE1895656ABA5BE3743A61BC730771BC288F5D81FACD11650901F6FEF306F23A5C209902BA",
+  "descriptionHash": "649FB32DE0C56472E39942BB4BF98C9097D40CE11ED733D1224EEBFCD25DA5626F8AAF460FE1A15BD82A470D1F284AF19F8519E69F633CF7F29383D77A6FE8D9",
   "descriptionLocation": "../../fixed.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.36.1",
+  "kiotaVersion": "1.37.0",
   "clientClassName": "TruliooOpenApiClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Soenneker.Trulioo.OpenApiClient",

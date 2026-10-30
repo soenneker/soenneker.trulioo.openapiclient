@@ -11,21 +11,35 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class MatcherToken : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("pii") is { } nullNodePii && nullNodePii.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Pii = null;
+            if (parseNode.GetChildNode("precision") is { } nullNodePrecision && nullNodePrecision.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Precision = null;
+            if (parseNode.GetChildNode("token") is { } nullNodeToken && nullNodeToken.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) Token = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The pii property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii? Pii { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii? Pii { get => _explicitNullValuePii; set { _explicitNullValuePii = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pii"); else _explicitNullProperties?.Remove("pii"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii? _explicitNullValuePii = default!;
 #nullable restore
 #else
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii Pii { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii Pii { get => _explicitNullValuePii; set { _explicitNullValuePii = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("pii"); else _explicitNullProperties?.Remove("pii"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii _explicitNullValuePii = default!;
 #endif
         /// <summary>The precision property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision? Precision { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision? Precision { get => _explicitNullValuePrecision; set { _explicitNullValuePrecision = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("precision"); else _explicitNullProperties?.Remove("precision"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision? _explicitNullValuePrecision = default!;
         /// <summary>The token property</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken? Token { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken? Token { get => _explicitNullValueToken; set { _explicitNullValueToken = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("token"); else _explicitNullProperties?.Remove("token"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken? _explicitNullValueToken = default!;
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken"/> and sets the default values.
         /// </summary>
@@ -41,7 +55,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.MatcherToken(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,6 +80,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPii>("pii", Pii);
             writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenPrecision>("precision", Precision);
             writer.WriteEnumValue<global::Soenneker.Trulioo.OpenApiClient.Models.MatcherTokenToken>("token", Token);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

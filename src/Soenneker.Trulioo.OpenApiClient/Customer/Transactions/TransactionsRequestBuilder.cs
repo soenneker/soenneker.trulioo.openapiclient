@@ -82,6 +82,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions
             {
                 { "400", global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
+                { "4XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
+                { "5XX", global::Soenneker.OpenApi.Generated.OpenApiRawError.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResponse>(requestInfo, global::Soenneker.Trulioo.OpenApiClient.Models.TransactionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

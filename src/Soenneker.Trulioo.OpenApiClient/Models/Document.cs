@@ -11,162 +11,228 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
     #pragma warning disable CS1591
     public partial class Document : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
-    {
+    , global::Soenneker.OpenApi.Generated.IOpenApiExplicitNulls {
+        // Track explicitly assigned nulls separately from absent properties.
+        private global::System.Collections.Generic.HashSet<string> _explicitNullProperties = null!;
+
+        public virtual void CaptureExplicitNulls(global::Microsoft.Kiota.Abstractions.Serialization.IParseNode parseNode)
+        {
+            if (parseNode.GetChildNode("alternateDocumentNumber") is { } nullNodeAlternateDocumentNumber && nullNodeAlternateDocumentNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateDocumentNumber = null;
+            if (parseNode.GetChildNode("alternateDocumentNumber2") is { } nullNodeAlternateDocumentNumber2 && nullNodeAlternateDocumentNumber2.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateDocumentNumber2 = null;
+            if (parseNode.GetChildNode("alternateDocumentNumber3") is { } nullNodeAlternateDocumentNumber3 && nullNodeAlternateDocumentNumber3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateDocumentNumber3 = null;
+            if (parseNode.GetChildNode("alternateDocumentNumber4") is { } nullNodeAlternateDocumentNumber4 && nullNodeAlternateDocumentNumber4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateDocumentNumber4 = null;
+            if (parseNode.GetChildNode("alternateExpiryDate") is { } nullNodeAlternateExpiryDate && nullNodeAlternateExpiryDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateExpiryDate = null;
+            if (parseNode.GetChildNode("alternateIssueDate") is { } nullNodeAlternateIssueDate && nullNodeAlternateIssueDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) AlternateIssueDate = null;
+            if (parseNode.GetChildNode("dlCategory") is { } nullNodeDlCategory && nullNodeDlCategory.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DlCategory = null;
+            if (parseNode.GetChildNode("documentCountry") is { } nullNodeDocumentCountry && nullNodeDocumentCountry.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentCountry = null;
+            if (parseNode.GetChildNode("documentName") is { } nullNodeDocumentName && nullNodeDocumentName.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentName = null;
+            if (parseNode.GetChildNode("documentNumber") is { } nullNodeDocumentNumber && nullNodeDocumentNumber.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentNumber = null;
+            if (parseNode.GetChildNode("documentNumber2") is { } nullNodeDocumentNumber2 && nullNodeDocumentNumber2.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentNumber2 = null;
+            if (parseNode.GetChildNode("documentNumber3") is { } nullNodeDocumentNumber3 && nullNodeDocumentNumber3.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentNumber3 = null;
+            if (parseNode.GetChildNode("documentNumber4") is { } nullNodeDocumentNumber4 && nullNodeDocumentNumber4.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentNumber4 = null;
+            if (parseNode.GetChildNode("documentType") is { } nullNodeDocumentType && nullNodeDocumentType.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) DocumentType = null;
+            if (parseNode.GetChildNode("expirationDate") is { } nullNodeExpirationDate && nullNodeExpirationDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) ExpirationDate = null;
+            if (parseNode.GetChildNode("issueDate") is { } nullNodeIssueDate && nullNodeIssueDate.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) IssueDate = null;
+            if (parseNode.GetChildNode("jurisdictionCode") is { } nullNodeJurisdictionCode && nullNodeJurisdictionCode.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) JurisdictionCode = null;
+            if (parseNode.GetChildNode("mrzLineOne") is { } nullNodeMrzLineOne && nullNodeMrzLineOne.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MrzLineOne = null;
+            if (parseNode.GetChildNode("mrzLineThree") is { } nullNodeMrzLineThree && nullNodeMrzLineThree.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MrzLineThree = null;
+            if (parseNode.GetChildNode("mrzLineTwo") is { } nullNodeMrzLineTwo && nullNodeMrzLineTwo.GetObjectValue<global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode>(global::Microsoft.Kiota.Abstractions.Serialization.UntypedNode.CreateFromDiscriminatorValue) is null or global::Microsoft.Kiota.Abstractions.Serialization.UntypedNull) MrzLineTwo = null;
+        }
+
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Document number that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateDocumentNumber { get; set; }
+        public string? AlternateDocumentNumber { get => _explicitNullValueAlternateDocumentNumber; set { _explicitNullValueAlternateDocumentNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber"); else _explicitNullProperties?.Remove("alternateDocumentNumber"); } }
+        private string? _explicitNullValueAlternateDocumentNumber = default!;
 #nullable restore
 #else
-        public string AlternateDocumentNumber { get; set; }
+        public string AlternateDocumentNumber { get => _explicitNullValueAlternateDocumentNumber; set { _explicitNullValueAlternateDocumentNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber"); else _explicitNullProperties?.Remove("alternateDocumentNumber"); } }
+        private string _explicitNullValueAlternateDocumentNumber = default!;
 #endif
         /// <summary>Document number that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateDocumentNumber2 { get; set; }
+        public string? AlternateDocumentNumber2 { get => _explicitNullValueAlternateDocumentNumber2; set { _explicitNullValueAlternateDocumentNumber2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber2"); else _explicitNullProperties?.Remove("alternateDocumentNumber2"); } }
+        private string? _explicitNullValueAlternateDocumentNumber2 = default!;
 #nullable restore
 #else
-        public string AlternateDocumentNumber2 { get; set; }
+        public string AlternateDocumentNumber2 { get => _explicitNullValueAlternateDocumentNumber2; set { _explicitNullValueAlternateDocumentNumber2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber2"); else _explicitNullProperties?.Remove("alternateDocumentNumber2"); } }
+        private string _explicitNullValueAlternateDocumentNumber2 = default!;
 #endif
         /// <summary>Document number that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateDocumentNumber3 { get; set; }
+        public string? AlternateDocumentNumber3 { get => _explicitNullValueAlternateDocumentNumber3; set { _explicitNullValueAlternateDocumentNumber3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber3"); else _explicitNullProperties?.Remove("alternateDocumentNumber3"); } }
+        private string? _explicitNullValueAlternateDocumentNumber3 = default!;
 #nullable restore
 #else
-        public string AlternateDocumentNumber3 { get; set; }
+        public string AlternateDocumentNumber3 { get => _explicitNullValueAlternateDocumentNumber3; set { _explicitNullValueAlternateDocumentNumber3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber3"); else _explicitNullProperties?.Remove("alternateDocumentNumber3"); } }
+        private string _explicitNullValueAlternateDocumentNumber3 = default!;
 #endif
         /// <summary>Document number that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateDocumentNumber4 { get; set; }
+        public string? AlternateDocumentNumber4 { get => _explicitNullValueAlternateDocumentNumber4; set { _explicitNullValueAlternateDocumentNumber4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber4"); else _explicitNullProperties?.Remove("alternateDocumentNumber4"); } }
+        private string? _explicitNullValueAlternateDocumentNumber4 = default!;
 #nullable restore
 #else
-        public string AlternateDocumentNumber4 { get; set; }
+        public string AlternateDocumentNumber4 { get => _explicitNullValueAlternateDocumentNumber4; set { _explicitNullValueAlternateDocumentNumber4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateDocumentNumber4"); else _explicitNullProperties?.Remove("alternateDocumentNumber4"); } }
+        private string _explicitNullValueAlternateDocumentNumber4 = default!;
 #endif
         /// <summary>Expiry date that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateExpiryDate { get; set; }
+        public string? AlternateExpiryDate { get => _explicitNullValueAlternateExpiryDate; set { _explicitNullValueAlternateExpiryDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateExpiryDate"); else _explicitNullProperties?.Remove("alternateExpiryDate"); } }
+        private string? _explicitNullValueAlternateExpiryDate = default!;
 #nullable restore
 #else
-        public string AlternateExpiryDate { get; set; }
+        public string AlternateExpiryDate { get => _explicitNullValueAlternateExpiryDate; set { _explicitNullValueAlternateExpiryDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateExpiryDate"); else _explicitNullProperties?.Remove("alternateExpiryDate"); } }
+        private string _explicitNullValueAlternateExpiryDate = default!;
 #endif
         /// <summary>Issue date that is non-iso latin</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? AlternateIssueDate { get; set; }
+        public string? AlternateIssueDate { get => _explicitNullValueAlternateIssueDate; set { _explicitNullValueAlternateIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateIssueDate"); else _explicitNullProperties?.Remove("alternateIssueDate"); } }
+        private string? _explicitNullValueAlternateIssueDate = default!;
 #nullable restore
 #else
-        public string AlternateIssueDate { get; set; }
+        public string AlternateIssueDate { get => _explicitNullValueAlternateIssueDate; set { _explicitNullValueAlternateIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("alternateIssueDate"); else _explicitNullProperties?.Remove("alternateIssueDate"); } }
+        private string _explicitNullValueAlternateIssueDate = default!;
 #endif
         /// <summary>The driving license category if the submitted document is of type DRIVERS_LICENSE</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DlCategory { get; set; }
+        public string? DlCategory { get => _explicitNullValueDlCategory; set { _explicitNullValueDlCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dlCategory"); else _explicitNullProperties?.Remove("dlCategory"); } }
+        private string? _explicitNullValueDlCategory = default!;
 #nullable restore
 #else
-        public string DlCategory { get; set; }
+        public string DlCategory { get => _explicitNullValueDlCategory; set { _explicitNullValueDlCategory = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("dlCategory"); else _explicitNullProperties?.Remove("dlCategory"); } }
+        private string _explicitNullValueDlCategory = default!;
 #endif
         /// <summary>The ISO alpha-2 code of issuing country of the document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentCountry { get; set; }
+        public string? DocumentCountry { get => _explicitNullValueDocumentCountry; set { _explicitNullValueDocumentCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentCountry"); else _explicitNullProperties?.Remove("documentCountry"); } }
+        private string? _explicitNullValueDocumentCountry = default!;
 #nullable restore
 #else
-        public string DocumentCountry { get; set; }
+        public string DocumentCountry { get => _explicitNullValueDocumentCountry; set { _explicitNullValueDocumentCountry = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentCountry"); else _explicitNullProperties?.Remove("documentCountry"); } }
+        private string _explicitNullValueDocumentCountry = default!;
 #endif
         /// <summary>The documentName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentName { get; set; }
+        public string? DocumentName { get => _explicitNullValueDocumentName; set { _explicitNullValueDocumentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentName"); else _explicitNullProperties?.Remove("documentName"); } }
+        private string? _explicitNullValueDocumentName = default!;
 #nullable restore
 #else
-        public string DocumentName { get; set; }
+        public string DocumentName { get => _explicitNullValueDocumentName; set { _explicitNullValueDocumentName = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentName"); else _explicitNullProperties?.Remove("documentName"); } }
+        private string _explicitNullValueDocumentName = default!;
 #endif
         /// <summary>The primary document identifier apparent in all documents.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentNumber { get; set; }
+        public string? DocumentNumber { get => _explicitNullValueDocumentNumber; set { _explicitNullValueDocumentNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber"); else _explicitNullProperties?.Remove("documentNumber"); } }
+        private string? _explicitNullValueDocumentNumber = default!;
 #nullable restore
 #else
-        public string DocumentNumber { get; set; }
+        public string DocumentNumber { get => _explicitNullValueDocumentNumber; set { _explicitNullValueDocumentNumber = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber"); else _explicitNullProperties?.Remove("documentNumber"); } }
+        private string _explicitNullValueDocumentNumber = default!;
 #endif
         /// <summary>The second document identifier that is apparent in some documents.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentNumber2 { get; set; }
+        public string? DocumentNumber2 { get => _explicitNullValueDocumentNumber2; set { _explicitNullValueDocumentNumber2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber2"); else _explicitNullProperties?.Remove("documentNumber2"); } }
+        private string? _explicitNullValueDocumentNumber2 = default!;
 #nullable restore
 #else
-        public string DocumentNumber2 { get; set; }
+        public string DocumentNumber2 { get => _explicitNullValueDocumentNumber2; set { _explicitNullValueDocumentNumber2 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber2"); else _explicitNullProperties?.Remove("documentNumber2"); } }
+        private string _explicitNullValueDocumentNumber2 = default!;
 #endif
         /// <summary>The third document identifier that is apparent in some documents.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentNumber3 { get; set; }
+        public string? DocumentNumber3 { get => _explicitNullValueDocumentNumber3; set { _explicitNullValueDocumentNumber3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber3"); else _explicitNullProperties?.Remove("documentNumber3"); } }
+        private string? _explicitNullValueDocumentNumber3 = default!;
 #nullable restore
 #else
-        public string DocumentNumber3 { get; set; }
+        public string DocumentNumber3 { get => _explicitNullValueDocumentNumber3; set { _explicitNullValueDocumentNumber3 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber3"); else _explicitNullProperties?.Remove("documentNumber3"); } }
+        private string _explicitNullValueDocumentNumber3 = default!;
 #endif
         /// <summary>The fourth document identifier that is apparent in some documents.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? DocumentNumber4 { get; set; }
+        public string? DocumentNumber4 { get => _explicitNullValueDocumentNumber4; set { _explicitNullValueDocumentNumber4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber4"); else _explicitNullProperties?.Remove("documentNumber4"); } }
+        private string? _explicitNullValueDocumentNumber4 = default!;
 #nullable restore
 #else
-        public string DocumentNumber4 { get; set; }
+        public string DocumentNumber4 { get => _explicitNullValueDocumentNumber4; set { _explicitNullValueDocumentNumber4 = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentNumber4"); else _explicitNullProperties?.Remove("documentNumber4"); } }
+        private string _explicitNullValueDocumentNumber4 = default!;
 #endif
         /// <summary>Type of the identification document provided.</summary>
-        public global::Soenneker.Trulioo.OpenApiClient.Models.DocumentDocumentType? DocumentType { get; set; }
+        public global::Soenneker.Trulioo.OpenApiClient.Models.DocumentDocumentType? DocumentType { get => _explicitNullValueDocumentType; set { _explicitNullValueDocumentType = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("documentType"); else _explicitNullProperties?.Remove("documentType"); } }
+        private global::Soenneker.Trulioo.OpenApiClient.Models.DocumentDocumentType? _explicitNullValueDocumentType = default!;
         /// <summary>Date at which document will or has expired.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? ExpirationDate { get; set; }
+        public string? ExpirationDate { get => _explicitNullValueExpirationDate; set { _explicitNullValueExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expirationDate"); else _explicitNullProperties?.Remove("expirationDate"); } }
+        private string? _explicitNullValueExpirationDate = default!;
 #nullable restore
 #else
-        public string ExpirationDate { get; set; }
+        public string ExpirationDate { get => _explicitNullValueExpirationDate; set { _explicitNullValueExpirationDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("expirationDate"); else _explicitNullProperties?.Remove("expirationDate"); } }
+        private string _explicitNullValueExpirationDate = default!;
 #endif
         /// <summary>Date at which document is issued by a governing body.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? IssueDate { get; set; }
+        public string? IssueDate { get => _explicitNullValueIssueDate; set { _explicitNullValueIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issueDate"); else _explicitNullProperties?.Remove("issueDate"); } }
+        private string? _explicitNullValueIssueDate = default!;
 #nullable restore
 #else
-        public string IssueDate { get; set; }
+        public string IssueDate { get => _explicitNullValueIssueDate; set { _explicitNullValueIssueDate = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("issueDate"); else _explicitNullProperties?.Remove("issueDate"); } }
+        private string _explicitNullValueIssueDate = default!;
 #endif
         /// <summary>The code of issuing jurisdiction of the document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? JurisdictionCode { get; set; }
+        public string? JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
+        private string? _explicitNullValueJurisdictionCode = default!;
 #nullable restore
 #else
-        public string JurisdictionCode { get; set; }
+        public string JurisdictionCode { get => _explicitNullValueJurisdictionCode; set { _explicitNullValueJurisdictionCode = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("jurisdictionCode"); else _explicitNullProperties?.Remove("jurisdictionCode"); } }
+        private string _explicitNullValueJurisdictionCode = default!;
 #endif
         /// <summary>The first mrz line in passport or id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MrzLineOne { get; set; }
+        public string? MrzLineOne { get => _explicitNullValueMrzLineOne; set { _explicitNullValueMrzLineOne = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrzLineOne"); else _explicitNullProperties?.Remove("mrzLineOne"); } }
+        private string? _explicitNullValueMrzLineOne = default!;
 #nullable restore
 #else
-        public string MrzLineOne { get; set; }
+        public string MrzLineOne { get => _explicitNullValueMrzLineOne; set { _explicitNullValueMrzLineOne = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrzLineOne"); else _explicitNullProperties?.Remove("mrzLineOne"); } }
+        private string _explicitNullValueMrzLineOne = default!;
 #endif
         /// <summary>The third mrz line in passport or id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MrzLineThree { get; set; }
+        public string? MrzLineThree { get => _explicitNullValueMrzLineThree; set { _explicitNullValueMrzLineThree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrzLineThree"); else _explicitNullProperties?.Remove("mrzLineThree"); } }
+        private string? _explicitNullValueMrzLineThree = default!;
 #nullable restore
 #else
-        public string MrzLineThree { get; set; }
+        public string MrzLineThree { get => _explicitNullValueMrzLineThree; set { _explicitNullValueMrzLineThree = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrzLineThree"); else _explicitNullProperties?.Remove("mrzLineThree"); } }
+        private string _explicitNullValueMrzLineThree = default!;
 #endif
         /// <summary>The second mrz line in passport or id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MrzLineTwo { get; set; }
+        public string? MrzLineTwo { get => _explicitNullValueMrzLineTwo; set { _explicitNullValueMrzLineTwo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrzLineTwo"); else _explicitNullProperties?.Remove("mrzLineTwo"); } }
+        private string? _explicitNullValueMrzLineTwo = default!;
 #nullable restore
 #else
-        public string MrzLineTwo { get; set; }
+        public string MrzLineTwo { get => _explicitNullValueMrzLineTwo; set { _explicitNullValueMrzLineTwo = value; if (value is null) (_explicitNullProperties ??= new global::System.Collections.Generic.HashSet<string>()).Add("mrzLineTwo"); else _explicitNullProperties?.Remove("mrzLineTwo"); } }
+        private string _explicitNullValueMrzLineTwo = default!;
 #endif
         /// <summary>
         /// Instantiates a new <see cref="global::Soenneker.Trulioo.OpenApiClient.Models.Document"/> and sets the default values.
@@ -183,7 +249,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         public static global::Soenneker.Trulioo.OpenApiClient.Models.Document CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Soenneker.Trulioo.OpenApiClient.Models.Document();
+            return global::Soenneker.OpenApi.Generated.OpenApiNullTracking.Capture(new global::Soenneker.Trulioo.OpenApiClient.Models.Document(), parseNode);
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -242,6 +308,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
             writer.WriteStringValue("mrzLineOne", MrzLineOne);
             writer.WriteStringValue("mrzLineThree", MrzLineThree);
             writer.WriteStringValue("mrzLineTwo", MrzLineTwo);
+            if (_explicitNullProperties != null) foreach (string name in _explicitNullProperties) writer.WriteNullValue(name);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
