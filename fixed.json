@@ -183,6 +183,25 @@
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
+          },
+          "200": {
+            "description": "Created",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionResponse"
+                }
+              }
+            },
+            "x-client-success-response-status": "201"
           }
         }
       }
