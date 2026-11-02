@@ -61,7 +61,14 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -113,10 +120,32 @@
             }
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenError"
+            "description": "Forbidden \n \n \u0060default\u0060: Access Denied",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version of the response",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -176,10 +205,32 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenError"
+            "description": "Forbidden \n \n \u0060default\u0060: Access Denied",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version of the response",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -258,10 +309,32 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenError"
+            "description": "Forbidden \n \n \u0060default\u0060: Access Denied",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version of the response",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -327,10 +400,32 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "403": {
-            "$ref": "#/components/responses/ForbiddenError"
+            "description": "Forbidden \n \n \u0060default\u0060: Access Denied",
+            "headers": {
+              "Accept-Version": {
+                "description": "API Version of the response",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -397,7 +492,14 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -457,7 +559,14 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
+            "description": "Unauthorized \n \n \u0060default\u0060: Jwt is expired",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContentError"
+                }
+              }
+            }
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -495,7 +604,7 @@
             "$ref": "#/components/schemas/DecisionResponseStatus"
           }
         },
-        "format": "int32"
+        "x-client-original-format": "int32"
       },
       "UploadResponse": {
         "title": "UploadResponse",
@@ -904,13 +1013,6 @@
         },
         "description": "The object contain all submitted images."
       },
-      "MatcherResults": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/MatcherResult"
-        },
-        "description": "List of results from user-input matching in the workflow"
-      },
       "MatcherResult": {
         "type": "object",
         "properties": {
@@ -987,25 +1089,6 @@
           "expiresIn": {
             "type": "number",
             "description": "TTL in milliseconds based on the refresh token"
-          }
-        }
-      },
-      "RefreshResponse": {
-        "title": "RefreshResponse",
-        "type": "object",
-        "properties": {
-          "accessToken": {
-            "type": "string",
-            "description": "Short lived token in the JWT format with 60 minutes expiration period."
-          },
-          "tokenType": {
-            "type": "string",
-            "description": "The type of the token.",
-            "default": ""
-          },
-          "expiresIn": {
-            "type": "number",
-            "description": "TTL in milliseconds based on the access token"
           }
         }
       },
@@ -1163,14 +1246,6 @@
             "default": "Make sure your request is formatted correctly."
           }
         }
-      },
-      "UnauthorizedErrorResponsePlain": {
-        "type": "string",
-        "default": "Jwt is expired"
-      },
-      "ForbiddenErrorResponsePlain": {
-        "type": "string",
-        "default": "Access Denied"
       },
       "NotFoundResponse": {
         "type": "object",
@@ -1701,8 +1776,8 @@
           "webhook": {
             "type": "string",
             "description": "Callback URL for transaction status updates.  See [Webhooks](https://docs.verification.trulioo.com/sdk/webhook/index.html)",
-            "format": "uri",
-            "example": "https://trulioo.com/webhook"
+            "example": "https://trulioo.com/webhook",
+            "x-client-original-format": "uri"
           },
           "clientId": {
             "type": "string",
@@ -1735,10 +1810,6 @@
             "$ref": "#/components/schemas/PendingResultStatus"
           }
         }
-      },
-      "ExamplePayload": {
-        "type": "object",
-        "description": "Placeholder schema for path example refs"
       },
       "UnauthorizedErrorResponsePlainContent": {
         "type": "string",
@@ -3921,6 +3992,36 @@
           ]
         }
       },
+      "UnauthorizedErrorResponsePlainContentError": {
+        "type": "object",
+        "properties": {
+          "payload": {
+            "x-client-untyped-value": true
+          }
+        },
+        "x-client-raw-error-media-type": "text/plain",
+        "x-client-raw-error-schema": {
+          "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContent"
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/UnauthorizedErrorResponsePlainContent"
+        }
+      },
+      "ForbiddenErrorResponsePlainContentError": {
+        "type": "object",
+        "properties": {
+          "payload": {
+            "x-client-untyped-value": true
+          }
+        },
+        "x-client-raw-error-media-type": "text/plain",
+        "x-client-raw-error-schema": {
+          "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContent"
+        },
+        "x-client-original-error-schema": {
+          "$ref": "#/components/schemas/ForbiddenErrorResponsePlainContent"
+        }
+      },
       "VerifyTransactionSuccessResponse": {
         "anyOf": [
           {
@@ -4087,5 +4188,45 @@
     {
       "name": "Transaction"
     }
-  ]
+  ],
+  "x-client-unused-schemas": {
+    "MatcherResults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MatcherResult"
+      },
+      "description": "List of results from user-input matching in the workflow"
+    },
+    "RefreshResponse": {
+      "title": "RefreshResponse",
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "description": "Short lived token in the JWT format with 60 minutes expiration period."
+        },
+        "tokenType": {
+          "type": "string",
+          "description": "The type of the token.",
+          "default": ""
+        },
+        "expiresIn": {
+          "type": "number",
+          "description": "TTL in milliseconds based on the access token"
+        }
+      }
+    },
+    "UnauthorizedErrorResponsePlain": {
+      "type": "string",
+      "default": "Jwt is expired"
+    },
+    "ForbiddenErrorResponsePlain": {
+      "type": "string",
+      "default": "Access Denied"
+    },
+    "ExamplePayload": {
+      "type": "object",
+      "description": "Placeholder schema for path example refs"
+    }
+  }
 }

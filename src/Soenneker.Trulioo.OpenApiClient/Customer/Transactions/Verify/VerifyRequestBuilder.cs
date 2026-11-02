@@ -40,6 +40,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse">When receiving a 400 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.UnauthorizedErrorResponsePlainContentError">When receiving a 401 status code</exception>
+        /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.ForbiddenErrorResponsePlainContentError">When receiving a 403 status code</exception>
         /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse">When receiving a 404 status code</exception>
         /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponse">When receiving a 422 status code</exception>
         /// <exception cref="global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse">When receiving a 500 status code</exception>
@@ -57,6 +59,8 @@ namespace Soenneker.Trulioo.OpenApiClient.Customer.Transactions.Verify
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
                 { "400", global::Soenneker.Trulioo.OpenApiClient.Models.BadRequestResponse.CreateFromDiscriminatorValue },
+                { "401", global::Soenneker.Trulioo.OpenApiClient.Models.UnauthorizedErrorResponsePlainContentError.CreateFromDiscriminatorValue },
+                { "403", global::Soenneker.Trulioo.OpenApiClient.Models.ForbiddenErrorResponsePlainContentError.CreateFromDiscriminatorValue },
                 { "404", global::Soenneker.Trulioo.OpenApiClient.Models.NotFoundResponse.CreateFromDiscriminatorValue },
                 { "422", global::Soenneker.Trulioo.OpenApiClient.Models.UnProcessableEntityResponse.CreateFromDiscriminatorValue },
                 { "500", global::Soenneker.Trulioo.OpenApiClient.Models.InternalErrorResponse.CreateFromDiscriminatorValue },
