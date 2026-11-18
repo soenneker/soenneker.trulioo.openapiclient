@@ -140,7 +140,7 @@ namespace Soenneker.Trulioo.OpenApiClient.Models
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            return new Dictionary<string, Action<IParseNode>>(8)
             {
                 { "documentLivenessConfig", n => { DocumentLivenessConfig = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessConfig>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessConfig.CreateFromDiscriminatorValue); } },
                 { "documentLivenessOptions", n => { DocumentLivenessOptions = n.GetObjectValue<global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions>(global::Soenneker.Trulioo.OpenApiClient.Models.TransactionConfigurationDocumentLivenessOptions.CreateFromDiscriminatorValue); } },
